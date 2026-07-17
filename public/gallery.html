@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery | Virgo Praedicanda International School</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --primary: #1657b8;
+        --bg: #f2f8ff;
+        --text: #102a43;
+        --muted: #516e89;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: "Inter", sans-serif; background: var(--bg); color: var(--text); }
+
+      /* ── Top bar ── */
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem 1.5rem;
+      }
+      .topbar-label {
+        color: var(--primary);
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-size: 0.85rem;
+        font-weight: 700;
+        margin-bottom: 0.3rem;
+      }
+      .topbar h1 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 2.8rem;
+        font-weight: 700;
+        line-height: 1.1;
+      }
+      .topbar a {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+        border: 1.5px solid var(--primary);
+        padding: 0.5rem 1.1rem;
+        border-radius: 8px;
+        transition: background 0.2s, color 0.2s;
+      }
+      .topbar a:hover { background: var(--primary); color: white; }
+
+      /* ── Grid ── */
+      .gallery-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem 3rem;
+      }
+      .gallery-grid {
+        display: grid;
+        gap: 0.65rem;
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .gallery-item {
+        border-radius: 10px;
+        overflow: hidden;
+        cursor: pointer;
+        aspect-ratio: 16 / 9;
+        background: #dde8f5;
+        position: relative;
+      }
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.35s ease;
+      }
+      .gallery-item:hover img { transform: scale(1.05); }
+      .gallery-item::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(22, 87, 184, 0);
+        transition: background 0.25s ease;
+      }
+      .gallery-item:hover::after { background: rgba(22, 87, 184, 0.12); }
+
+      /* ── Lightbox ── */
+      .lightbox {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.92);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+      }
+      .lightbox.open { display: flex; }
+      .lightbox img {
+        max-width: 90vw;
+        max-height: 88vh;
+        object-fit: contain;
+        border-radius: 6px;
+        display: block;
+      }
+      .lb-close {
+        position: absolute;
+        top: 1.2rem;
+        right: 1.5rem;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 2.4rem;
+        cursor: pointer;
+        line-height: 1;
+        opacity: 0.85;
+      }
+      .lb-close:hover { opacity: 1; }
+      .lb-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255,255,255,0.15);
+        border: none;
+        color: white;
+        font-size: 1.4rem;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s;
+      }
+      .lb-arrow:hover { background: rgba(255,255,255,0.3); }
+      .lb-prev { left: 1.5rem; }
+      .lb-next { right: 1.5rem; }
+      .lb-counter {
+        position: absolute;
+        bottom: 1.2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        color: rgba(255,255,255,0.65);
+        font-size: 0.85rem;
+        letter-spacing: 0.05em;
+      }
+
+      @media (max-width: 860px) {
+        .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+        .topbar h1 { font-size: 2.2rem; }
+      }
+      @media (max-width: 600px) {
+        .topbar { padding: 1.25rem 1rem 1rem; flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+        .topbar h1 { font-size: 1.7rem; }
+        .topbar-label { font-size: 0.75rem; }
+        .topbar a { font-size: 0.85rem; padding: 0.4rem 0.85rem; }
+        .gallery-container { padding: 0 0.75rem 2.5rem; }
+        .gallery-grid { gap: 0.45rem; }
+      }
+      @media (max-width: 480px) {
+        .topbar h1 { font-size: 1.5rem; }
+        .gallery-grid { grid-template-columns: 1fr; }
+        .lb-arrow { display: none; }
+        .lb-close { font-size: 2rem; top: 0.75rem; right: 1rem; }
+        .lightbox img { max-width: 98vw; max-height: 82vh; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="topbar">
+      <div>
+        <div class="topbar-label">School Gallery</div>
+        <h1>Campus Moments</h1>
+      </div>
+      <a href="/">&#8592; Back to Home</a>
+    </div>
+
+    <div class="gallery-container">
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gallery-item" onclick="openLightbox(0)"><img src="/assets/images/building.jpeg" /></div>
+        <div class="gallery-item" onclick="openLightbox(1)"><img src="/assets/images/students.jpeg" /></div>
+        <div class="gallery-item" onclick="openLightbox(2)"><img src="/assets/images/class photo.jpeg" /></div>
+        <div class="gallery-item" onclick="openLightbox(3)"><img src="/assets/images/class photo_3.jpeg" /></div>
+        <div class="gallery-item" onclick="openLightbox(4)"><img src="/assets/images/graduates.jpeg" /></div>
+        <div class="gallery-item" onclick="openLightbox(5)"><img src="/assets/images/outdoor.jpeg" /></div>
+        <div class="gallery-item" onclick="openLightbox(6)"><img src="/assets/images/kids.jpeg" /></div>
+        <div class="gallery-item" onclick="openLightbox(7)"><img src="/assets/images/kids_2.jpeg" /></div>
+        <div class="gallery-item" onclick="openLightbox(8)"><img src="/assets/images/primary.jpeg" /></div>
+        <div class="gallery-item" onclick="openLightbox(9)"><img src="/assets/images/creative art.jpeg" /></div>
+        <div class="gallery-item" onclick="openLightbox(10)"><img src="/assets/images/excursion 1.jpeg" /></div>
+        <div class="gallery-item" onclick="openLightbox(11)"><img src="/assets/images/excursion 2.jpeg" /></div>
+        <div class="gallery-item" onclick="openLightbox(12)"><img src="/assets/images/excursion 3.jpeg" /></div>
+        <div class="gallery-item" onclick="openLightbox(13)"><img src="/assets/images/excursion 4.jpeg" /></div>
+        <div class="gallery-item" onclick="openLightbox(14)"><img src="/assets/images/students_2.jpeg" /></div>
+        <div class="gallery-item" onclick="openLightbox(15)"><img src="/assets/images/students_3.jpeg" /></div>
+        <div class="gallery-item" onclick="openLightbox(16)"><img src="/assets/images/whatsapp-2026-07-15.jpeg" /></div>
+      </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+      <button class="lb-close" onclick="closeLb()">&times;</button>
+      <button class="lb-arrow lb-prev" onclick="shiftLb(-1, event)">&#10094;</button>
+      <img id="lbImg" src="" />
+      <button class="lb-arrow lb-next" onclick="shiftLb(1, event)">&#10095;</button>
+      <div class="lb-counter" id="lbCounter"></div>
+    </div>
+
+    <script>
+      const imgs = Array.from(document.querySelectorAll("#galleryGrid .gallery-item img")).map(el => el.src);
+      let current = 0;
+
+      function openLightbox(i) {
+        current = i;
+        render();
+        document.getElementById("lightbox").classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+      function closeLb() {
+        document.getElementById("lightbox").classList.remove("open");
+        document.body.style.overflow = "";
+      }
+      function closeLightbox(e) {
+        if (e.target === document.getElementById("lightbox")) closeLb();
+      }
+      function shiftLb(dir, e) {
+        e.stopPropagation();
+        current = (current + dir + imgs.length) % imgs.length;
+        render();
+      }
+      function render() {
+        document.getElementById("lbImg").src = imgs[current];
+        document.getElementById("lbCounter").textContent = (current + 1) + " / " + imgs.length;
+      }
+      document.addEventListener("keydown", e => {
+        if (!document.getElementById("lightbox").classList.contains("open")) return;
+        if (e.key === "ArrowRight") { current = (current + 1) % imgs.length; render(); }
+        if (e.key === "ArrowLeft")  { current = (current - 1 + imgs.length) % imgs.length; render(); }
+        if (e.key === "Escape") closeLb();
+      });
+    </script>
+
+  </body>
+</html>

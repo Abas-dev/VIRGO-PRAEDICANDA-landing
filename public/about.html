@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About | Virgo Praedicanda International School</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --primary: #1657b8;
+        --primary-dark: #0f4a99;
+        --accent: #0ea5e9;
+        --gold: #f59e0b;
+        --bg: #f2f8ff;
+        --surface: #ffffff;
+        --text: #102a43;
+        --muted: #516e89;
+        --border: rgba(14, 164, 233, 0.15);
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        font-size: 1.05rem;
+        line-height: 1.75;
+      }
+
+      /* ── Nav bar ── */
+      .site-nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(255,255,255,0.97);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border);
+        padding: 0.85rem 1.5rem;
+      }
+      .nav-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .nav-brand {
+        font-weight: 700;
+        font-size: 0.9rem;
+        color: var(--primary);
+        letter-spacing: 0.03em;
+        text-decoration: none;
+      }
+      .nav-back {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        border: 1.5px solid var(--primary);
+        padding: 0.45rem 1rem;
+        border-radius: 8px;
+        transition: background 0.2s, color 0.2s;
+      }
+      .nav-back:hover { background: var(--primary); color: white; }
+
+      /* ── Hero banner ── */
+      .about-hero {
+        position: relative;
+        height: 340px;
+        overflow: hidden;
+        background: var(--primary);
+      }
+      .about-hero img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        opacity: 0.35;
+      }
+      .about-hero-overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 2rem 1.5rem;
+        color: white;
+      }
+      .about-hero-label {
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        opacity: 0.8;
+        margin-bottom: 0.6rem;
+      }
+      .about-hero-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(2rem, 5vw, 3.4rem);
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: 0.75rem;
+      }
+      .about-hero-tagline {
+        font-size: 1rem;
+        opacity: 0.85;
+        max-width: 520px;
+        font-style: italic;
+      }
+
+      /* ── Page content ── */
+      .page-content {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 3rem 1.5rem 5rem;
+      }
+
+      /* ── Vision / Mission / Values cards ── */
+      .vmv-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin-bottom: 3rem;
+      }
+      .vmv-box {
+        background: var(--surface);
+        border-radius: 18px;
+        padding: 1.5rem 1.25rem;
+        border-top: 4px solid transparent;
+        box-shadow: 0 4px 18px rgba(16, 42, 67, 0.07);
+      }
+      .vmv-box.vision  { border-top-color: var(--primary); }
+      .vmv-box.mission { border-top-color: var(--accent); }
+      .vmv-box.values  { border-top-color: var(--gold); }
+      .vmv-box h3 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: var(--text);
+      }
+      .vmv-box p { font-size: 0.95rem; color: var(--muted); line-height: 1.65; }
+
+      /* ── Prose sections ── */
+      .prose-section {
+        background: var(--surface);
+        border-radius: 20px;
+        padding: 2rem 2.25rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 4px 18px rgba(16, 42, 67, 0.06);
+        border: 1px solid var(--border);
+      }
+      .prose-section h2 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.7rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+        padding-bottom: 0.6rem;
+        border-bottom: 1px solid var(--border);
+      }
+      .prose-section p {
+        color: var(--muted);
+        margin-bottom: 1rem;
+        font-size: 1rem;
+      }
+      .prose-section p:last-child { margin-bottom: 0; }
+
+      /* ── Bullet list ── */
+      .prose-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+        margin: 0.75rem 0 1rem;
+        padding: 0;
+      }
+      .prose-list li {
+        display: flex;
+        gap: 0.75rem;
+        align-items: flex-start;
+        color: var(--muted);
+        font-size: 1rem;
+      }
+      .prose-list li::before {
+        content: "";
+        flex-shrink: 0;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--primary);
+        margin-top: 0.5rem;
+      }
+
+      /* ── School levels grid ── */
+      .levels-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+      .level-card {
+        background: #f5fbff;
+        border-radius: 14px;
+        padding: 1.25rem;
+        border: 1px solid var(--border);
+      }
+      .level-card h4 {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+      }
+      .level-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+
+      /* ── Values grid ── */
+      .values-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 0.75rem;
+        margin-top: 0.75rem;
+      }
+      .value-pill {
+        background: #eef7ff;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--primary);
+      }
+
+      /* ── Motto banner ── */
+      .motto-banner {
+        background: var(--primary);
+        color: white;
+        border-radius: 18px;
+        padding: 2rem 2.5rem;
+        text-align: center;
+        margin-top: 2rem;
+      }
+      .motto-banner p {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(1.4rem, 3vw, 2rem);
+        font-style: italic;
+        font-weight: 600;
+        opacity: 0.95;
+        margin: 0;
+      }
+
+      /* ── Responsive ── */
+      @media (max-width: 700px) {
+        .vmv-row        { grid-template-columns: 1fr; }
+        .levels-grid    { grid-template-columns: 1fr; }
+        .prose-section  { padding: 1.5rem 1.25rem; }
+        .about-hero     { height: 220px; }
+        .about-hero-title { font-size: 1.7rem; }
+        .about-hero-tagline { font-size: 0.88rem; }
+        .nav-brand { font-size: 0.78rem; max-width: 55%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .page-content { padding: 2rem 1rem 4rem; }
+      }
+      @media (max-width: 480px) {
+        .about-hero     { height: 180px; }
+        .about-hero-title { font-size: 1.4rem; }
+        .prose-section h2 { font-size: 1.3rem; }
+        .nav-inner { flex-wrap: wrap; gap: 0.5rem; }
+        .nav-brand { font-size: 0.72rem; }
+        .nav-back  { font-size: 0.8rem; padding: 0.35rem 0.75rem; }
+        .motto-banner p { font-size: 1.2rem; }
+        .vmv-box h3 { font-size: 1.1rem; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- Nav -->
+    <nav class="site-nav">
+      <div class="nav-inner">
+        <a class="nav-brand" href="/">VIRGO PRAEDICANDA INTERNATIONAL SCHOOL</a>
+        <a class="nav-back" href="/">&#8592; Back to Home</a>
+      </div>
+    </nav>
+
+    <!-- Hero banner with building image -->
+    <div class="about-hero">
+      <img src="/assets/images/building.jpeg" />
+      <div class="about-hero-overlay">
+        <div class="about-hero-label">About the School</div>
+        <h1 class="about-hero-title">Virgo Praedicanda International School</h1>
+        <p class="about-hero-tagline">Making Excellence A Habit.</p>
+      </div>
+    </div>
+
+    <div class="page-content">
+
+      <!-- Vision / Mission / Values -->
+      <div class="vmv-row">
+        <div class="vmv-box vision">
+          <h3>Our Vision</h3>
+          <p>To inspire and nurture excellent children for global impact.</p>
+        </div>
+        <div class="vmv-box mission">
+          <h3>Our Mission</h3>
+          <p>To develop young men and women with active and creative minds, compassion for others, and the courage to act on their beliefs.</p>
+        </div>
+        <div class="vmv-box values">
+          <h3>Core Values</h3>
+          <p>Academic Excellence &middot; Christian Character &middot; Faith in God &middot; Love &amp; Compassion &middot; Discipline &middot; Independence</p>
+        </div>
+      </div>
+
+      <!-- About the School -->
+      <div class="prose-section">
+        <h2>About the School</h2>
+        <p>
+          Established in 2018, Virgo Praedicanda International School (VPIS) is an independent, Christian,
+          co-educational day school committed to providing outstanding education for children from six weeks
+          of age through the secondary school level.
+        </p>
+        <p>
+          Since its inception, the school has remained dedicated to nurturing academic excellence while
+          developing sound moral values, leadership qualities, creativity, and lifelong learning skills that
+          prepare learners for success in an ever-changing global society.
+        </p>
+        <p>From the very beginning, VPIS has been structured to:</p>
+        <ul class="prose-list">
+          <li>Operate as a co-educational institution offering quality education from Early Years through Nursery, Primary, and Secondary School.</li>
+          <li>Provide a standard of education comparable to leading schools in the United Kingdom, the United States of America, and Singapore.</li>
+          <li>Integrate the English National Curriculum with relevant aspects of the Nigerian Curriculum, ensuring a broad, balanced, and internationally-minded educational experience.</li>
+          <li>Foster a culture of academic excellence, innovation, discipline, leadership, and integrity in a safe, inclusive, and nurturing environment.</li>
+        </ul>
+        <p>
+          Founded on Christian principles and values, Virgo Praedicanda International School is dedicated
+          to developing the whole child — academically, morally, socially, emotionally, physically, and
+          spiritually. We believe that every child possesses unique talents and abilities, and our
+          responsibility is to provide opportunities that enable each learner to discover, develop, and
+          maximize their full potential.
+        </p>
+        <p>
+          Today, VPIS proudly serves families through its campuses located in <strong>Woji</strong> and
+          <strong>Chinda</strong>, providing modern learning facilities, experienced educators, and a
+          stimulating environment where learners are inspired to excel.
+        </p>
+      </div>
+
+      <!-- School levels -->
+      <div class="prose-section">
+        <h2>Our School Levels</h2>
+        <div class="levels-grid">
+          <div class="level-card">
+            <h4>Early Years &amp; Nursery</h4>
+            <p>Children are introduced to learning through engaging, play-based experiences that build confidence, curiosity, communication, and foundational literacy and numeracy skills.</p>
+          </div>
+          <div class="level-card">
+            <h4>Primary School</h4>
+            <p>Pupils gain strong academic foundations while nurturing creativity, critical thinking, collaboration, and problem-solving. An enriched curriculum supported by technology, arts, sports, and co-curricular programmes.</p>
+          </div>
+          <div class="level-card">
+            <h4>Secondary School</h4>
+            <p>Students are prepared for higher education and future careers through rigorous academics, leadership development, digital literacy, research, entrepreneurship, and character education.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Excellence in school life -->
+      <div class="prose-section">
+        <h2>Excellence in Every Aspect</h2>
+        <p>
+          At VPIS, excellence is reflected in every aspect of school life. Through highly qualified and
+          dedicated teachers, innovative instructional practices, continuous assessment, and a
+          learner-centred approach, we inspire every student to pursue excellence while embracing
+          integrity, compassion, and service.
+        </p>
+        <p>
+          Beyond academics, we provide diverse opportunities for learners to discover and develop their
+          talents through:
+        </p>
+        <ul class="prose-list">
+          <li>Sports, music, public speaking, and ballet</li>
+          <li>Coding, STEM education, and digital literacy</li>
+          <li>Leadership programmes, clubs, and competitions</li>
+          <li>Community service and enriching co-curricular activities</li>
+        </ul>
+        <p>
+          Our curriculum is intentionally designed to equip learners with the knowledge, skills, values,
+          and global perspectives necessary to thrive in the twenty-first century. We strive to raise
+          lifelong learners who are compassionate, confident, resilient, technologically proficient, and
+          multi-skilled — critical thinkers who respect diversity, care for the environment, uphold strong
+          ethical values, and make meaningful contributions to their communities and the world.
+        </p>
+      </div>
+
+      <!-- Core Values detail -->
+      <div class="prose-section">
+        <h2>Our Core Values</h2>
+        <div class="values-grid">
+          <div class="value-pill">Academic Excellence</div>
+          <div class="value-pill">Christian Character</div>
+          <div class="value-pill">Faith in God</div>
+          <div class="value-pill">Love &amp; Compassion</div>
+          <div class="value-pill">Discipline</div>
+          <div class="value-pill">Independence &amp; Initiative</div>
+        </div>
+        <p style="margin-top: 1.25rem;">
+          At Virgo Praedicanda International School, every learner is valued, celebrated, and empowered
+          to become the very best version of themselves. We encourage all members of our school community
+          to uphold our vision, mission, and core values as we continue to develop exemplary individuals,
+          transformational leaders, and responsible global citizens.
+        </p>
+      </div>
+
+      <!-- Motto -->
+      <div class="motto-banner">
+        <p>&ldquo;Making Excellence A Habit.&rdquo;</p>
+      </div>
+
+    </div>
+  </body>
+</html>
