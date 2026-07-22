@@ -21,7 +21,7 @@ const Navbar = () => {
           </div>
 
           <ul className="nav-links">
-            <li><a href="#about">About</a></li>
+            <li><a href="/about.html" target="_blank" rel="noreferrer">About</a></li>
             <li><a href="#testimonials">Testimonials</a></li>
             <li><a href="#contact">Contact Us</a></li>
             <li>
@@ -48,26 +48,30 @@ const Navbar = () => {
 
       {/* Mobile drawer panel */}
       <div className={`mobile-drawer ${menuOpen ? "drawer-open" : ""}`}>
+        {/* Header */}
         <div className="drawer-header">
           <div className="drawer-brand">
             <img src="/assets/images/logo.png" className="drawer-logo" alt="logo" />
-            <span className="drawer-brand-name">Virgo Praedicanda Int'l School</span>
+            <span className="drawer-brand-name">Virgo Praedicanda Int'l Schools</span>
           </div>
           <button className="drawer-close-btn" onClick={() => setMenuOpen(false)} aria-label="Close menu">✕</button>
         </div>
 
+        {/* Nav links */}
         <ul className="drawer-links">
-          <li><a href="#about"        onClick={() => setMenuOpen(false)}>About</a></li>
-          <li><a href="#testimonials" onClick={() => setMenuOpen(false)}>Testimonials</a></li>
-          <li><a href="#contact"      onClick={() => setMenuOpen(false)}>Contact</a></li>
           <li>
-            <a href="/gallery.html" target="_blank" rel="noreferrer"
-               onClick={() => setMenuOpen(false)}>Gallery</a>
+            <a href="/about.html" target="_blank" rel="noreferrer" onClick={() => setMenuOpen(false)}>About</a>
+          </li>
+          <li><a href="#testimonials" onClick={() => setMenuOpen(false)}>Testimonials</a></li>
+          <li><a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a></li>
+          <li>
+            <a href="/gallery.html" target="_blank" rel="noreferrer" onClick={() => setMenuOpen(false)}>Gallery</a>
           </li>
         </ul>
 
+        {/* CTA buttons */}
         <div className="drawer-actions">
-          <a className="drawer-btn drawer-btn-primary" href="tel:+2348000000000">Call Us</a>
+          <a className="drawer-btn drawer-btn-primary" href="tel:+2348094849278">Call Us</a>
           <a className="drawer-btn drawer-btn-outline" href="#contact" onClick={() => setMenuOpen(false)}>Visit portal</a>
         </div>
       </div>
@@ -77,10 +81,10 @@ const Navbar = () => {
 
 /* ── Hero Carousel — 4 images ─────────────────────── */
 const heroCarouselImages = [
+  { src: "/assets/images/primary.jpeg" },
+  { src: "/assets/images/class photo_3.jpeg" },
+  { src: "/assets/images/students.jpeg" },
   { src: "/assets/images/students_3.jpeg" },
-  { src: "/assets/images/class photo.jpeg" },
-  { src: "/assets/images/kids_2.jpeg" },
-  { src: "/assets/images/outdoor.jpeg" },
 ];
 
 const HeroCarousel = () => {
@@ -117,87 +121,107 @@ const HeroCarousel = () => {
 
 const Hero = () => (
   <section className="hero-modern" id="home">
-    <div className="container hero-grid">
-      <div className="hero-modern-text" data-aos="fade-right">
-        <h4 className="hero-subtitle">VIRGO PRAEDICANDA INTERNATIONAL SCHOOL</h4>
-        <h1 className="hero-title" data-aos="fade-up" data-aos-delay="100">
-          Inspire and nurture excellent children for global impact.
-        </h1>
-        <p className="hero-description" data-aos="fade-up" data-aos-delay="200">
+    <div className="container hero-stacked">
+      {/* Text block — title + description */}
+      <div className="hero-stacked-text" data-aos="fade-up">
+        <p className="hero-tagline">Building Global Champions</p>
+        <h1 className="hero-title">VIRGO PRAEDICANDA INTERNATIONAL SCHOOL</h1>
+        <p className="hero-description">
           We develop young men and women with active and creative minds, a sense
-          of compassion, courage, and a strong Christian character.
+          of compassion, courage, and a strong Christian character, ready to
+          thrive in a rapidly changing world.
         </p>
-        <div className="hero-actions" data-aos="fade-up" data-aos-delay="300">
-          <a className="btn btn-primary" href="#about">About the School</a>
-          <a className="btn btn-outline" href="/about.html" target="_blank" rel="noreferrer">See More</a>
-        </div>
-      </div>
-      <HeroCarousel />
-    </div>
-  </section>
-);
-
-/* ── About — image: students.jpeg ───────────────────────────────── */
-const About = () => (
-  <section className="section" id="about">
-    <div className="container">
-      <div className="section-title" data-aos="fade-up">
-        <p>Who We Are</p>
-        <h2>VIRGO PRAEDICANDA INTERNATIONAL SCHOOL</h2>
       </div>
 
-      <div className="about-layout">
-        <div className="about-image-wrapper" data-aos="fade-right">
-          <img src="/assets/images/students.jpeg" />
-        </div>
-
-        <div data-aos="fade-left" data-aos-delay="150">
-          <p className="about-summary">
-            Virgo Praedicanda International School inspires and nurtures
-            excellent children for global impact. Our students grow in faith,
-            discipline, independence and academic excellence.
-          </p>
-
-          <div className="vmv-stack">
-            <div className="vmv-card vmv-vision">
-              <span className="vmv-icon vmv-icon-vision" aria-hidden="true"></span>
-              <div>
-                <h3>Our Vision</h3>
-                <p>To inspire and nurture excellent children for global impact.</p>
-              </div>
-            </div>
-            <div className="vmv-card vmv-mission">
-              <span className="vmv-icon vmv-icon-mission" aria-hidden="true"></span>
-              <div>
-                <h3>Our Mission</h3>
-                <p>
-                  To develop young men and women with active and creative minds,
-                  compassion for others, and the courage to act on their beliefs.
-                </p>
-              </div>
-            </div>
-            <div className="vmv-card vmv-values">
-              <span className="vmv-icon vmv-icon-values" aria-hidden="true"></span>
-              <div>
-                <h3>Core Values</h3>
-                <p>
-                  Academic Excellence &middot; Christian Character &middot; Faith in God &middot;
-                  Love &amp; Compassion &middot; Discipline &middot; Independence
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div style={{ marginTop: "1.75rem" }}>
-            <a className="btn btn-primary" href="/about.html" target="_blank" rel="noreferrer">
-              See More
-            </a>
-          </div>
-        </div>
+      {/* Carousel — order-2 on mobile */}
+      <div className="hero-stacked-carousel hero-carousel-order" data-aos="fade-up" data-aos-delay="200">
+        <HeroCarousel />
       </div>
     </div>
   </section>
 );
+
+/* ── About — accordion style matching design image ───────────────────────────────── */
+const vmvItems = [
+  {
+    key: "vision",
+    title: "Our Vision",
+    content:
+      "Our vision is to raise children with strong, personable character equipped with knowledge that can compete globally. We inspire and nurture excellent children for global impact — developing confident, compassionate leaders who are rooted in faith and ready to thrive in a rapidly changing world.",
+    image: "/assets/images/students_2.jpeg",
+  },
+  {
+    key: "mission",
+    title: "Our Mission",
+    content:
+      "Our mission is to develop young men and women with active and creative minds, a sense of compassion for others, and the courage to act on their beliefs and dreams. We are committed to providing a world-class education that integrates academic rigour with Christian values, equipping every learner with the knowledge, skills, and character needed to make a meaningful difference in society.",
+    image: "/assets/images/outdoor.jpeg",
+  },
+  {
+    key: "values",
+    title: "Our Core Values",
+    content:
+      "Everything we do at Virgo Praedicanda is shaped by our core values: Academic Excellence, Christian Character, Faith in God, Love & Compassion, Discipline, and Independence. These principles are woven into every lesson, every interaction, and every opportunity we provide — ensuring that our students grow not just in knowledge, but in wisdom, integrity, and purpose.",
+    image: "/assets/images/kids.jpeg",
+  },
+];
+
+const About = () => {
+  const [open, setOpen] = useState("vision");
+
+  const active = vmvItems.find((i) => i.key === open);
+
+  return (
+    <section className="section" id="about">
+      <div className="container">
+        <div className="about-layout">
+          {/* Left — heading + summary + accordion */}
+          <div className="about-left" data-aos="fade-right">
+            <h2 className="about-heading">About us</h2>
+            <p className="about-summary">
+              The founding of Virgo Praedicanda International School was
+              motivated by the desire to provide top-notch instruction. Our bond
+              is our word, or what we pledge to our parents. The school is the
+              pinnacle of achievement, teamwork, intelligence, discipline, and
+              devotion.
+            </p>
+
+            <div className="vmv-accordion">
+              {vmvItems.map((item) => {
+                const isOpen = open === item.key;
+                return (
+                  <div className="vmv-acc-item" key={item.key}>
+                    <button
+                      className={`vmv-acc-header${isOpen ? " active" : ""}`}
+                      onClick={() => setOpen(isOpen ? null : item.key)}
+                      aria-expanded={isOpen}
+                    >
+                      <span>{item.title}</span>
+                      <span className="vmv-acc-icon">{isOpen ? "‹" : "›"}</span>
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Right — image + active description below */}
+          <div className="about-right" data-aos="fade-left" data-aos-delay="150">
+            <div className="about-acc-img-desktop">
+              <img
+                src={active ? active.image : "/assets/images/students.jpeg"}
+                alt={active ? active.title : "About"}
+              />
+            </div>
+            {active && (
+              <p className="about-acc-desc">{active.content}</p>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 
 
@@ -238,7 +262,6 @@ const Testimonials = () => {
     <section className="section testimonials-section" id="testimonials">
       <div className="container">
         <div className="section-title" data-aos="fade-up">
-          <p>Why Parents Choose Us</p>
           <h2>Why Parents Choose VIRGO PRAEDICANDA INTERNATIONAL SCHOOL</h2>
         </div>
         <div className="testimonial-grid-open">
@@ -327,39 +350,59 @@ const Gallery = () => {
   );
 };
 
-/* ── Contact — image: graduates.jpeg freed from elsewhere ────────── */
+/* ── Contact ────────── */
 const Contact = () => (
   <section className="contact-section" id="contact">
     <div className="container">
-      <div className="section-title" data-aos="fade-up">
-        <p>Contact Us</p>
-        <h2>Get in Touch</h2>
-      </div>
+      <h2 className="contact-heading" data-aos="fade-up">Contact Us</h2>
       <div className="contact-card" data-aos="fade-up" data-aos-delay="100">
-        <img src="/assets/images/building.jpeg" />
+
+        {/* Left — building photo */}
+        <div className="contact-img-wrap">
+          <img src="/assets/images/building.jpeg" alt="School building" />
+        </div>
+
+        {/* Right — info panel */}
         <div className="contact-panel">
-          <h2>Reach Virgo Praedicanda</h2>
+
           <div className="contact-item">
-            <div className="contact-icon contact-icon-location"></div>
+            <div className="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
             <div>
               <h4>Address</h4>
-              <p>No. 9 Marina Close, Woji,<br />Port Harcourt, Rivers State, Nigeria</p>
+              <p>New Road, Relief | Victory Estate,<br />Elelenwo, Port Harcourt, Rivers State,<br />Nigeria</p>
             </div>
           </div>
+
           <div className="contact-item">
-            <div className="contact-icon contact-icon-phone"></div>
+            <div className="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l1.17-.96a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            </div>
             <div>
               <h4>Phone</h4>
               <p>+234 809 484 9278<br />+234 812 266 8724</p>
             </div>
           </div>
+
           <div className="contact-item">
-            <div className="contact-icon contact-icon-email"></div>
+            <div className="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
             <div>
               <h4>Email</h4>
               <p>info@ashmerlynintlschool.com.ng</p>
             </div>
           </div>
+
         </div>
       </div>
     </div>
