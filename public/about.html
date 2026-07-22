@@ -13,7 +13,7 @@
         --primary-dark: #0f4a99;
         --accent: #0ea5e9;
         --gold: #f59e0b;
-        --bg: #f2f8ff;
+        --bg: #fafafa;
         --surface: #ffffff;
         --text: #102a43;
         --muted: #516e89;
@@ -149,44 +149,99 @@
         margin-bottom: 1rem;
       }
 
-      /* ── VMV three-col ── */
-      .vmv-row {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
+      /* ── About accordion section (mirrors homepage) ── */
+      .about-acc-section {
         margin-bottom: 3.5rem;
       }
-      .vmv-box {
-        background: var(--surface);
-        border-radius: 18px;
-        padding: 1.75rem 1.4rem;
-        border-top: 4px solid transparent;
-        box-shadow: 0 4px 20px rgba(16,42,67,0.07);
-        position: relative;
-      }
-      .vmv-box.vision  { border-top-color: var(--primary); }
-      .vmv-box.mission { border-top-color: var(--accent); }
-      .vmv-box.values  { border-top-color: var(--gold); }
-      .vmv-dot {
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
+      .about-acc-layout {
         display: grid;
-        place-items: center;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: start;
+      }
+      .about-acc-left {}
+      .about-acc-heading {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--text);
+        line-height: 1.1;
         margin-bottom: 1rem;
       }
-      .vmv-dot.v { background: rgba(22,87,184,0.12); }
-      .vmv-dot.m { background: rgba(14,165,233,0.12); }
-      .vmv-dot.va { background: rgba(245,158,11,0.12); }
-      .vmv-dot svg { width: 18px; height: 18px; }
-      .vmv-box h3 {
-        font-family: "Cormorant Garamond", serif;
-        font-size: 1.3rem;
-        font-weight: 700;
-        margin-bottom: 0.6rem;
-        color: var(--text);
+      .about-acc-summary {
+        font-size: 0.97rem;
+        color: var(--muted);
+        line-height: 1.8;
+        margin-bottom: 0;
       }
-      .vmv-box p { font-size: 0.93rem; color: var(--muted); line-height: 1.7; }
+      /* Accordion */
+      .vmv-accordion {
+        margin-top: 1.75rem;
+        border-top: 1px solid #e2e8f0;
+      }
+      .vmv-acc-item {
+        border-bottom: 1px solid #e2e8f0;
+      }
+      .vmv-acc-btn {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 1.1rem 0;
+        background: none;
+        border: none;
+        cursor: pointer;
+        text-align: left;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.9rem;
+        font-weight: 700;
+        color: #c0c8d4;
+        transition: color 0.25s ease;
+      }
+      .vmv-acc-btn.active { color: var(--text); }
+      .vmv-acc-btn:hover  { color: var(--text); }
+      .vmv-acc-icon {
+        font-size: 1.5rem;
+        font-style: normal;
+        color: var(--text);
+        line-height: 1;
+        flex-shrink: 0;
+      }
+      /* Right side */
+      .about-acc-right {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+      }
+      .about-acc-img {
+        border-radius: 16px;
+        overflow: hidden;
+        background: #dce8f7;
+        aspect-ratio: 4 / 3;
+      }
+      .about-acc-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+        display: block;
+        transition: opacity 0.4s ease;
+      }
+      .about-acc-desc {
+        font-size: 0.97rem;
+        color: var(--muted);
+        line-height: 1.75;
+        margin: 0;
+        min-height: 3rem;
+      }
+      @media (max-width: 768px) {
+        .about-acc-layout {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+        .about-acc-heading { font-size: 2.2rem; }
+        .vmv-acc-btn { font-size: 1.5rem; }
+      }
 
       /* ── Divider ── */
       .divider { height: 1px; background: var(--border); margin: 2.5rem 0; }
@@ -420,30 +475,97 @@
 
     <div class="page">
 
-      <!-- VMV -->
-      <div class="vmv-row">
-        <div class="vmv-box vision">
-          <div class="vmv-dot v">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#1657b8" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/></svg>
+      <!-- About us accordion (mirrors homepage layout) -->
+      <div class="about-acc-section">
+        <div class="about-acc-layout">
+
+          <!-- Left: heading + summary + accordion -->
+          <div class="about-acc-left">
+            <h2 class="about-acc-heading">About us</h2>
+            <p class="about-acc-summary">
+              The founding of Virgo Praedicanda International School was motivated by
+              the desire to provide top-notch instruction. Our bond is our word, or what
+              we pledge to our parents. The school is the pinnacle of achievement,
+              teamwork, intelligence, discipline, and devotion.
+            </p>
+
+            <div class="vmv-accordion">
+
+              <div class="vmv-acc-item">
+                <button class="vmv-acc-btn active" data-key="vision" onclick="selectTab('vision')">
+                  <span>Our Vision</span>
+                  <span class="vmv-acc-icon" id="icon-vision">‹</span>
+                </button>
+              </div>
+
+              <div class="vmv-acc-item">
+                <button class="vmv-acc-btn" data-key="mission" onclick="selectTab('mission')">
+                  <span>Our Mission</span>
+                  <span class="vmv-acc-icon" id="icon-mission">›</span>
+                </button>
+              </div>
+
+              <div class="vmv-acc-item">
+                <button class="vmv-acc-btn" data-key="values" onclick="selectTab('values')">
+                  <span>Our Core Values</span>
+                  <span class="vmv-acc-icon" id="icon-values">›</span>
+                </button>
+              </div>
+
+            </div>
           </div>
-          <h3>Our Vision</h3>
-          <p>To inspire and nurture excellent children for global impact — developing confident, compassionate leaders rooted in faith and ready to thrive in a rapidly changing world.</p>
-        </div>
-        <div class="vmv-box mission">
-          <div class="vmv-dot m">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+
+          <!-- Right: image + description -->
+          <div class="about-acc-right">
+            <div class="about-acc-img">
+              <img id="acc-img" src="/assets/images/students_2.jpeg" alt="Our Vision" />
+            </div>
+            <p class="about-acc-desc" id="acc-desc">
+              Our vision is to raise children with strong, personable character equipped with knowledge that can compete globally. We inspire and nurture excellent children for global impact — developing confident, compassionate leaders who are rooted in faith and ready to thrive in a rapidly changing world.
+            </p>
           </div>
-          <h3>Our Mission</h3>
-          <p>To develop young men and women with active, creative minds, compassion for others, and the courage to act on their beliefs — equipped for success in an ever-changing world.</p>
-        </div>
-        <div class="vmv-box values">
-          <div class="vmv-dot va">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          </div>
-          <h3>Core Values</h3>
-          <p>Academic Excellence · Christian Character · Faith in God · Love &amp; Compassion · Discipline · Independence &amp; Initiative</p>
+
         </div>
       </div>
+
+      <script>
+        const tabData = {
+          vision: {
+            image: "/assets/images/students_2.jpeg",
+            alt: "Our Vision",
+            desc: "Our vision is to raise children with strong, personable character equipped with knowledge that can compete globally. We inspire and nurture excellent children for global impact — developing confident, compassionate leaders who are rooted in faith and ready to thrive in a rapidly changing world."
+          },
+          mission: {
+            image: "/assets/images/outdoor.jpeg",
+            alt: "Our Mission",
+            desc: "Our mission is to develop young men and women with active and creative minds, a sense of compassion for others, and the courage to act on their beliefs and dreams. We are committed to providing a world-class education that integrates academic rigour with Christian values, equipping every learner with the knowledge, skills, and character needed to make a meaningful difference in society."
+          },
+          values: {
+            image: "/assets/images/kids.jpeg",
+            alt: "Our Core Values",
+            desc: "Everything we do at Virgo Praedicanda is shaped by our core values: Academic Excellence, Christian Character, Faith in God, Love & Compassion, Discipline, and Independence. These principles are woven into every lesson, every interaction, and every opportunity we provide — ensuring that our students grow not just in knowledge, but in wisdom, integrity, and purpose."
+          }
+        };
+
+        function selectTab(key) {
+          // Update buttons
+          document.querySelectorAll('.vmv-acc-btn').forEach(btn => {
+            btn.classList.remove('active');
+            const k = btn.getAttribute('data-key');
+            document.getElementById('icon-' + k).textContent = '›';
+          });
+          const activeBtn = document.querySelector('[data-key="' + key + '"]');
+          activeBtn.classList.add('active');
+          document.getElementById('icon-' + key).textContent = '‹';
+
+          // Update image + desc
+          const data = tabData[key];
+          const img = document.getElementById('acc-img');
+          img.src = data.image;
+          img.alt = data.alt;
+          document.getElementById('acc-desc').textContent = data.desc;
+        }
+      </script>
 
       <!-- About the School — split layout -->
       <div class="split-row">

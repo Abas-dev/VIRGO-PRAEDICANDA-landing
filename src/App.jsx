@@ -284,14 +284,14 @@ const Testimonials = () => {
 const Gallery = () => {
   const photos = [
     { src: "/assets/images/kids_2.jpeg" },
-    { src: "/assets/images/class-photo-3.jpeg" },
-    { src: "/assets/images/creative-art.jpeg" },
-    { src: "/assets/images/excursion-1.jpeg" },
-    { src: "/assets/images/excursion-2.jpeg" },
-    { src: "/assets/images/excursion-3.jpeg" },
-    { src: "/assets/images/excursion-4.jpeg" },
-    { src: "/assets/images/whatsapp-2026-07-15.jpeg" },
-    { src: "/assets/images/students-3.jpeg" },
+    { src: "/assets/images/class photo_3.jpeg" },
+    { src: "/assets/images/creative art.jpeg" },
+    { src: "/assets/images/excursion 1.jpeg" },
+    { src: "/assets/images/excursion 2.jpeg" },
+    { src: "/assets/images/excursion 3.jpeg" },
+    { src: "/assets/images/excursion 4.jpeg" },
+    { src: "/assets/images/graduates.jpeg" },
+    { src: "/assets/images/students_3.jpeg" },
     { src: "/assets/images/students_2.jpeg" },
   ];
   const [showAll, setShowAll] = useState(false);
