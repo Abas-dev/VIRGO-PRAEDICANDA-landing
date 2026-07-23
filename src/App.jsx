@@ -71,7 +71,7 @@ const Navbar = () => {
 
         {/* CTA buttons */}
         <div className="drawer-actions">
-          <a className="drawer-btn drawer-btn-primary" href="tel:+2348094849278">Call Us</a>
+          <a className="drawer-btn drawer-btn-primary" href="tel:+234 913 255 4783">Call Us</a>
           <a className="drawer-btn drawer-btn-outline" href="#contact" onClick={() => setMenuOpen(false)}>Visit portal</a>
         </div>
       </div>
@@ -386,7 +386,7 @@ const Contact = () => (
             </div>
             <div>
               <h4>Phone</h4>
-              <p>+234 809 484 9278<br />+234 812 266 8724</p>
+              <p>+234 913 255 4783</p>
             </div>
           </div>
 
@@ -399,7 +399,7 @@ const Contact = () => (
             </div>
             <div>
               <h4>Email</h4>
-              <p>info@ashmerlynintlschool.com.ng</p>
+              <p>info@schools.com</p>
             </div>
           </div>
 

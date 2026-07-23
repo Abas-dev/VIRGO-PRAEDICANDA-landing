@@ -274,7 +274,7 @@ h3,
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.35);
+  background: rgba(0, 0, 0, 0.25);
   z-index: 1200;
 }
 
@@ -282,22 +282,23 @@ h3,
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  max-width: 360px;
-  height: 100vh;
+  width: 100%;
   background: #fff;
   z-index: 1300;
   display: flex;
   flex-direction: column;
   padding: 0;
-  transform: translateX(-110%);
+  /* start above the viewport so it slides down */
+  transform: translateY(-110%);
   transition: transform 0.3s ease;
-  box-shadow: 6px 0 32px rgba(0,0,0,0.13);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
   visibility: hidden;
+  /* height is determined by content, not viewport */
+  height: auto;
 }
 
 .mobile-drawer.drawer-open {
-  transform: translateX(0);
+  transform: translateY(0);
   visibility: visible;
 }
 
@@ -378,7 +379,7 @@ h3,
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  padding: 1.25rem 1.25rem 2rem;
+  padding: 1rem 1.25rem 1.5rem;
   border-top: 1px solid #f0f0f0;
 }
 
@@ -1362,8 +1363,11 @@ h3,
     display: flex;
   }
 
+  /* overlay sits below the drawer so tapping outside dismisses it */
   .mobile-overlay {
     display: block;
+    top: 0;
+    z-index: 1299;
   }
 
   .hero-modern {
