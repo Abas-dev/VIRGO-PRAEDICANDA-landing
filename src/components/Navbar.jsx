@@ -1,0 +1,148 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+
+const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
+
+  function openMenu() {
+    setMenuOpen(true);
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    setMenuOpen(false);
+    setActiveDropdown(null);
+    document.body.style.overflow = '';
+  }
+
+  function toggleDropdown(dropdown) {
+    setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
+  }
+
+  return (
+    <>
+      {/* Nav */}
+      <nav className="site-nav">
+        <div className="nav-inner">
+          <Link className="nav-brand" to="/">
+            <img src="/assets/images/logo.png" alt="VPIS Logo" />
+            <div className="nav-brand-text">
+              <span className="nav-brand-title">VIRGO PRAEDICANDA</span>
+              <span className="nav-brand-sub">INTERNATIONAL SCHOOL</span>
+            </div>
+          </Link>
+          
+          {/* Desktop Navigation Links */}
+          <ul className="nav-links desktop-nav">
+            <li><Link to="/">Home</Link></li>
+            <li className="nav-dropdown">
+              <span className="nav-link-dropdown">About Us ▾</span>
+              <ul className="nav-dropdown-menu">
+                <li><Link to="/about">Our Story</Link></li>
+                <li><Link to="/about">Vision & Mission</Link></li>
+                <li><Link to="/management">Leadership Team</Link></li>
+                <li><Link to="/facilities">School Facilities</Link></li>
+                <li><Link to="/vpis-pictures">VPIS in Pictures</Link></li>
+              </ul>
+            </li>
+            <li className="nav-dropdown">
+              <span className="nav-link-dropdown">Academics ▾</span>
+              <ul className="nav-dropdown-menu">
+                <li><Link to="/academics">Early Years & Creche</Link></li>
+                <li><Link to="/academics">Primary School</Link></li>
+                <li><Link to="/academics">Secondary School</Link></li>
+                <li><Link to="/academics#subjects">Subjects We Offer</Link></li>
+              </ul>
+            </li>
+            <li><a href="/#testimonials">Testimonials</a></li>
+            <li><a href="/#contact">Contact</a></li>
+          </ul>
+
+          {/* Desktop CTA */}
+          <div className="nav-cta desktop-cta">
+            <Link to="/admissions" className="btn btn-primary">Apply Now</Link>
+          </div>
+
+          <button className="hamburger-btn" onClick={openMenu} aria-label="Open menu">
+            <span className="bar"></span>
+            <span className="bar"></span>
+            <span className="bar"></span>
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile/Desktop drawer overlay */}
+      <div className={`mobile-overlay ${menuOpen ? 'active' : ''}`} onClick={closeMenu}></div>
+
+      {/* Mobile/Desktop drawer panel sliding from right */}
+      <div className={`slide-drawer ${menuOpen ? 'drawer-open' : ''}`}>
+        {/* Header */}
+        <div className="drawer-header">
+          <div className="drawer-brand">
+            <img src="/assets/images/logo.png" className="drawer-logo" alt="logo" />
+            <span className="drawer-brand-name">Virgo Praedicanda Int'l Schools</span>
+          </div>
+          <button className="drawer-close-btn" onClick={closeMenu} aria-label="Close menu">✕</button>
+        </div>
+
+        {/* Nav links */}
+        <ul className="drawer-links">
+          <li><Link to="/" onClick={closeMenu}>Home</Link></li>
+          <li><a href="/#testimonials" onClick={closeMenu}>Testimonials</a></li>
+          <li><a href="/#contact" onClick={closeMenu}>Contact</a></li>
+
+          {/* About Us Dropdown */}
+          <li className={`dropdown-item ${activeDropdown === 'about' ? 'open' : ''}`}>
+            <span className="dropdown-label" onClick={() => toggleDropdown('about')}>About Us</span>
+            <ul className="dropdown-links">
+              <li><Link to="/about" onClick={closeMenu}>Our Story</Link></li>
+              <li><Link to="/about" onClick={closeMenu}>Vision, Mission & Core Values</Link></li>
+              <li><Link to="/management" onClick={closeMenu}>Leadership Team</Link></li>
+              <li><Link to="/facilities" onClick={closeMenu}>School Facilities</Link></li>
+              <li><Link to="/vpis-pictures" onClick={closeMenu}>VPIS in Pictures</Link></li>
+            </ul>
+          </li>
+
+          {/* Schools */}
+          <li><Link to="/academics" onClick={closeMenu}>Schools</Link></li>
+
+          {/* Academics Dropdown */}
+          <li className={`dropdown-item ${activeDropdown === 'academics' ? 'open' : ''}`}>
+            <span className="dropdown-label" onClick={() => toggleDropdown('academics')}>Academics</span>
+            <ul className="dropdown-links">
+              <li><Link to="/academics#subjects" onClick={closeMenu}>Subjects We Offer</Link></li>
+              <li><Link to="/academics#training" onClick={closeMenu}>Training & Character Development</Link></li>
+              <li><Link to="/academics#assessment" onClick={closeMenu}>Examination & Assessment</Link></li>
+            </ul>
+          </li>
+
+          {/* Admissions Dropdown */}
+          <li className={`dropdown-item ${activeDropdown === 'admissions' ? 'open' : ''}`}>
+            <span className="dropdown-label" onClick={() => toggleDropdown('admissions')}>Admissions</span>
+            <ul className="dropdown-links">
+              <li><Link to="/admissions#process" onClick={closeMenu}>Admission Process</Link></li>
+              <li><Link to="/admissions#classes" onClick={closeMenu}>Classes & Age Groups</Link></li>
+              <li><Link to="/facilities" onClick={closeMenu}>Facilities Snapshot</Link></li>
+            </ul>
+          </li>
+
+          {/* Life at VPIS Dropdown */}
+          <li className={`dropdown-item ${activeDropdown === 'life' ? 'open' : ''}`}>
+            <span className="dropdown-label" onClick={() => toggleDropdown('life')}>Life at VPIS</span>
+            <ul className="dropdown-links">
+              <li><Link to="/vpis-pictures" onClick={closeMenu}>Life At VPIS</Link></li>
+            </ul>
+          </li>
+        </ul>
+
+        {/* CTA buttons */}
+        <div className="drawer-actions">
+          <a className="drawer-btn drawer-btn-primary" href="tel:+234 913 255 4783">Call Us</a>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Navbar;

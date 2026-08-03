@@ -1,113 +1,25 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
-import { WhatsAppWidget } from './components/whatsapp-widget/index.jsx';
-
-const Navbar = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  return (
-    <header className="site-header-wrapper">
-      <nav className="navbar-container">
-        <div className="container navbar-inner">
-          <div className="navbar-brand">
-            <img
-              src="/assets/images/logo.png"
-              className="header-logo-img"
-              alt="School Logo"
-            />
-            <div>
-              <span className="brand-title">VIRGO PRAEDICANDA</span>
-              <span className="brand-subtitle">INTERNATIONAL SCHOOL</span>
-            </div>
-          </div>
-
-          <button className="hamburger-btn desktop-hamburger" onClick={() => setMenuOpen(true)} aria-label="Open menu">
-            <span className="bar"></span>
-            <span className="bar"></span>
-            <span className="bar"></span>
-          </button>
-        </div>
-      </nav>
-
-      {/* Mobile/Desktop drawer overlay */}
-      {menuOpen && (
-        <div className="mobile-overlay" onClick={() => setMenuOpen(false)} />
-      )}
-
-      {/* Mobile/Desktop drawer panel sliding from right */}
-      <div className={`slide-drawer ${menuOpen ? "drawer-open" : ""}`}>
-        {/* Header */}
-        <div className="drawer-header">
-          <div className="drawer-brand">
-            <img src="/assets/images/logo.png" className="drawer-logo" alt="logo" />
-            <span className="drawer-brand-name">Virgo Praedicanda Int'l Schools</span>
-          </div>
-          <button className="drawer-close-btn" onClick={() => setMenuOpen(false)} aria-label="Close menu">✕</button>
-        </div>
-
-        {/* Nav links */}
-        <ul className="drawer-links">
-          <li><a href="#testimonials" onClick={() => setMenuOpen(false)}>Testimonials</a></li>
-          <li><a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a></li>
-          <li><a href="/gallery.html" onClick={() => setMenuOpen(false)}>Gallery</a></li>
-          <li><a href="/academics.html" onClick={() => setMenuOpen(false)}>Academics</a></li>
-          
-          {/* About Us Dropdown */}
-          <li className="dropdown-item">
-            <span className="dropdown-label">About Us</span>
-            <ul className="dropdown-links">
-              <li><a href="/about.html" onClick={() => setMenuOpen(false)}>Mission, Vision & Core Values</a></li>
-              <li><a href="/vpis-pictures.html" onClick={() => setMenuOpen(false)}>VPIS in Pictures</a></li>
-              <li><a href="/management.html" onClick={() => setMenuOpen(false)}>Management</a></li>
-            </ul>
-          </li>
-        </ul>
-
-        {/* CTA buttons */}
-        <div className="drawer-actions">
-          <a className="drawer-btn drawer-btn-primary" href="tel:+234 913 255 4783">Call Us</a>
-        </div>
-      </div>
-    </header>
-  );
-};
+import Navbar from './components/Navbar.jsx';
 
 /* ── Hero Carousel — Enhanced with navigation and overlays ─────────────────────── */
 const heroCarouselImages = [
   { 
     src: "/assets/images/primary.jpeg",
-    alt: "Primary school students in classroom",
-    overlay: {
-      title: "Building Global Champions",
-      subtitle: "VIRGO PRAEDICANDA INTERNATIONAL SCHOOL",
-      description: "We develop young men and women with active and creative minds, a sense of compassion, courage, and a strong Christian character, ready to thrive in a rapidly changing world.",
-      isMainSlide: true
-    }
+    alt: "Primary school students in classroom"
   },
   { 
     src: "/assets/images/class photo_3.jpeg",
-    alt: "Class graduation ceremony",
-    overlay: {
-      title: "Celebrating Achievement",
-      subtitle: "Recognizing student success and growth"
-    }
+    alt: "Class graduation ceremony"
   },
   { 
     src: "/assets/images/students.jpeg",
-    alt: "Students engaged in learning activities",
-    overlay: {
-      title: "Interactive Learning Environment", 
-      subtitle: "Fostering creativity and critical thinking"
-    }
+    alt: "Students engaged in learning activities"
   },
   { 
     src: "/assets/images/students_3.jpeg",
-    alt: "Students participating in group activities",
-    overlay: {
-      title: "Collaborative Learning",
-      subtitle: "Developing teamwork and communication skills"
-    }
+    alt: "Students participating in group activities"
   },
 ];
 
@@ -158,19 +70,6 @@ const HeroCarousel = () => {
         {heroCarouselImages.map((img, i) => (
           <div key={i} className={`hero-carousel-slide${i === current ? " active" : ""}`}>
             <img src={img.src} alt={img.alt} />
-            {i === current && img.overlay && (
-              <div className={`hero-carousel-overlay ${img.overlay.isMainSlide ? 'main-slide' : ''}`}>
-                <div className="hero-carousel-overlay-content">
-                  <h3 className="hero-carousel-title">{img.overlay.title}</h3>
-                  {img.overlay.subtitle && (
-                    <p className="hero-carousel-subtitle">{img.overlay.subtitle}</p>
-                  )}
-                  {img.overlay.description && (
-                    <p className="hero-carousel-description">{img.overlay.description}</p>
-                  )}
-                </div>
-              </div>
-            )}
           </div>
         ))}
       </div>
@@ -247,10 +146,9 @@ const QualityEducation = () => (
 const AcademicExcellence = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const academicImages = [
-    "/assets/images/outdoor.jpeg",
-    "/assets/images/kids.jpeg", 
-    "/assets/images/students_2.jpeg",
-    "/assets/images/graduates.jpeg"
+    "/assets/images/school_photo_1.jpg",
+    "/assets/images/school_photo_2.jpeg", 
+    "/assets/images/school_photo_3.jpeg"
   ];
 
   useEffect(() => {
@@ -265,9 +163,9 @@ const AcademicExcellence = () => {
       <div className="container">
         <div className="academic-excellence-layout" data-aos="fade-up">
           <div className="academic-excellence-content">
-            <h2 className="academic-excellence-title">We Train Students To Excel In Academics and Life</h2>
+            <h2 className="academic-excellence-title">Excellence In Acdemics And Life</h2>
             <p className="academic-excellence-text">
-              With <strong>30 years</strong> of experience, Virgo Praedicanda Schools, one of the best 
+              With <strong>8 years</strong> of experience, Virgo Praedicanda Schools, one of the best 
               schools in Port Harcourt, is committed to academic excellence and the 
               nurturing of responsible, courteous, and happy students.
             </p>
@@ -549,15 +447,6 @@ function App() {
       <VPISGallery />
       <SchoolBrand />
       <Footer />
-      <WhatsAppWidget 
-        phoneNumber="2349132554783"
-        companyName="VPIS Admissions"
-        message="Hello! 👋🏼 How can we help you with information about Virgo Praedicanda International School?"
-        replyTimeText="Typically replies within a few hours"
-        sendButtonText="Send Message"
-        inputPlaceHolder="Type your message here..."
-        position="right"
-      />
     </>
   );
 }
