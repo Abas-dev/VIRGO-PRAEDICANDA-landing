@@ -1,6 +1,7 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { WhatsAppWidget } from './components/whatsapp-widget/index.jsx';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -13,6 +14,7 @@ const Navbar = () => {
             <img
               src="/assets/images/logo.png"
               className="header-logo-img"
+              alt="School Logo"
             />
             <div>
               <span className="brand-title">VIRGO PRAEDICANDA</span>
@@ -20,20 +22,7 @@ const Navbar = () => {
             </div>
           </div>
 
-          <ul className="nav-links">
-            <li><a href="/about.html" target="_blank" rel="noreferrer">About</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
-            <li><a href="#contact">Contact Us</a></li>
-            <li>
-              <a href="/gallery.html" target="_blank" rel="noreferrer">Gallery</a>
-            </li>
-          </ul>
-
-          <div className="nav-actions">
-            <a className="btn btn-outline-nav" href="#contact">Visit Portal</a>
-          </div>
-
-          <button className="hamburger-btn" onClick={() => setMenuOpen(true)} aria-label="Open menu">
+          <button className="hamburger-btn desktop-hamburger" onClick={() => setMenuOpen(true)} aria-label="Open menu">
             <span className="bar"></span>
             <span className="bar"></span>
             <span className="bar"></span>
@@ -41,13 +30,13 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Mobile drawer overlay */}
+      {/* Mobile/Desktop drawer overlay */}
       {menuOpen && (
         <div className="mobile-overlay" onClick={() => setMenuOpen(false)} />
       )}
 
-      {/* Mobile drawer panel */}
-      <div className={`mobile-drawer ${menuOpen ? "drawer-open" : ""}`}>
+      {/* Mobile/Desktop drawer panel sliding from right */}
+      <div className={`slide-drawer ${menuOpen ? "drawer-open" : ""}`}>
         {/* Header */}
         <div className="drawer-header">
           <div className="drawer-brand">
@@ -59,59 +48,157 @@ const Navbar = () => {
 
         {/* Nav links */}
         <ul className="drawer-links">
-          <li>
-            <a href="/about.html" target="_blank" rel="noreferrer" onClick={() => setMenuOpen(false)}>About</a>
-          </li>
           <li><a href="#testimonials" onClick={() => setMenuOpen(false)}>Testimonials</a></li>
           <li><a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a></li>
-          <li>
-            <a href="/gallery.html" target="_blank" rel="noreferrer" onClick={() => setMenuOpen(false)}>Gallery</a>
+          <li><a href="/gallery.html" onClick={() => setMenuOpen(false)}>Gallery</a></li>
+          <li><a href="/academics.html" onClick={() => setMenuOpen(false)}>Academics</a></li>
+          
+          {/* About Us Dropdown */}
+          <li className="dropdown-item">
+            <span className="dropdown-label">About Us</span>
+            <ul className="dropdown-links">
+              <li><a href="/about.html" onClick={() => setMenuOpen(false)}>Mission, Vision & Core Values</a></li>
+              <li><a href="/vpis-pictures.html" onClick={() => setMenuOpen(false)}>VPIS in Pictures</a></li>
+              <li><a href="/management.html" onClick={() => setMenuOpen(false)}>Management</a></li>
+            </ul>
           </li>
         </ul>
 
         {/* CTA buttons */}
         <div className="drawer-actions">
           <a className="drawer-btn drawer-btn-primary" href="tel:+234 913 255 4783">Call Us</a>
-          <a className="drawer-btn drawer-btn-outline" href="#contact" onClick={() => setMenuOpen(false)}>Visit portal</a>
         </div>
       </div>
     </header>
   );
 };
 
-/* ── Hero Carousel — 4 images ─────────────────────── */
+/* ── Hero Carousel — Enhanced with navigation and overlays ─────────────────────── */
 const heroCarouselImages = [
-  { src: "/assets/images/primary.jpeg" },
-  { src: "/assets/images/class photo_3.jpeg" },
-  { src: "/assets/images/students.jpeg" },
-  { src: "/assets/images/students_3.jpeg" },
+  { 
+    src: "/assets/images/primary.jpeg",
+    alt: "Primary school students in classroom",
+    overlay: {
+      title: "Building Global Champions",
+      subtitle: "VIRGO PRAEDICANDA INTERNATIONAL SCHOOL",
+      description: "We develop young men and women with active and creative minds, a sense of compassion, courage, and a strong Christian character, ready to thrive in a rapidly changing world.",
+      isMainSlide: true
+    }
+  },
+  { 
+    src: "/assets/images/class photo_3.jpeg",
+    alt: "Class graduation ceremony",
+    overlay: {
+      title: "Celebrating Achievement",
+      subtitle: "Recognizing student success and growth"
+    }
+  },
+  { 
+    src: "/assets/images/students.jpeg",
+    alt: "Students engaged in learning activities",
+    overlay: {
+      title: "Interactive Learning Environment", 
+      subtitle: "Fostering creativity and critical thinking"
+    }
+  },
+  { 
+    src: "/assets/images/students_3.jpeg",
+    alt: "Students participating in group activities",
+    overlay: {
+      title: "Collaborative Learning",
+      subtitle: "Developing teamwork and communication skills"
+    }
+  },
 ];
 
 const HeroCarousel = () => {
   const [current, setCurrent] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const total = heroCarouselImages.length;
 
+  // Auto-scroll functionality
   useEffect(() => {
-    const timer = setInterval(() => setCurrent((p) => (p + 1) % total), 3500);
-    return () => clearInterval(timer);
-  }, [total]);
+    if (!isPaused) {
+      const timer = setInterval(() => setCurrent((p) => (p + 1) % total), 4000);
+      return () => clearInterval(timer);
+    }
+  }, [total, isPaused]);
+
+  // Manual navigation handlers
+  const goToPrevious = () => {
+    setIsPaused(true);
+    setCurrent((p) => (p - 1 + total) % total);
+    // Resume auto-scroll after 5 seconds
+    setTimeout(() => setIsPaused(false), 5000);
+  };
+
+  const goToNext = () => {
+    setIsPaused(true);
+    setCurrent((p) => (p + 1) % total);
+    // Resume auto-scroll after 5 seconds
+    setTimeout(() => setIsPaused(false), 5000);
+  };
+
+  const goToSlide = (index) => {
+    setIsPaused(true);
+    setCurrent(index);
+    // Resume auto-scroll after 5 seconds
+    setTimeout(() => setIsPaused(false), 5000);
+  };
 
   return (
-    <div className="hero-carousel" data-aos="fade-left" data-aos-delay="400">
+    <div 
+      className="hero-carousel" 
+      data-aos="fade-left" 
+      data-aos-delay="400"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
       <div className="hero-carousel-track">
         {heroCarouselImages.map((img, i) => (
           <div key={i} className={`hero-carousel-slide${i === current ? " active" : ""}`}>
-            <img src={img.src} />
+            <img src={img.src} alt={img.alt} />
+            {i === current && img.overlay && (
+              <div className={`hero-carousel-overlay ${img.overlay.isMainSlide ? 'main-slide' : ''}`}>
+                <div className="hero-carousel-overlay-content">
+                  <h3 className="hero-carousel-title">{img.overlay.title}</h3>
+                  {img.overlay.subtitle && (
+                    <p className="hero-carousel-subtitle">{img.overlay.subtitle}</p>
+                  )}
+                  {img.overlay.description && (
+                    <p className="hero-carousel-description">{img.overlay.description}</p>
+                  )}
+                </div>
+              </div>
+            )}
           </div>
         ))}
       </div>
+      
+      {/* Navigation Arrows */}
+      <button 
+        className="hero-carousel-arrow hero-carousel-prev"
+        onClick={goToPrevious}
+        aria-label="Previous slide"
+      >
+        &#10094;
+      </button>
+      <button 
+        className="hero-carousel-arrow hero-carousel-next"
+        onClick={goToNext}
+        aria-label="Next slide"
+      >
+        &#10095;
+      </button>
+
+      {/* Dot indicators */}
       <div className="hero-carousel-dots">
         {heroCarouselImages.map((_, i) => (
           <button
             key={i}
             className={`hero-carousel-dot${i === current ? " active" : ""}`}
-            onClick={() => setCurrent(i)}
-            aria-label={`Slide ${i + 1}`}
+            onClick={() => goToSlide(i)}
+            aria-label={`Go to slide ${i + 1}`}
           />
         ))}
       </div>
@@ -122,18 +209,7 @@ const HeroCarousel = () => {
 const Hero = () => (
   <section className="hero-modern" id="home">
     <div className="container hero-stacked">
-      {/* Text block — title + description */}
-      <div className="hero-stacked-text" data-aos="fade-up">
-        <p className="hero-tagline">Building Global Champions</p>
-        <h1 className="hero-title">VIRGO PRAEDICANDA INTERNATIONAL SCHOOL</h1>
-        <p className="hero-description">
-          We develop young men and women with active and creative minds, a sense
-          of compassion, courage, and a strong Christian character, ready to
-          thrive in a rapidly changing world.
-        </p>
-      </div>
-
-      {/* Carousel — order-2 on mobile */}
+      {/* Carousel — full focus */}
       <div className="hero-stacked-carousel hero-carousel-order" data-aos="fade-up" data-aos-delay="200">
         <HeroCarousel />
       </div>
@@ -141,89 +217,75 @@ const Hero = () => (
   </section>
 );
 
-/* ── About — accordion style matching design image ───────────────────────────────── */
-const vmvItems = [
-  {
-    key: "vision",
-    title: "Our Vision",
-    content:
-      "Our vision is to raise children with strong, personable character equipped with knowledge that can compete globally. We inspire and nurture excellent children for global impact — developing confident, compassionate leaders who are rooted in faith and ready to thrive in a rapidly changing world.",
-    image: "/assets/images/students_2.jpeg",
-  },
-  {
-    key: "mission",
-    title: "Our Mission",
-    content:
-      "Our mission is to develop young men and women with active and creative minds, a sense of compassion for others, and the courage to act on their beliefs and dreams. We are committed to providing a world-class education that integrates academic rigour with Christian values, equipping every learner with the knowledge, skills, and character needed to make a meaningful difference in society.",
-    image: "/assets/images/outdoor.jpeg",
-  },
-  {
-    key: "values",
-    title: "Our Core Values",
-    content:
-      "Everything we do at Virgo Praedicanda is shaped by our core values: Academic Excellence, Christian Character, Faith in God, Love & Compassion, Discipline, and Independence. These principles are woven into every lesson, every interaction, and every opportunity we provide — ensuring that our students grow not just in knowledge, but in wisdom, integrity, and purpose.",
-    image: "/assets/images/kids.jpeg",
-  },
-];
+/* ── Quality Education Section ─────────────────────────── */
+const QualityEducation = () => (
+  <section className="quality-education-section">
+    <div className="container">
+      <div className="quality-education-layout" data-aos="fade-up">
+        <div className="quality-education-content">
+          <h3 className="quality-education-title">Quality Education That Shapes the Future</h3>
+          <p className="quality-education-text">
+            At Virgo Praedicanda Schools, we aim to train every child to be distinct and 
+            confidently face the future. We believe education is not only academics 
+            but in morals, sports, presentations, confidence and every other area of life.
+          </p>
+          <p className="quality-education-text">
+            We use a mix of British and Nigerian curriculum to ensure that all our 
+            students are able to compete successfully both at national and 
+            international standards.
+          </p>
+        </div>
+        <div className="quality-education-image">
+          <img src="/assets/images/excursion/school_photo_66.jpg" alt="Students on excursion" />
+        </div>
+      </div>
+    </div>
+  </section>
+);
 
-const About = () => {
-  const [open, setOpen] = useState("vision");
+/* ── Academic Excellence Section with Auto-Carousel ─────────────────────────── */
+const AcademicExcellence = () => {
+  const [currentImage, setCurrentImage] = useState(0);
+  const academicImages = [
+    "/assets/images/outdoor.jpeg",
+    "/assets/images/kids.jpeg", 
+    "/assets/images/students_2.jpeg",
+    "/assets/images/graduates.jpeg"
+  ];
 
-  const active = vmvItems.find((i) => i.key === open);
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % academicImages.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [academicImages.length]);
 
   return (
-    <section className="section" id="about">
+    <section className="academic-excellence-section">
       <div className="container">
-        <div className="about-layout">
-          {/* Left — heading + summary + accordion */}
-          <div className="about-left" data-aos="fade-right">
-            <h2 className="about-heading">About us</h2>
-            <p className="about-summary">
-              The founding of Virgo Praedicanda International School was
-              motivated by the desire to provide top-notch instruction. Our bond
-              is our word, or what we pledge to our parents. The school is the
-              pinnacle of achievement, teamwork, intelligence, discipline, and
-              devotion.
+        <div className="academic-excellence-layout" data-aos="fade-up">
+          <div className="academic-excellence-content">
+            <h2 className="academic-excellence-title">We Train Students To Excel In Academics and Life</h2>
+            <p className="academic-excellence-text">
+              With <strong>30 years</strong> of experience, Virgo Praedicanda Schools, one of the best 
+              schools in Port Harcourt, is committed to academic excellence and the 
+              nurturing of responsible, courteous, and happy students.
             </p>
-
-            <div className="vmv-accordion">
-              {vmvItems.map((item) => {
-                const isOpen = open === item.key;
-                return (
-                  <div className="vmv-acc-item" key={item.key}>
-                    <button
-                      className={`vmv-acc-header${isOpen ? " active" : ""}`}
-                      onClick={() => setOpen(isOpen ? null : item.key)}
-                      aria-expanded={isOpen}
-                    >
-                      <span>{item.title}</span>
-                      <span className="vmv-acc-icon">{isOpen ? "‹" : "›"}</span>
-                    </button>
-                  </div>
-                );
-              })}
-            </div>
           </div>
-
-          {/* Right — image + active description below */}
-          <div className="about-right" data-aos="fade-left" data-aos-delay="150">
-            <div className="about-acc-img-desktop">
-              <img
-                src={active ? active.image : "/assets/images/students.jpeg"}
-                alt={active ? active.title : "About"}
-              />
+          <div className="academic-excellence-carousel">
+            <div className="academic-carousel-track">
+              {academicImages.map((src, i) => (
+                <div key={i} className={`academic-carousel-slide ${i === currentImage ? 'active' : ''}`}>
+                  <img src={src} alt={`Academic excellence ${i + 1}`} />
+                </div>
+              ))}
             </div>
-            {active && (
-              <p className="about-acc-desc">{active.content}</p>
-            )}
           </div>
         </div>
       </div>
     </section>
   );
 };
-
-
 
 const Testimonials = () => {
   const feedback = [
@@ -280,75 +342,41 @@ const Testimonials = () => {
   );
 };
 
-/* ── Gallery──────────────────────────────── */
-const Gallery = () => {
-  const photos = [
-    { src: "/assets/images/kids_2.jpeg" },
-    { src: "/assets/images/class photo_3.jpeg" },
-    { src: "/assets/images/creative art.jpeg" },
-    { src: "/assets/images/excursion 1.jpeg" },
-    { src: "/assets/images/excursion 2.jpeg" },
-    { src: "/assets/images/excursion 3.jpeg" },
-    { src: "/assets/images/excursion 4.jpeg" },
-    { src: "/assets/images/graduates.jpeg" },
-    { src: "/assets/images/students_3.jpeg" },
-    { src: "/assets/images/students_2.jpeg" },
+/* ── VPIS Gallery - Simple 3x3 Grid ──────────────────────────────── */
+const VPISGallery = () => {
+  const galleryImages = [
+    '/assets/images/farm/school_photo_78.jpg',
+    '/assets/images/art/school_photo_69.jpg',
+    '/assets/images/excursion/excursion 1.jpeg',
+    '/assets/images/interhouse/school_photo_35.jpg',
+    '/assets/images/home_econs/school_photo_45.jpg',
+    '/assets/images/literacy/financial/school_photo_22.jpg',
+    '/assets/images/competitions/science/school_photo_54.jpg',
+    '/assets/images/literacy/book_day/school_photo_17.jpg',
+    '/assets/images/literacy/dental/school_photo_23.jpg'
   ];
-  const [showAll, setShowAll] = useState(false);
-  const [lightbox, setLightbox] = useState(null);
-  const scrollRef = React.useRef(null);
 
   return (
-    <section className="section" id="gallery" style={{ background: "var(--bg-color)" }}>
+    <section className="vpis-gallery-section" id="gallery">
       <div className="container">
         <div className="section-title" data-aos="fade-up">
           <p>Campus Life</p>
-          <h2>Photo Gallery</h2>
+          <h2>VPIS Gallery</h2>
         </div>
 
-        {!showAll ? (
-          <>
-            <div className="gallery-carousel-wrapper">
-              <div className="gallery-carousel" ref={scrollRef}>
-                {photos.map((photo, i) => (
-                  <div key={i} className="gallery-carousel-item" onClick={() => setLightbox(i)}>
-                    <img src={photo.src} />
-                  </div>
-                ))}
-              </div>
+        <div className="gallery-grid-3x3">
+          {galleryImages.map((src, i) => (
+            <div key={i} className="gallery-item-simple" data-aos="fade-up" data-aos-delay={i * 100}>
+              <img src={src} alt={`VPIS Gallery ${i + 1}`} />
             </div>
-            <div style={{ textAlign: "center", marginTop: "2rem" }}>
-              <button className="btn btn-outline" onClick={() => setShowAll(true)}>View All Photos</button>
-            </div>
-          </>
-        ) : (
-          <>
-            <div className="gallery-grid">
-              {photos.map((photo, i) => (
-                <div key={i} className="gallery-item" onClick={() => setLightbox(i)}>
-                  <img src={photo.src} />
-                  <div className="gallery-overlay"><span>View</span></div>
-                </div>
-              ))}
-            </div>
-            <div style={{ textAlign: "center", marginTop: "2rem" }}>
-              <button className="btn btn-outline" onClick={() => setShowAll(false)}>Show Less</button>
-            </div>
-          </>
-        )}
+          ))}
+        </div>
       </div>
-
-      {lightbox !== null && (
-        <div className="lightbox" onClick={() => setLightbox(null)}>
-          <button className="lightbox-close" onClick={() => setLightbox(null)}>&times;</button>
-          <button className="lightbox-arrow lightbox-prev" onClick={(e) => { e.stopPropagation(); setLightbox((lightbox - 1 + photos.length) % photos.length); }}>&#10094;</button>
-          <img src={photos[lightbox].src} onClick={(e) => e.stopPropagation()} />
-          <button className="lightbox-arrow lightbox-next" onClick={(e) => { e.stopPropagation(); setLightbox((lightbox + 1) % photos.length); }}>&#10095;</button>
-        </div>
-      )}
     </section>
   );
 };
+
+
 
 /* ── Contact ────────── */
 const Contact = () => (
@@ -431,6 +459,79 @@ const Footer = () => (
   </footer>
 );
 
+/* ── Recent Competitions Section ─────────────────────────── */
+const RecentCompetitions = () => {
+  const [currentCompetition, setCurrentCompetition] = useState(0);
+  const competitionImages = [
+    "/assets/images/competitions/science/school_photo_54.jpg",
+    "/assets/images/competitions/science/school_photo_55.jpg", 
+    "/assets/images/competitions/bee/school_photo_52.jpg",
+    "/assets/images/competitions/bee/school_photo_53.jpg"
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentCompetition((prev) => (prev + 1) % competitionImages.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [competitionImages.length]);
+
+  const goToPrevCompetition = () => {
+    setCurrentCompetition((prev) => (prev - 1 + competitionImages.length) % competitionImages.length);
+  };
+
+  const goToNextCompetition = () => {
+    setCurrentCompetition((prev) => (prev + 1) % competitionImages.length);
+  };
+
+  return (
+    <section className="recent-competitions-section" id="competitions">
+      <div className="container">
+        <div className="section-title" data-aos="fade-up">
+          <h2>Recent Competitions</h2>
+          <p>Celebrating our students' achievements and excellence</p>
+        </div>
+        
+        <div className="competitions-carousel" data-aos="fade-up" data-aos-delay="200">
+          <div className="competitions-track">
+            {competitionImages.map((src, i) => (
+              <div key={i} className={`competition-slide ${i === currentCompetition ? 'active' : ''}`}>
+                <img src={src} alt={`Competition ${i + 1}`} />
+              </div>
+            ))}
+          </div>
+          
+          <button 
+            className="competition-arrow competition-prev"
+            onClick={goToPrevCompetition}
+            aria-label="Previous competition"
+          >
+            &#10094;
+          </button>
+          <button 
+            className="competition-arrow competition-next"
+            onClick={goToNextCompetition}
+            aria-label="Next competition"
+          >
+            &#10095;
+          </button>
+
+          <div className="competition-dots">
+            {competitionImages.map((_, i) => (
+              <button
+                key={i}
+                className={`competition-dot ${i === currentCompetition ? 'active' : ''}`}
+                onClick={() => setCurrentCompetition(i)}
+                aria-label={`Go to competition ${i + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 function App() {
   useEffect(() => {
     AOS.init({ duration: 800, once: true, offset: 100 });
@@ -440,11 +541,23 @@ function App() {
     <>
       <Navbar />
       <Hero />
-      <About />
+      <AcademicExcellence />
+      <QualityEducation />
+      <RecentCompetitions />
       <Testimonials />
       <Contact />
+      <VPISGallery />
       <SchoolBrand />
       <Footer />
+      <WhatsAppWidget 
+        phoneNumber="2349132554783"
+        companyName="VPIS Admissions"
+        message="Hello! 👋🏼 How can we help you with information about Virgo Praedicanda International School?"
+        replyTimeText="Typically replies within a few hours"
+        sendButtonText="Send Message"
+        inputPlaceHolder="Type your message here..."
+        position="right"
+      />
     </>
   );
 }

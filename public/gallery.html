@@ -10,49 +10,302 @@
     <style>
       :root {
         --primary: #1657b8;
+        --primary-dark: #0f4a99;
         --bg: #f2f8ff;
         --text: #102a43;
         --muted: #516e89;
+        --border: rgba(14, 164, 233, 0.15);
       }
       * { box-sizing: border-box; margin: 0; padding: 0; }
       body { font-family: "Inter", sans-serif; background: var(--bg); color: var(--text); }
 
-      /* ── Top bar ── */
-      .topbar {
+      /* ── Sticky Nav ── */
+      .site-nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(255,255,255,0.97);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0.75rem 1.5rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        flex-wrap: wrap;
         gap: 1rem;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 2rem 1.5rem 1.5rem;
       }
-      .topbar-label {
-        color: var(--primary);
-        text-transform: uppercase;
-        letter-spacing: 0.14em;
-        font-size: 0.85rem;
-        font-weight: 700;
-        margin-bottom: 0.3rem;
-      }
-      .topbar h1 {
-        font-family: "Cormorant Garamond", serif;
-        font-size: 2.8rem;
-        font-weight: 700;
-        line-height: 1.1;
-      }
-      .topbar a {
-        color: var(--primary);
+      .nav-brand {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
         text-decoration: none;
+      }
+      .nav-brand img {
+        height: 42px;
+        width: auto;
+        object-fit: contain;
+      }
+      .nav-brand-text {
+        display: flex;
+        flex-direction: column;
+      }
+      .nav-brand-title {
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: var(--text);
+        letter-spacing: 0.03em;
+        line-height: 1.2;
+      }
+      .nav-brand-sub {
+        font-size: 0.7rem;
+        color: var(--primary);
+        font-weight: 600;
+        letter-spacing: 0.04em;
+      }
+
+      /* ── Hamburger Button ── */
+      .hamburger-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 24px;
+        height: 18px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 101;
+      }
+      .hamburger-btn .bar {
+        width: 100%;
+        height: 2px;
+        background: var(--primary);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+      }
+      .hamburger-btn:hover .bar {
+        background: var(--primary-dark);
+      }
+
+      /* ── Mobile Overlay ── */
+      .mobile-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 99;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      .mobile-overlay.active {
+        display: block;
+        opacity: 1;
+      }
+
+      /* ── Slide Drawer ── */
+      .slide-drawer {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 320px;
+        height: 100vh;
+        background: white;
+        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+        z-index: 100;
+        transition: right 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+      }
+      .slide-drawer.drawer-open {
+        right: 0;
+      }
+
+      /* ── Drawer Header ── */
+      .drawer-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem;
+        border-bottom: 1px solid var(--border);
+        flex-shrink: 0;
+      }
+      .drawer-brand {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .drawer-logo {
+        width: 32px;
+        height: 32px;
+        object-fit: contain;
+      }
+      .drawer-brand-name {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--text);
+        line-height: 1.2;
+      }
+      .drawer-close-btn {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--muted);
+        cursor: pointer;
+        padding: 0;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        transition: background-color 0.2s ease, color 0.2s ease;
+      }
+      .drawer-close-btn:hover {
+        background: var(--border);
+        color: var(--text);
+      }
+
+      /* ── Drawer Links ── */
+      .drawer-links {
+        list-style: none;
+        padding: 1rem 0;
+        flex-grow: 1;
+      }
+      .drawer-links > li {
+        border-bottom: 1px solid var(--border);
+      }
+      .drawer-links > li:last-child {
+        border-bottom: none;
+      }
+      .drawer-links a {
+        display: block;
+        padding: 1rem 1.5rem;
+        text-decoration: none;
+        color: var(--text);
+        font-weight: 500;
+        font-size: 1rem;
+        transition: background-color 0.2s ease, color 0.2s ease;
+        border-left: 3px solid transparent;
+      }
+      .drawer-links a:hover {
+        background: rgba(22, 87, 184, 0.05);
+        color: var(--primary);
+        border-left-color: var(--primary);
+      }
+
+      /* ── Dropdown ── */
+      .dropdown-item {
+        position: relative;
+      }
+      .dropdown-label {
+        display: block;
+        padding: 1rem 1.5rem;
+        font-weight: 500;
+        color: var(--text);
+        cursor: pointer;
+        transition: background-color 0.2s ease, color 0.2s ease;
+        border-left: 3px solid transparent;
+        position: relative;
+      }
+      .dropdown-label:hover {
+        background: rgba(22, 87, 184, 0.05);
+        color: var(--primary);
+        border-left-color: var(--primary);
+      }
+      .dropdown-label::after {
+        content: '›';
+        position: absolute;
+        right: 1.5rem;
+        transition: transform 0.2s ease;
+      }
+      .dropdown-item.open .dropdown-label::after {
+        transform: rotate(90deg);
+      }
+      .dropdown-links {
+        list-style: none;
+        background: rgba(22, 87, 184, 0.02);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+      .dropdown-item.open .dropdown-links {
+        max-height: 200px;
+      }
+      .dropdown-links a {
+        padding: 0.75rem 1.5rem 0.75rem 2.5rem;
+        font-size: 0.95rem;
+        color: var(--muted);
+      }
+      .dropdown-links a:hover {
+        color: var(--primary);
+        background: rgba(22, 87, 184, 0.08);
+      }
+
+      /* ── Drawer Actions ── */
+      .drawer-actions {
+        padding: 1.5rem;
+        border-top: 1px solid var(--border);
+        flex-shrink: 0;
+      }
+      .drawer-btn {
+        display: block;
+        width: 100%;
+        padding: 0.75rem;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 8px;
         font-weight: 600;
         font-size: 0.95rem;
-        border: 1.5px solid var(--primary);
-        padding: 0.5rem 1.1rem;
-        border-radius: 8px;
-        transition: background 0.2s, color 0.2s;
+        transition: all 0.2s ease;
       }
-      .topbar a:hover { background: var(--primary); color: white; }
+      .drawer-btn-primary {
+        background: var(--primary);
+        color: white;
+      }
+      .drawer-btn-primary:hover {
+        background: var(--primary-dark);
+        transform: translateY(-1px);
+      }
+
+      /* ── Hero ── */
+      .gallery-hero {
+        background: #fafafa;
+        border-bottom: 1px solid rgba(14, 164, 233, 0.12);
+        padding: 3.5rem 1.5rem 3rem;
+        text-align: center;
+      }
+      .gallery-hero .hero-label {
+        font-size: 0.78rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: var(--primary);
+        margin-bottom: 0.75rem;
+        display: inline-block;
+      }
+      .gallery-hero h1 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(1.9rem, 5vw, 3.2rem);
+        font-weight: 700;
+        line-height: 1.15;
+        color: var(--text);
+        margin-bottom: 0.6rem;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .gallery-hero .hero-tagline {
+        font-size: 1rem;
+        color: var(--muted);
+        font-style: italic;
+      }
 
       /* ── Grid ── */
       .gallery-container {
@@ -164,22 +417,78 @@
         .gallery-grid { gap: 0.45rem; }
       }
       @media (max-width: 480px) {
-        .topbar h1 { font-size: 1.5rem; }
-        .gallery-grid { grid-template-columns: 1fr; }
-        .lb-arrow { display: none; }
-        .lb-close { font-size: 2rem; top: 0.75rem; right: 1rem; }
-        .lightbox img { max-width: 98vw; max-height: 82vh; }
+        .slide-drawer {
+          width: 280px;
+        }
+        .gallery-hero h1 { font-size: 1.6rem; }
+        .nav-brand-title { font-size: 0.72rem; }
       }
     </style>
   </head>
   <body>
 
-    <div class="topbar">
-      <div>
-        <div class="topbar-label">School Gallery</div>
-        <h1>Campus Moments</h1>
+    <!-- Nav -->
+    <nav class="site-nav">
+      <div class="nav-inner">
+        <a class="nav-brand" href="/">
+          <img src="/assets/images/logo.png" alt="VPIS Logo" />
+          <div class="nav-brand-text">
+            <span class="nav-brand-title">VIRGO PRAEDICANDA</span>
+            <span class="nav-brand-sub">INTERNATIONAL SCHOOL</span>
+          </div>
+        </a>
+        
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Open menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
       </div>
-      <a href="/">Back to Home</a>
+    </nav>
+
+    <!-- Mobile/Desktop drawer overlay -->
+    <div class="mobile-overlay" id="mobile-overlay"></div>
+
+    <!-- Mobile/Desktop drawer panel sliding from right -->
+    <div class="slide-drawer" id="slide-drawer">
+      <!-- Header -->
+      <div class="drawer-header">
+        <div class="drawer-brand">
+          <img src="/assets/images/logo.png" class="drawer-logo" alt="logo" />
+          <span class="drawer-brand-name">Virgo Praedicanda Int'l Schools</span>
+        </div>
+        <button class="drawer-close-btn" id="drawer-close-btn" aria-label="Close menu">✕</button>
+      </div>
+
+      <!-- Nav links -->
+      <ul class="drawer-links">
+        <li><a href="/#testimonials">Testimonials</a></li>
+        <li><a href="/#contact">Contact</a></li>
+        <li><a href="/gallery.html">Gallery</a></li>
+        <li><a href="/academics.html">Academics</a></li>
+        
+        <!-- About Us Dropdown -->
+        <li class="dropdown-item">
+          <span class="dropdown-label">About Us</span>
+          <ul class="dropdown-links">
+            <li><a href="/about.html">Mission, Vision & Core Values</a></li>
+            <li><a href="/vpis-pictures.html">VPIS in Pictures</a></li>
+            <li><a href="/management.html">Management</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- CTA buttons -->
+      <div class="drawer-actions">
+        <a class="drawer-btn drawer-btn-primary" href="tel:+234 913 255 4783">Call Us</a>
+      </div>
+    </div>
+
+    <!-- Hero -->
+    <div class="gallery-hero">
+      <div class="hero-label">School Gallery</div>
+      <h1>Campus Moments</h1>
+      <p class="hero-tagline">Capturing the essence of learning, growth, and achievement.</p>
     </div>
 
     <div class="gallery-container">
@@ -244,6 +553,50 @@
         if (e.key === "ArrowRight") { current = (current + 1) % imgs.length; render(); }
         if (e.key === "ArrowLeft")  { current = (current - 1 + imgs.length) % imgs.length; render(); }
         if (e.key === "Escape") closeLb();
+      });
+    </script>
+
+    <!-- Hamburger Menu JavaScript -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileOverlay = document.getElementById('mobile-overlay');
+        const slideDrawer = document.getElementById('slide-drawer');
+        const drawerCloseBtn = document.getElementById('drawer-close-btn');
+        const dropdownItems = document.querySelectorAll('.dropdown-item');
+
+        function openMenu() {
+          mobileOverlay.classList.add('active');
+          slideDrawer.classList.add('drawer-open');
+          document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+          mobileOverlay.classList.remove('active');
+          slideDrawer.classList.remove('drawer-open');
+          document.body.style.overflow = '';
+        }
+
+        // Event listeners
+        hamburgerBtn.addEventListener('click', openMenu);
+        drawerCloseBtn.addEventListener('click', closeMenu);
+        mobileOverlay.addEventListener('click', closeMenu);
+
+        // Handle dropdown toggles
+        dropdownItems.forEach(item => {
+          const label = item.querySelector('.dropdown-label');
+          if (label) {
+            label.addEventListener('click', function(e) {
+              e.preventDefault();
+              item.classList.toggle('open');
+            });
+          }
+        });
+
+        // Close menu when clicking on links (except dropdown labels)
+        document.querySelectorAll('.drawer-links a:not(.dropdown-label)').forEach(link => {
+          link.addEventListener('click', closeMenu);
+        });
       });
     </script>
 

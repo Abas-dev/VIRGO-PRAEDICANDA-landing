@@ -1,0 +1,66 @@
+.root {
+    background: linear-gradient(135deg, #128C7E 0%, #25D366 100%);
+    display: flex;
+    padding: 16px;
+    position: relative;
+}
+
+.close_btn {
+    color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    font-size: 1.4em;
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    transition: all 0.2s ease;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close_btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.logo {
+    align-items: center;
+    align-self: center;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 50%;
+    color: #128C7E;
+    display: flex;
+    font-size: 1.8em;
+    height: 45px;
+    margin: 0;
+    justify-content: center;
+    width: 45px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.texts {
+    color: rgb(255, 255, 255);
+    margin-left: 12px;
+    margin-right: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.texts_h1 {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.texts_span {
+    font-size: 12px;
+    line-height: 16px;
+    opacity: 0.9;
+    font-weight: 400;
+}

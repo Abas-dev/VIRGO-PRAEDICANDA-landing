@@ -1,0 +1,947 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VPIS in Pictures | Virgo Praedicanda International School</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --primary: #1657b8;
+        --primary-dark: #0f4a99;
+        --accent: #0ea5e9;
+        --gold: #f59e0b;
+        --bg: #fafafa;
+        --surface: #ffffff;
+        --text: #102a43;
+        --muted: #516e89;
+        --border: rgba(14, 164, 233, 0.15);
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        font-size: 1rem;
+        line-height: 1.75;
+      }
+
+      /* ── Sticky Nav ── */
+      .site-nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(255,255,255,0.97);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0.75rem 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+      }
+      .nav-brand {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        text-decoration: none;
+      }
+      .nav-brand img {
+        height: 42px;
+        width: auto;
+        object-fit: contain;
+      }
+      .nav-brand-text {
+        display: flex;
+        flex-direction: column;
+      }
+      .nav-brand-title {
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: var(--text);
+        letter-spacing: 0.03em;
+        line-height: 1.2;
+      }
+      .nav-brand-sub {
+        font-size: 0.7rem;
+        color: var(--primary);
+        font-weight: 600;
+        letter-spacing: 0.04em;
+      }
+
+      /* ── Hamburger Button ── */
+      .hamburger-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 24px;
+        height: 18px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 101;
+      }
+      .hamburger-btn .bar {
+        width: 100%;
+        height: 2px;
+        background: var(--primary);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+      }
+      .hamburger-btn:hover .bar {
+        background: var(--primary-dark);
+      }
+
+      /* ── Mobile Overlay ── */
+      .mobile-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 99;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      .mobile-overlay.active {
+        display: block;
+        opacity: 1;
+      }
+
+      /* ── Slide Drawer ── */
+      .slide-drawer {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 320px;
+        height: 100vh;
+        background: white;
+        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+        z-index: 100;
+        transition: right 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+      }
+      .slide-drawer.drawer-open {
+        right: 0;
+      }
+
+      /* ── Drawer Header ── */
+      .drawer-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem;
+        border-bottom: 1px solid var(--border);
+        flex-shrink: 0;
+      }
+      .drawer-brand {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .drawer-logo {
+        width: 32px;
+        height: 32px;
+        object-fit: contain;
+      }
+      .drawer-brand-name {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--text);
+        line-height: 1.2;
+      }
+      .drawer-close-btn {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--muted);
+        cursor: pointer;
+        padding: 0;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        transition: background-color 0.2s ease, color 0.2s ease;
+      }
+      .drawer-close-btn:hover {
+        background: var(--border);
+        color: var(--text);
+      }
+
+      /* ── Drawer Links ── */
+      .drawer-links {
+        list-style: none;
+        padding: 1rem 0;
+        flex-grow: 1;
+      }
+      .drawer-links > li {
+        border-bottom: 1px solid var(--border);
+      }
+      .drawer-links > li:last-child {
+        border-bottom: none;
+      }
+      .drawer-links a {
+        display: block;
+        padding: 1rem 1.5rem;
+        text-decoration: none;
+        color: var(--text);
+        font-weight: 500;
+        font-size: 1rem;
+        transition: background-color 0.2s ease, color 0.2s ease;
+        border-left: 3px solid transparent;
+      }
+      .drawer-links a:hover {
+        background: rgba(22, 87, 184, 0.05);
+        color: var(--primary);
+        border-left-color: var(--primary);
+      }
+
+      /* ── Dropdown ── */
+      .dropdown-item {
+        position: relative;
+      }
+      .dropdown-label {
+        display: block;
+        padding: 1rem 1.5rem;
+        font-weight: 500;
+        color: var(--text);
+        cursor: pointer;
+        transition: background-color 0.2s ease, color 0.2s ease;
+        border-left: 3px solid transparent;
+        position: relative;
+      }
+      .dropdown-label:hover {
+        background: rgba(22, 87, 184, 0.05);
+        color: var(--primary);
+        border-left-color: var(--primary);
+      }
+      .dropdown-label::after {
+        content: '›';
+        position: absolute;
+        right: 1.5rem;
+        transition: transform 0.2s ease;
+      }
+      .dropdown-item.open .dropdown-label::after {
+        transform: rotate(90deg);
+      }
+      .dropdown-links {
+        list-style: none;
+        background: rgba(22, 87, 184, 0.02);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+      .dropdown-item.open .dropdown-links {
+        max-height: 200px;
+      }
+      .dropdown-links a {
+        padding: 0.75rem 1.5rem 0.75rem 2.5rem;
+        font-size: 0.95rem;
+        color: var(--muted);
+      }
+      .dropdown-links a:hover {
+        color: var(--primary);
+        background: rgba(22, 87, 184, 0.08);
+      }
+
+      /* ── Drawer Actions ── */
+      .drawer-actions {
+        padding: 1.5rem;
+        border-top: 1px solid var(--border);
+        flex-shrink: 0;
+      }
+      .drawer-btn {
+        display: block;
+        width: 100%;
+        padding: 0.75rem;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        transition: all 0.2s ease;
+      }
+      .drawer-btn-primary {
+        background: var(--primary);
+        color: white;
+      }
+      .drawer-btn-primary:hover {
+        background: var(--primary-dark);
+        transform: translateY(-1px);
+      }
+
+      /* ── Hero ── */
+      .about-hero {
+        background: #fafafa;
+        border-bottom: 1px solid rgba(14, 164, 233, 0.12);
+        padding: 3.5rem 1.5rem 3rem;
+        text-align: center;
+      }
+      .hero-label {
+        font-size: 0.78rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: var(--primary);
+        margin-bottom: 0.75rem;
+        display: inline-block;
+      }
+      .hero-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(1.9rem, 5vw, 3.2rem);
+        font-weight: 700;
+        line-height: 1.15;
+        color: var(--text);
+        margin-bottom: 0.6rem;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero-tagline {
+        font-size: 1rem;
+        color: var(--muted);
+        font-style: italic;
+      }
+        
+        .gallery-folders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .gallery-folder {
+            cursor: pointer;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 18px rgba(16, 42, 67, 0.12);
+            transition: transform 0.3s ease;
+            background: white;
+        }
+        
+        .gallery-folder:hover {
+            transform: translateY(-8px);
+        }
+        
+        .folder-image-container {
+            position: relative;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+        }
+        
+        .folder-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-folder:hover .folder-image-container img {
+            transform: scale(1.05);
+        }
+        
+        .folder-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            display: flex;
+            align-items: end;
+            justify-content: center;
+            padding: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-folder:hover .folder-overlay {
+            opacity: 1;
+        }
+        
+        .folder-description {
+            color: white;
+            font-weight: 600;
+            text-align: center;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        
+        .folder-detail-view {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: none;
+        }
+        
+        .folder-detail-view.active {
+            display: block;
+        }
+        
+        .folder-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #1657b8;
+        }
+        
+        .folder-header h3 {
+            font-size: 2rem;
+            color: #1657b8;
+            margin: 0;
+        }
+        
+        .close-folder-btn {
+            background: #1657b8;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+        
+        .close-folder-btn:hover {
+            background: #0f4a99;
+        }
+        
+        .folder-images-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .folder-image {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            aspect-ratio: 4/3;
+        }
+        
+        .folder-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .folder-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .image-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.25s ease;
+        }
+        
+        .folder-image:hover .image-overlay {
+            opacity: 1;
+        }
+        
+        .image-overlay span {
+            color: white;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .lightbox.active {
+            display: flex;
+        }
+        
+        .lightbox img {
+            max-width: 85vw;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 6px;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2.5rem;
+            cursor: pointer;
+            line-height: 1;
+        }
+        
+        .lightbox-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: none;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s ease;
+        }
+        
+        .lightbox-arrow:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .lightbox-prev {
+            left: 2rem;
+        }
+        
+        .lightbox-next {
+            right: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .gallery-folders-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .folder-images-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .folder-header h3 {
+                font-size: 1.5rem;
+            }
+            
+            .lightbox-prev { left: 0.5rem; }
+            .lightbox-next { right: 0.5rem; }
+            
+            .lightbox img {
+                max-width: 96vw;
+                max-height: 80vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Nav -->
+    <nav class="site-nav">
+      <div class="nav-inner">
+        <a class="nav-brand" href="/">
+          <img src="/assets/images/logo.png" alt="VPIS Logo" />
+          <div class="nav-brand-text">
+            <span class="nav-brand-title">VIRGO PRAEDICANDA</span>
+            <span class="nav-brand-sub">INTERNATIONAL SCHOOL</span>
+          </div>
+        </a>
+        
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Open menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile/Desktop drawer overlay -->
+    <div class="mobile-overlay" id="mobile-overlay"></div>
+
+    <!-- Mobile/Desktop drawer panel sliding from right -->
+    <div class="slide-drawer" id="slide-drawer">
+      <!-- Header -->
+      <div class="drawer-header">
+        <div class="drawer-brand">
+          <img src="/assets/images/logo.png" class="drawer-logo" alt="logo" />
+          <span class="drawer-brand-name">Virgo Praedicanda Int'l Schools</span>
+        </div>
+        <button class="drawer-close-btn" id="drawer-close-btn" aria-label="Close menu">✕</button>
+      </div>
+
+      <!-- Nav links -->
+      <ul class="drawer-links">
+        <li><a href="/#testimonials">Testimonials</a></li>
+        <li><a href="/#contact">Contact</a></li>
+        <li><a href="/gallery.html">Gallery</a></li>
+        <li><a href="/academics.html">Academics</a></li>
+        
+        <!-- About Us Dropdown -->
+        <li class="dropdown-item">
+          <span class="dropdown-label">About Us</span>
+          <ul class="dropdown-links">
+            <li><a href="/about.html">Mission, Vision & Core Values</a></li>
+            <li><a href="/vpis-pictures.html">VPIS in Pictures</a></li>
+            <li><a href="/management.html">Management</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- CTA buttons -->
+      <div class="drawer-actions">
+        <a class="drawer-btn drawer-btn-primary" href="tel:+234 913 255 4783">Call Us</a>
+      </div>
+    </div>
+
+    <!-- Hero -->
+    <div class="about-hero">
+      <div class="hero-label">School Gallery</div>
+      <h1 class="hero-title">VPIS in Pictures</h1>
+      <p class="hero-tagline">Capturing moments of learning, growth, and excellence.</p>
+    </div>
+    
+    <div class="content">
+        <div class="container">
+            <a href="/" class="back-link">← Back to Home</a>
+            
+            <div id="gallery-folders" class="gallery-folders-grid">
+                <!-- Gallery folders will be populated by JavaScript -->
+            </div>
+            
+            <div id="folder-detail" class="folder-detail-view">
+                <div class="folder-header">
+                    <h3 id="folder-title">Folder Title</h3>
+                    <button class="close-folder-btn" onclick="closeFolder()">✕</button>
+                </div>
+                <div id="folder-images" class="folder-images-grid">
+                    <!-- Folder images will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <button class="lightbox-arrow lightbox-prev" onclick="prevImage(event)">&#10094;</button>
+        <img id="lightbox-img" src="" alt="" onclick="event.stopPropagation()">
+        <button class="lightbox-arrow lightbox-next" onclick="nextImage(event)">&#10095;</button>
+    </div>
+
+    <script>
+        const galleryFolders = [
+            {
+                id: 'farm',
+                name: 'Day on the Farm',
+                description: 'DAY ON THE FARM',
+                faceImage: '/assets/images/farm/school_photo_78.jpg',
+                images: [
+                    '/assets/images/farm/school_photo_78.jpg',
+                    '/assets/images/farm/school_photo_79.jpg',
+                    '/assets/images/farm/school_photo_80.jpg',
+                    '/assets/images/farm/school_photo_81.jpg',
+                    '/assets/images/farm/school_photo_82.jpg',
+                    '/assets/images/farm/school_photo_83.jpg',
+                    '/assets/images/farm/school_photo_84.jpg',
+                    '/assets/images/farm/school_photo_85.jpg',
+                    '/assets/images/farm/school_photo_86.jpg',
+                    '/assets/images/farm/school_photo_87.jpg'
+                ]
+            },
+            {
+                id: 'art',
+                name: 'Art Exhibition',
+                description: 'CHILDREN\'S ART EXHIBITION',
+                faceImage: '/assets/images/art/creative art.jpeg',
+                images: [
+                    '/assets/images/art/creative art.jpeg',
+                    '/assets/images/art/school_photo_69.jpg',
+                    '/assets/images/art/school_photo_70.jpg',
+                    '/assets/images/art/school_photo_71.jpg',
+                    '/assets/images/art/school_photo_72.jpg',
+                    '/assets/images/art/school_photo_73.jpg',
+                    '/assets/images/art/school_photo_74.jpg',
+                    '/assets/images/art/school_photo_75.jpg',
+                    '/assets/images/art/school_photo_76.jpg',
+                    '/assets/images/art/school_photo_77.jpg'
+                ]
+            },
+            {
+                id: 'excursion',
+                name: 'Excursions',
+                description: 'EXCURSION TO DIFFERENTIAL ALUMINIUM ROOFING AND WINDOWS',
+                faceImage: '/assets/images/excursion/excursion 1.jpeg',
+                images: [
+                    '/assets/images/excursion/excursion 1.jpeg',
+                    '/assets/images/excursion/excursion 2.jpeg',
+                    '/assets/images/excursion/excursion 3.jpeg',
+                    '/assets/images/excursion/excursion 4.jpeg',
+                    '/assets/images/excursion/school_photo_56.jpg',
+                    '/assets/images/excursion/school_photo_57.jpg',
+                    '/assets/images/excursion/school_photo_58.jpg',
+                    '/assets/images/excursion/school_photo_63.jpg',
+                    '/assets/images/excursion/school_photo_64.jpg',
+                    '/assets/images/excursion/school_photo_65.jpg',
+                    '/assets/images/excursion/school_photo_66.jpg',
+                    '/assets/images/excursion/school_photo_67.jpg',
+                    '/assets/images/excursion/school_photo_68.jpg'
+                ]
+            },
+            {
+                id: 'interhouse',
+                name: 'Sports',
+                description: 'INTERHOUSE SPORT',
+                faceImage: '/assets/images/interhouse/school_photo_35.jpg',
+                images: [
+                    '/assets/images/interhouse/school_photo_35.jpg',
+                    '/assets/images/interhouse/school_photo_36.jpg',
+                    '/assets/images/interhouse/school_photo_37.jpg',
+                    '/assets/images/interhouse/school_photo_38.jpg',
+                    '/assets/images/interhouse/school_photo_39.jpg',
+                    '/assets/images/interhouse/school_photo_40.jpg',
+                    '/assets/images/interhouse/school_photo_41.jpg',
+                    '/assets/images/interhouse/school_photo_42.jpg',
+                    '/assets/images/interhouse/school_photo_43.jpg',
+                    '/assets/images/interhouse/school_photo_44.jpg'
+                ]
+            },
+            {
+                id: 'home_econs',
+                name: 'Home Economics',
+                description: 'HOME ECONOMICS PRACTICAL DAY',
+                faceImage: '/assets/images/home_econs/school_photo_45.jpg',
+                images: [
+                    '/assets/images/home_econs/school_photo_45.jpg',
+                    '/assets/images/home_econs/school_photo_46.jpg',
+                    '/assets/images/home_econs/school_photo_47.jpg',
+                    '/assets/images/home_econs/school_photo_48.jpg',
+                    '/assets/images/home_econs/school_photo_49.jpg',
+                    '/assets/images/home_econs/school_photo_50.jpg',
+                    '/assets/images/home_econs/school_photo_51.jpg'
+                ]
+            },
+            {
+                id: 'financial',
+                name: 'Financial Literacy',
+                description: 'FINANCIAL LITERACY PROGRAMME – VPIS 2026',
+                faceImage: '/assets/images/literacy/financial/school_photo_22.jpg',
+                images: [
+                    '/assets/images/literacy/financial/school_photo_22.jpg',
+                    '/assets/images/literacy/financial/school_photo_88.jpg',
+                    '/assets/images/literacy/financial/school_photo_89.jpg',
+                    '/assets/images/literacy/financial/school_photo_90.jpg',
+                    '/assets/images/literacy/financial/school_photo_91.jpg',
+                    '/assets/images/literacy/financial/school_photo_92.jpg',
+                    '/assets/images/literacy/financial/school_photo_93.jpg'
+                ]
+            },
+            {
+                id: 'competitions_science',
+                name: 'Science Competition',
+                description: 'CELEBRATING EXCELLENCE IN SCIENCE',
+                faceImage: '/assets/images/competitions/science/school_photo_54.jpg',
+                images: [
+                    '/assets/images/competitions/science/school_photo_54.jpg',
+                    '/assets/images/competitions/science/school_photo_55.jpg'
+                ]
+            },
+            {
+                id: 'competitions_bee',
+                name: 'Spelling Bee',
+                description: 'HEARTFELT CONGRATULATIONS',
+                faceImage: '/assets/images/competitions/bee/school_photo_52.jpg',
+                images: [
+                    '/assets/images/competitions/bee/school_photo_52.jpg',
+                    '/assets/images/competitions/bee/school_photo_53.jpg',
+                    '/assets/images/competitions/bee/school_photo_59.jpg',
+                    '/assets/images/competitions/bee/school_photo_60.jpg',
+                    '/assets/images/competitions/bee/school_photo_61.jpg',
+                    '/assets/images/competitions/bee/school_photo_62.jpg'
+                ]
+            },
+            {
+                id: 'literacy_book',
+                name: 'Book Day',
+                description: 'LITERARY AND BOOK DAY REVIEW',
+                faceImage: '/assets/images/literacy/book_day/school_photo_17.jpg',
+                images: [
+                    '/assets/images/literacy/book_day/school_photo_17.jpg',
+                    '/assets/images/literacy/book_day/school_photo_18.jpg',
+                    '/assets/images/literacy/book_day/school_photo_19.jpg',
+                    '/assets/images/literacy/book_day/school_photo_20.jpg',
+                    '/assets/images/literacy/book_day/school_photo_21.jpg'
+                ]
+            },
+            {
+                id: 'literacy_dental',
+                name: 'Dental Care',
+                description: 'DENTAL CARE DAY',
+                faceImage: '/assets/images/literacy/dental/school_photo_23.jpg',
+                images: [
+                    '/assets/images/literacy/dental/school_photo_23.jpg',
+                    '/assets/images/literacy/dental/school_photo_24.jpg',
+                    '/assets/images/literacy/dental/school_photo_25.jpg',
+                    '/assets/images/literacy/dental/school_photo_26.jpg',
+                    '/assets/images/literacy/dental/school_photo_27.jpg',
+                    '/assets/images/literacy/dental/school_photo_28.jpg'
+                ]
+            }
+        ];
+
+        let currentFolder = null;
+        let currentImageIndex = 0;
+
+        function initializeGallery() {
+            const foldersContainer = document.getElementById('gallery-folders');
+            foldersContainer.innerHTML = '';
+            
+            galleryFolders.forEach((folder, index) => {
+                const folderElement = document.createElement('div');
+                folderElement.className = 'gallery-folder';
+                folderElement.onclick = () => openFolder(folder);
+                
+                folderElement.innerHTML = `
+                    <div class="folder-image-container">
+                        <img src="${folder.faceImage}" alt="${folder.name}">
+                        <div class="folder-overlay">
+                            <div class="folder-description">${folder.description}</div>
+                        </div>
+                    </div>
+                `;
+                
+                foldersContainer.appendChild(folderElement);
+            });
+        }
+
+        function openFolder(folder) {
+            currentFolder = folder;
+            document.getElementById('gallery-folders').style.display = 'none';
+            document.getElementById('folder-detail').classList.add('active');
+            document.getElementById('folder-title').textContent = folder.name;
+            
+            const imagesContainer = document.getElementById('folder-images');
+            imagesContainer.innerHTML = '';
+            
+            folder.images.forEach((src, index) => {
+                const imageElement = document.createElement('div');
+                imageElement.className = 'folder-image';
+                imageElement.onclick = () => openLightbox(index);
+                
+                imageElement.innerHTML = `
+                    <img src="${src}" alt="${folder.name} ${index + 1}">
+                    <div class="image-overlay"><span>View</span></div>
+                `;
+                
+                imagesContainer.appendChild(imageElement);
+            });
+        }
+
+        function closeFolder() {
+            document.getElementById('gallery-folders').style.display = 'grid';
+            document.getElementById('folder-detail').classList.remove('active');
+            currentFolder = null;
+        }
+
+        function openLightbox(imageIndex) {
+            if (!currentFolder) return;
+            
+            currentImageIndex = imageIndex;
+            document.getElementById('lightbox-img').src = currentFolder.images[imageIndex];
+            document.getElementById('lightbox-img').alt = `${currentFolder.name} ${imageIndex + 1}`;
+            document.getElementById('lightbox').classList.add('active');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+
+        function prevImage(event) {
+            event.stopPropagation();
+            if (!currentFolder) return;
+            
+            currentImageIndex = (currentImageIndex - 1 + currentFolder.images.length) % currentFolder.images.length;
+            document.getElementById('lightbox-img').src = currentFolder.images[currentImageIndex];
+            document.getElementById('lightbox-img').alt = `${currentFolder.name} ${currentImageIndex + 1}`;
+        }
+
+        function nextImage(event) {
+            event.stopPropagation();
+            if (!currentFolder) return;
+            
+            currentImageIndex = (currentImageIndex + 1) % currentFolder.images.length;
+            document.getElementById('lightbox-img').src = currentFolder.images[currentImageIndex];
+            document.getElementById('lightbox-img').alt = `${currentFolder.name} ${currentImageIndex + 1}`;
+        }
+
+        // Initialize gallery when page loads
+        document.addEventListener('DOMContentLoaded', initializeGallery);
+    </script>
+
+    <!-- Hamburger Menu JavaScript -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileOverlay = document.getElementById('mobile-overlay');
+        const slideDrawer = document.getElementById('slide-drawer');
+        const drawerCloseBtn = document.getElementById('drawer-close-btn');
+        const dropdownItems = document.querySelectorAll('.dropdown-item');
+
+        function openMenu() {
+          mobileOverlay.classList.add('active');
+          slideDrawer.classList.add('drawer-open');
+          document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+          mobileOverlay.classList.remove('active');
+          slideDrawer.classList.remove('drawer-open');
+          document.body.style.overflow = '';
+        }
+
+        // Event listeners
+        hamburgerBtn.addEventListener('click', openMenu);
+        drawerCloseBtn.addEventListener('click', closeMenu);
+        mobileOverlay.addEventListener('click', closeMenu);
+
+        // Handle dropdown toggles
+        dropdownItems.forEach(item => {
+          const label = item.querySelector('.dropdown-label');
+          if (label) {
+            label.addEventListener('click', function(e) {
+              e.preventDefault();
+              item.classList.toggle('open');
+            });
+          }
+        });
+
+        // Close menu when clicking on links (except dropdown labels)
+        document.querySelectorAll('.drawer-links a:not(.dropdown-label)').forEach(link => {
+          link.addEventListener('click', closeMenu);
+        });
+      });
+    </script>
+</body>
+</html>

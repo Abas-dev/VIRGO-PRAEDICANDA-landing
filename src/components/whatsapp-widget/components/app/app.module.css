@@ -1,0 +1,61 @@
+.root {
+    width: 360px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 35px 0px, rgba(0, 0, 0, 0.1) 0px 5px 15px 0px;
+    flex-direction: column;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+    transform: translate3d(0px, 0px, 0px);
+    touch-action: auto;
+    display: none;
+    bottom: 110px;
+    position: fixed;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.positionRight{
+    right: 25px;
+}
+
+.positionLeft{
+    left: 25px;
+}
+
+.open {
+    display: flex;
+    animation: slideInUp 350ms cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.close {
+    display: none;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/*
+    ##Device = Most of the Smartphones Mobiles (Portrait)
+    ##Screen = B/w 320px to 479px
+  */
+
+@media (max-width: 480px) {
+    .root {
+        bottom: 90px;
+        width: 280px;
+        right: 20px;
+        left: auto;
+    }
+    
+    .positionLeft {
+        left: 20px;
+        right: auto;
+    }
+}
