@@ -5,7 +5,7 @@ import OurAchievements from "./components/OurAchievements.jsx";
 /* ── Hero Carousel Data ─────────────────────────────────────────────────── */
 const heroCarouselImages = [
   {
-    src: "/assets/images/interhouse/school_photo_36.jpg",
+    src: "/assets/images/building.jpeg",
     alt: "Primary school students in uniform",
     subtitle: "Welcome to Virgo Praedicanda International School",
     title: "Making Excellence A Habit",
