@@ -514,6 +514,7 @@ function App() {
       <AcademicExcellence />
       <QualityEducation />
       <RecentCompetitions />
+      <OurAchievements />
       <Testimonials />
       <Contact />
       <VPISGallery />
