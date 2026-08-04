@@ -8,8 +8,7 @@
      5. Hero + hero carousel
      6. Homepage sections
      7. Shared components (lightbox)
-     8. Page-specific styles (About / Academics / Management /
-        Admissions / Facilities / Gallery)
+     8. Page-specific styles
      9. Responsive tiers: 1024px / 768px / 480px / 380px
    ============================================================ */
 
@@ -17,15 +16,16 @@
 :root {
   /* Font stacks */
   --font-sans:
-    ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol", "Noto Color Emoji";
+    ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
   --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --font-display: "Cormorant Garamond", ui-serif, Georgia, serif;
   --font-mono:
     ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
     "Courier New", monospace;
 
-  /* Gray palette */
+  /* Palette */
   --color-gray-200: oklch(92.8% 0.006 264.531);
   --color-gray-300: oklch(87.2% 0.01 258.338);
   --color-gray-400: oklch(70.7% 0.022 261.325);
@@ -45,8 +45,8 @@
   --surface-color: var(--color-white);
   --text-main: var(--color-gray-900);
   --text-muted: var(--color-gray-600);
-  --muted: var(--color-gray-600); /* used by page styles */
-  --border: #dbe4f0; /* used by page cards   */
+  --muted: var(--color-gray-600);
+  --border: #dbe4f0;
 
   --shadow-sm:
     0 1px 3px rgba(16, 42, 67, 0.08), 0 1px 2px rgba(16, 42, 67, 0.05);
@@ -55,7 +55,7 @@
   --transition: all 0.25s ease;
   --border-radius: 14px;
 
-  /* Fixed navbar height (kept in sync per breakpoint below) */
+  /* Nav height synchronization */
   --nav-height: 82px;
 }
 
@@ -89,12 +89,12 @@ h3,
   font-family: var(--font-serif);
 }
 
-/* Never let media cause horizontal scroll */
 img,
 video,
 svg,
 iframe {
   max-width: 100%;
+  height: auto;
 }
 
 .container {
@@ -106,6 +106,7 @@ iframe {
 .section {
   padding: 6rem 0;
   background-color: var(--surface-color);
+  scroll-margin-top: calc(var(--nav-height) + 1rem);
 }
 
 .section-title {
@@ -189,7 +190,7 @@ iframe {
   align-items: center;
   gap: 0.85rem;
   text-decoration: none;
-  min-width: 0; /* allow the brand text to shrink, not overflow */
+  min-width: 0;
   flex: 1 1 auto;
 }
 
@@ -227,7 +228,6 @@ iframe {
   text-overflow: ellipsis;
 }
 
-/* Desktop navigation links */
 .desktop-nav,
 .desktop-cta {
   display: flex;
@@ -265,7 +265,7 @@ iframe {
 
 .nav-link-dropdown {
   display: inline-block;
-  padding: 0.5rem 0; /* larger hover/tap target */
+  padding: 0.5rem 0;
   color: var(--text-main);
   font-size: 0.9rem;
   font-weight: 600;
@@ -298,8 +298,6 @@ iframe {
   z-index: 1001;
 }
 
-/* Invisible bridge so the menu doesn't flicker closed while the
-   pointer crosses the gap between trigger and menu */
 .nav-dropdown-menu::before {
   content: "";
   position: absolute;
@@ -347,7 +345,6 @@ iframe {
   padding: 0.6rem 1.2rem;
 }
 
-/* Hamburger */
 .hamburger-btn {
   display: none;
   background: transparent;
@@ -358,7 +355,7 @@ iframe {
   align-items: center;
   gap: 5px;
   padding: 0.5rem;
-  width: 44px; /* comfortable tap target */
+  width: 44px;
   height: 44px;
   border-radius: 6px;
   flex-shrink: 0;
@@ -500,7 +497,6 @@ iframe {
   background: #f7fbff;
 }
 
-/* Collapsible sub-menus inside the drawer */
 .dropdown-item {
   border-bottom: 1px solid #f0f0f0;
 }
@@ -627,7 +623,6 @@ iframe {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.8s ease;
@@ -639,34 +634,23 @@ iframe {
   z-index: 2;
 }
 
-.hero-carousel-dot.active {
-  background: white;
-  transform: scale(1.2);
-}
-
-/* Arrows */
-
 .hero-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   z-index: 20;
-
   width: 52px;
   height: 52px;
   border-radius: 50%;
   border: none;
   cursor: pointer;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   background: rgba(0, 0, 0, 0.35);
   color: white;
   font-size: 1.4rem;
   line-height: 1;
-
   transition:
     background 0.25s ease,
     transform 0.25s ease;
@@ -685,38 +669,30 @@ iframe {
   right: 24px;
 }
 
-/* Overlay */
-
 .hero-overlay {
   position: absolute;
   inset: 0;
   background:
     linear-gradient(
       to bottom,
-      rgba(0,0,0,.45) 0%,
-      rgba(0,0,0,.35) 45%,
-      rgba(22,87,184,.75) 100%
+      rgba(0, 0, 0, 0.45) 0%,
+      rgba(0, 0, 0, 0.35) 45%,
+      rgba(22, 87, 184, 0.75) 100%
     );
 }
-
-/* Content */
 
 .hero-content {
   position: absolute;
   inset: 0;
   z-index: 5;
-
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-start;
-
   text-align: left;
-
   width: min(90%, 700px);
   margin: 0 auto;
   padding: 0 5% 90px;
-
   color: white;
 }
 
@@ -740,8 +716,6 @@ iframe {
   line-height: 1.8;
   margin-bottom: 40px;
 }
-
-/* Buttons */
 
 .hero-buttons {
   display: flex;
@@ -785,17 +759,13 @@ iframe {
   color: black;
 }
 
-/* Dots */
-
 .hero-carousel-dots {
   position: absolute;
   bottom: 35px;
   left: 50%;
   transform: translateX(-50%);
-
   display: flex;
   gap: 10px;
-
   z-index: 20;
 }
 
@@ -825,7 +795,6 @@ iframe {
   padding: 2rem 0;
 }
 
-/* Quality Education */
 .quality-education-section {
   padding: 4rem 0;
   background: var(--surface-color);
@@ -868,7 +837,6 @@ iframe {
   aspect-ratio: 4/3;
 }
 
-/* Academic Excellence */
 .academic-excellence-section {
   padding: 4rem 0;
 }
@@ -934,7 +902,6 @@ iframe {
   display: block;
 }
 
-/* Recent Competitions */
 .recent-competitions-section {
   background: var(--surface-color);
 }
@@ -998,6 +965,7 @@ iframe {
 .competition-prev {
   left: 15px;
 }
+
 .competition-next {
   right: 15px;
 }
@@ -1027,7 +995,6 @@ iframe {
   background: white;
 }
 
-/* VPIS gallery grid (homepage) */
 .vpis-gallery-section {
   padding: 0;
   background: var(--bg-color);
@@ -1068,7 +1035,6 @@ iframe {
   transform: scale(1.05);
 }
 
-/* Gallery folders (VPIS Pictures page) */
 .gallery-folders-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -1111,7 +1077,7 @@ iframe {
   inset: 0;
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   justify-content: center;
   padding: 1.5rem;
   opacity: 1;
@@ -1245,7 +1211,6 @@ iframe {
   transform: translateX(-4px);
 }
 
-/* Testimonials (open card style) */
 .testimonials-section {
   background: var(--surface-color);
   padding: 0;
@@ -1295,7 +1260,6 @@ iframe {
   flex-shrink: 0;
 }
 
-/* Contact (homepage) */
 .contact-section {
   background: var(--bg-color);
   padding: 0;
@@ -1380,8 +1344,6 @@ iframe {
   margin: 0;
 }
 
-/* Some mobile browsers auto-detect phone numbers/emails in plain text
-   and wrap them in a link with underline styling. Neutralize that. */
 .contact-item p,
 .contact-item p a {
   text-decoration: none !important;
@@ -1414,7 +1376,6 @@ iframe {
   position: relative;
 }
 
-/* Dividers: vertical between columns, horizontal between rows */
 .school-stat-item::after {
   content: "";
   position: absolute;
@@ -1458,31 +1419,6 @@ iframe {
   max-width: 220px;
 }
 
-@media (max-width: 768px) {
-  .school-stats-section {
-    padding: 3rem 0;
-  }
-
-  .school-stat-value {
-    font-size: 2.6rem;
-  }
-
-  .school-stat-label {
-    font-size: 0.85rem;
-  }
-
-  .school-stat-item {
-    padding: 1.75rem 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .school-stat-value {
-    font-size: 2.2rem;
-  }
-}
-
-/* School brand banner */
 .school-brand-section {
   background: #fafafa;
   padding: 0;
@@ -1529,7 +1465,6 @@ iframe {
   max-width: 520px;
 }
 
-/* Footer bar */
 .site-footer-bar {
   background: #0d2d5e;
   color: rgba(255, 255, 255, 0.72);
@@ -1539,7 +1474,6 @@ iframe {
   letter-spacing: 0.2px;
 }
 
-/* Our Achievements */
 .achievements-section {
   padding: 90px 20px;
   background: #f8f8f8;
@@ -1579,7 +1513,6 @@ iframe {
   font-size: 2.6rem;
   line-height: 1;
   margin-bottom: 20px;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1662,8 +1595,6 @@ iframe {
 }
 
 /* ── 8. Page-specific styles ──────────────────────────────── */
-
-/* Shared page hero (About / Academics / Admissions / Facilities / Gallery) */
 .about-hero,
 .academics-hero,
 .admissions-hero,
@@ -1730,7 +1661,6 @@ iframe {
   margin: 2.5rem 0;
 }
 
-/* About — accordion layout */
 .about-acc-section {
   margin-bottom: 3.5rem;
 }
@@ -1791,7 +1721,6 @@ iframe {
   margin: 0;
 }
 
-/* Vision / Mission / Values accordion */
 .vmv-accordion {
   margin-top: 1.75rem;
   border-top: 1px solid #e2e8f0;
@@ -1831,7 +1760,6 @@ iframe {
   transition: transform 0.25s ease;
 }
 
-/* About — split rows */
 .split-row {
   display: grid;
   grid-template-columns: 1fr 1.1fr;
@@ -1900,7 +1828,6 @@ iframe {
   margin-top: 0.52rem;
 }
 
-/* About — school levels */
 .levels-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1938,7 +1865,6 @@ iframe {
   line-height: 1.65;
 }
 
-/* About — values */
 .values-section {
   margin-bottom: 3.5rem;
 }
@@ -1972,7 +1898,6 @@ iframe {
   flex-shrink: 0;
 }
 
-/* About — gallery strip + motto */
 .gallery-strip {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -2053,7 +1978,6 @@ iframe {
   font-size: 0.85rem;
 }
 
-/* Academics */
 .subjects-section,
 .training-section,
 .assessment-section,
@@ -2159,7 +2083,6 @@ iframe {
   margin: 0;
 }
 
-/* Management */
 .management-page {
   min-height: 100vh;
   background: var(--bg-color);
@@ -2242,7 +2165,6 @@ iframe {
   }
 }
 
-/* Admissions */
 .section-intro {
   color: var(--muted);
   font-size: 0.97rem;
@@ -2346,8 +2268,6 @@ iframe {
   margin: 0;
 }
 
-/* Admissions contact card (scoped so it doesn't clash with the
-   homepage .contact-card) */
 .admissions-page .contact-card {
   background: linear-gradient(135deg, #f8fafc 0%, #eef7ff 100%);
   border: 1px solid var(--border);
@@ -2432,7 +2352,6 @@ iframe {
   display: block;
 }
 
-/* Facilities */
 .facilities-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -2618,7 +2537,6 @@ iframe {
   box-shadow: 0 4px 14px rgba(16, 42, 67, 0.1);
 }
 
-/* Gallery page */
 .gallery-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -2635,7 +2553,6 @@ iframe {
     --nav-height: 76px;
   }
 
-  /* Navbar: switch to hamburger */
   .desktop-nav,
   .desktop-cta {
     display: none;
@@ -2657,7 +2574,6 @@ iframe {
     font-size: 0.7rem;
   }
 
-  /* Hero */
   .hero-carousel {
     height: calc(100vh - var(--nav-height));
     height: calc(100dvh - var(--nav-height));
@@ -2686,7 +2602,6 @@ iframe {
     font-size: 2.2rem;
   }
 
-  /* Homepage layouts stack */
   .quality-education-layout,
   .academic-excellence-layout {
     grid-template-columns: 1fr;
@@ -2721,7 +2636,6 @@ iframe {
     font-size: 1.5rem;
   }
 
-  /* Achievements */
   .achievements-grid {
     grid-template-columns: 1fr;
     gap: 70px;
@@ -2759,7 +2673,6 @@ iframe {
     margin-top: 0.5rem;
   }
 
-  /* Navbar */
   .nav-brand img {
     height: 50px;
   }
@@ -2772,7 +2685,6 @@ iframe {
     font-size: 0.65rem;
   }
 
-  /* Hero */
   .hero-content {
     width: 100%;
     padding: 0 6% 60px;
@@ -2809,7 +2721,7 @@ iframe {
     bottom: 20px;
   }
 
-    .hero-arrow {
+  .hero-arrow {
     width: 42px;
     height: 42px;
     font-size: 1.1rem;
@@ -2822,9 +2734,7 @@ iframe {
   .hero-next {
     right: 12px;
   }
-}
 
-  /* Homepage sections: comfortable, consistent spacing */
   .quality-education-section,
   .academic-excellence-section,
   .recent-competitions-section,
@@ -2915,6 +2825,7 @@ iframe {
   .lightbox-prev {
     left: 0.5rem;
   }
+
   .lightbox-next {
     right: 0.5rem;
   }
@@ -2924,7 +2835,6 @@ iframe {
     max-height: 80vh;
   }
 
-  /* Page-specific layouts stack */
   .about-acc-layout,
   .levels-grid,
   .split-row,
@@ -2975,7 +2885,6 @@ iframe {
     justify-content: center;
   }
 
-  /* Achievements */
   .achievements-section {
     padding: 70px 20px;
   }
@@ -3073,8 +2982,8 @@ iframe {
     padding: 11px 18px;
     font-size: 13px;
   }
-  
-    .hero-arrow {
+
+  .hero-arrow {
     width: 36px;
     height: 36px;
     font-size: 1rem;
@@ -3169,7 +3078,7 @@ iframe {
   }
 }
 
-/* ── Very small phones (iPhone X 375px / Galaxy S10 360px) ── */
+/* ── Very small phones (375px / 360px) ─────────────────────── */
 @media (max-width: 380px) {
   .nav-inner {
     padding: 0 0.75rem;
