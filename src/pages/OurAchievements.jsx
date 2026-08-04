@@ -1,26 +1,19 @@
-import {
-  GraduationCap,
-  Medal,
-  Users,
-} from "lucide-react";
-
-import "../styles/ourAchievements.css";
-
 const achievements = [
   {
-    icon: <GraduationCap size={58} strokeWidth={2.2} />,
-    number: "99%",
-    text: "Success rate in external examinations",
+    org: "Kaodili Cares Foundation",
+    award: "Garden City Spelling Finalists",
   },
   {
-    icon: <Medal size={58} strokeWidth={2.2} />,
-    number: "76",
-    text: "Competitions won",
+    org: "Scholastic Champs Competition",
+    award: "Top Achiever Awards",
   },
   {
-    icon: <Users size={58} strokeWidth={2.2} />,
-    number: "480",
-    text: "Years of combined staff experience",
+    org: "Scholastic Science Competition",
+    award: "Top Achiever & Honours",
+  },
+  {
+    org: "Alliance Française",
+    award: "Certificates & Training Awards",
   },
 ];
 
@@ -28,13 +21,15 @@ const OurAchievements = () => {
   return (
     <section className="achievements-section">
       <div className="container">
-
         <div className="achievements-header">
-          <h2>Our Achievements</h2>
+          <h2>Recent Achievements</h2>
+          <p className="achievements-intro">
+            VPIS pupils won 98 medals across inter-house sports and external
+            competitions this year alone.
+          </p>
         </div>
 
         <div className="achievements-grid">
-
           {achievements.map((item, index) => (
             <div
               className="achievement-card"
@@ -42,18 +37,14 @@ const OurAchievements = () => {
               data-aos="fade-up"
               data-aos-delay={index * 150}
             >
-              <div className="achievement-icon">
-                {item.icon}
-              </div>
+              <div className="achievement-icon">🏆</div>
 
-              <h3>{item.number}</h3>
+              <h3>{item.org}</h3>
 
-              <p>{item.text}</p>
+              <p>{item.award}</p>
             </div>
           ))}
-
         </div>
-
       </div>
     </section>
   );
