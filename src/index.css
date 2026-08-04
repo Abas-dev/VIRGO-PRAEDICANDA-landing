@@ -1334,6 +1334,108 @@ iframe {
   margin: 0;
 }
 
+/* Some mobile browsers auto-detect phone numbers/emails in plain text
+   and wrap them in a link with underline styling. Neutralize that. */
+.contact-item p,
+.contact-item p a {
+  text-decoration: none !important;
+  color: #3a5a8a !important;
+}
+
+/* ── School Stats Banner ─────────────────────────────────── */
+.school-stats-section {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--primary-dark) 100%
+  );
+  padding: 4.5rem 0;
+}
+
+.school-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  position: relative;
+}
+
+.school-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2.25rem 1.5rem;
+  position: relative;
+}
+
+/* Dividers: vertical between columns, horizontal between rows */
+.school-stat-item::after {
+  content: "";
+  position: absolute;
+  top: 15%;
+  bottom: 15%;
+  right: 0;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.school-stat-item:nth-child(2n)::after {
+  display: none;
+}
+
+.school-stat-item:nth-child(1)::before,
+.school-stat-item:nth-child(2)::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 12%;
+  right: 12%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.school-stat-value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 3.4rem;
+  line-height: 1;
+  color: var(--color-white);
+  margin-bottom: 0.9rem;
+}
+
+.school-stat-label {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 220px;
+}
+
+@media (max-width: 768px) {
+  .school-stats-section {
+    padding: 3rem 0;
+  }
+
+  .school-stat-value {
+    font-size: 2.6rem;
+  }
+
+  .school-stat-label {
+    font-size: 0.85rem;
+  }
+
+  .school-stat-item {
+    padding: 1.75rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .school-stat-value {
+    font-size: 2.2rem;
+  }
+}
+
 /* School brand banner */
 .school-brand-section {
   background: #fafafa;
