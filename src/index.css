@@ -649,7 +649,7 @@ iframe {
       to bottom,
       rgba(0,0,0,.45) 0%,
       rgba(0,0,0,.35) 45%,
-      rgba(0,110,0,.75) 100%
+      rgba(22,87,184,.75) 100%
     );
 }
 
@@ -2594,7 +2594,11 @@ iframe {
   }
 
   .section {
-    padding: 2rem 0;
+    padding: 3.5rem 0;
+  }
+
+  .section-title {
+    margin-bottom: 2.5rem;
   }
 
   .section-title h2 {
@@ -2603,6 +2607,7 @@ iframe {
 
   .section-title p {
     font-size: 0.8rem;
+    margin-top: 0.5rem;
   }
 
   /* Navbar */
@@ -2655,7 +2660,7 @@ iframe {
     bottom: 20px;
   }
 
-  /* Homepage sections: tight, consistent spacing */
+  /* Homepage sections: comfortable, consistent spacing */
   .quality-education-section,
   .academic-excellence-section,
   .recent-competitions-section,
@@ -2664,11 +2669,11 @@ iframe {
   .school-brand-section,
   .vpis-gallery-section {
     margin: 0;
-    padding: 1rem;
+    padding: 3rem 1rem;
   }
 
   .quality-education-section {
-    padding-top: 0.5rem;
+    padding-top: 2rem;
   }
 
   .contact-heading {
@@ -2862,7 +2867,7 @@ iframe {
   }
 
   .section {
-    padding: 1.5rem 0;
+    padding: 2.5rem 0;
   }
 
   .section-title h2 {
