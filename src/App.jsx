@@ -5,145 +5,92 @@ import Navbar from "./components/Navbar.jsx";
 const heroCarouselImages = [
   {
     src: "/assets/images/primary.jpeg",
-    alt: "Primary school students in classroom",
+    alt: "Primary school students",
+    subtitle: "Welcome to Virgo Praedicanda International School",
+    title: "Making Excellence A Habit",
+    description:
+      "We nurture confident, disciplined and academically excellent students prepared for global opportunities.",
   },
   {
     src: "/assets/images/class photo_3.jpeg",
-    alt: "Class graduation ceremony",
+    alt: "Graduation",
+    subtitle: "A Place Where Learning Never Stops",
+    title: "Building Future Leaders",
+    description:
+      "Combining the Nigerian and British curriculum to help every child reach their full potential.",
   },
   {
     src: "/assets/images/students.jpeg",
-    alt: "Students engaged in learning activities",
+    alt: "Students Learning",
+    subtitle: "Academic Excellence",
+    title: "Inspiring Young Minds",
+    description:
+      "Creating an environment where children grow intellectually, morally and socially.",
   },
   {
     src: "/assets/images/students_3.jpeg",
-    alt: "Students participating in group activities",
+    alt: "Students",
+    subtitle: "Quality Education",
+    title: "Every Child Matters",
+    description:
+      "Empowering children with knowledge, confidence and strong values for lifelong success.",
   },
 ];
 
 const HeroCarousel = () => {
   const [current, setCurrent] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-  const resumeTimeoutRef = useRef(null);
-  const total = heroCarouselImages.length;
 
-  // Auto-scroll functionality
   useEffect(() => {
-    if (!isPaused) {
-      const timer = setInterval(() => setCurrent((p) => (p + 1) % total), 4000);
-      return () => clearInterval(timer);
-    }
-  }, [total, isPaused]);
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % heroCarouselImages.length);
+    }, 5000);
 
-  // Clear any pending resume timeout on unmount to avoid leaks
-  useEffect(() => {
-    return () => clearTimeout(resumeTimeoutRef.current);
+    return () => clearInterval(timer);
   }, []);
 
-  // Pause auto-scroll, then resume after 5 seconds
-  const pauseThenResume = () => {
-    setIsPaused(true);
-    clearTimeout(resumeTimeoutRef.current);
-    resumeTimeoutRef.current = setTimeout(() => setIsPaused(false), 5000);
-  };
-
-  // Manual navigation handlers
-  const goToPrevious = () => {
-    pauseThenResume();
-    setCurrent((p) => (p - 1 + total) % total);
-  };
-
-  const goToNext = () => {
-    pauseThenResume();
-    setCurrent((p) => (p + 1) % total);
-  };
-
-  const goToSlide = (index) => {
-    pauseThenResume();
-    setCurrent(index);
-  };
-
-  return (
-    <div
-      className="hero-carousel"
-      data-aos="fade-left"
-      data-aos-delay="400"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
-      <div className="hero-carousel-track">
-        {heroCarouselImages.map((img, i) => (
-          <div
-            key={i}
-            className={`hero-carousel-slide${i === current ? " active" : ""}`}
-          >
-            <img src={img.src} alt={img.alt} />
-          </div>
-        ))}
-      </div>
-
-      {/* Navigation Arrows */}
-      <button
-        className="hero-carousel-arrow hero-carousel-prev"
-        onClick={goToPrevious}
-        aria-label="Previous slide"
-      >
-        &#10094;
-      </button>
-      <button
-        className="hero-carousel-arrow hero-carousel-next"
-        onClick={goToNext}
-        aria-label="Next slide"
-      >
-        &#10095;
-      </button>
-
-      {/* Dot indicators */}
-      <div className="hero-carousel-dots">
-        {heroCarouselImages.map((_, i) => (
-          <button
-            key={i}
-            className={`hero-carousel-dot${i === current ? " active" : ""}`}
-            onClick={() => goToSlide(i)}
-            aria-label={`Go to slide ${i + 1}`}
-          />
-        ))}
-      </div>
-    </div>
-  );
-};
-
-const Hero = () => (
-  <section className="hero-modern" id="home">
-    {/* Visually hidden page heading for screen readers / SEO */}
-    <h1
-      style={{
-        position: "absolute",
-        width: "1px",
-        height: "1px",
-        margin: "-1px",
-        padding: 0,
-        overflow: "hidden",
-        clip: "rect(0 0 0 0)",
-        whiteSpace: "nowrap",
-        border: 0,
-      }}
-    >
-      Virgo Praedicanda International School — Making Excellence A Habit
-    </h1>
-    <div className="container hero-stacked">
-      {/* Carousel — full focus */}
+return (
+  <div
+    className="hero-carousel"
+    data-aos="fade-up"
+    data-aos-delay="200"
+  >
+    {heroCarouselImages.map((slide, index) => (
       <div
-        className="hero-stacked-carousel hero-carousel-order"
-        data-aos="fade-up"
-        data-aos-delay="200"
+        key={index}
+        className={`hero-slide ${index === current ? "active" : ""}`}
+        style={{ backgroundImage: `url(${slide.src})` }}
       >
-        <HeroCarousel />
-      </div>
-    </div>
-  </section>
-);
+        <div className="hero-overlay" />
 
+        <div className="hero-content">
+          <p>{slide.subtitle}</p>
+
+          <h2>{slide.title}</h2>
+
+          <span>{slide.description}</span>
+
+          <div className="hero-buttons">
+            <button className="hero-btn-primary">About Us</button>
+            <button className="hero-btn-secondary">Get In Touch</button>
+          </div>
+        </div>
+      </div>
+    ))}
+
+    <div className="hero-carousel-dots">
+      {heroCarouselImages.map((_, index) => (
+        <button
+          key={index}
+          className={`hero-carousel-dot ${
+            current === index ? "active" : ""
+          }`}
+          onClick={() => setCurrent(index)}
+        />
+      ))}
+    </div>
+  </div>
+);
+  
 /* ── Quality Education Section ─────────────────────────── */
 const QualityEducation = () => (
   <section className="quality-education-section">
