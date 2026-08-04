@@ -341,7 +341,7 @@ const Contact = () => (
               </svg>
             </div>
             <div>
-              <h4>Address</h4>
+              <h4>Our Campuses</h4>
               <p>
                Woji Campus- No. 9, Marina Close
                 <br />
