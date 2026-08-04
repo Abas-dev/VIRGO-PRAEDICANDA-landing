@@ -66,7 +66,6 @@ const HeroCarousel = () => {
             <span>{slide.description}</span>
 
             <div className="hero-buttons">
-              <button className="hero-btn-primary">About Us</button>
               <a
                 href="https://portal.schoolpaddi.com"
                 className="hero-btn-secondary"
@@ -111,7 +110,7 @@ const QualityEducation = () => (
             and every other area of life.
           </p>
           <p className="quality-education-text">
-            We use a mix of British and Nigerian curriculum to ensure that all
+            We use a mix of British, Nigerian, American, Singaporean curriculum to ensure that all
             our students are able to compete successfully both at national and
             international standards.
           </p>
