@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar.jsx";
 import OurAchievements from "./components/OurAchievements.jsx";
 
-/* ── Hero Carousel — Enhanced with navigation and overlays ─────────────────────── */
+/* ── Hero Carousel Data ─────────────────────────────────────────────────── */
 const heroCarouselImages = [
   {
     src: "/assets/images/primary.jpeg",
-    alt: "Primary school students",
+    alt: "Primary school students in uniform",
     subtitle: "Welcome to Virgo Praedicanda International School",
     title: "Making Excellence A Habit",
     description:
@@ -14,15 +14,15 @@ const heroCarouselImages = [
   },
   {
     src: "/assets/images/class photo_3.jpeg",
-    alt: "Graduation",
+    alt: "Students during class activities",
     subtitle: "A Place Where Learning Never Stops",
     title: "Building Future Leaders",
     description:
-      "Combining the Nigerian, British, Ameriacn and Singaporean curriculum to help every child reach their full potential.",
+      "Combining the Nigerian, British, American and Singaporean curriculum to help every child reach their full potential.",
   },
   {
     src: "/assets/images/students.jpeg",
-    alt: "Students Learning",
+    alt: "Students engaging in collaborative learning",
     subtitle: "Academic Excellence",
     title: "Inspiring Young Minds",
     description:
@@ -30,7 +30,7 @@ const heroCarouselImages = [
   },
   {
     src: "/assets/images/students_3.jpeg",
-    alt: "Students",
+    alt: "Smiling students on campus",
     subtitle: "Quality Education",
     title: "Every Child Matters",
     description:
@@ -38,6 +38,7 @@ const heroCarouselImages = [
   },
 ];
 
+/* ── Hero Carousel Component ────────────────────────────────────────────── */
 const HeroCarousel = () => {
   const [current, setCurrent] = useState(0);
 
@@ -47,6 +48,14 @@ const HeroCarousel = () => {
     }, 5000);
     return () => clearInterval(timer);
   }, []);
+
+  const goToPrev = () => {
+    setCurrent((prev) => (prev - 1 + heroCarouselImages.length) % heroCarouselImages.length);
+  };
+
+  const goToNext = () => {
+    setCurrent((prev) => (prev + 1) % heroCarouselImages.length);
+  };
 
   return (
     <div className="hero-carousel" data-aos="fade-up" data-aos-delay="200">
@@ -60,9 +69,7 @@ const HeroCarousel = () => {
 
           <div className="hero-content">
             <p>{slide.subtitle}</p>
-
             <h2>{slide.title}</h2>
-
             <span>{slide.description}</span>
 
             <div className="hero-buttons">
@@ -79,14 +86,22 @@ const HeroCarousel = () => {
         </div>
       ))}
 
+      {/* Hero Manual Arrows */}
+      <button className="hero-arrow hero-prev" onClick={goToPrev} aria-label="Previous slide">
+        &#10094;
+      </button>
+      <button className="hero-arrow hero-next" onClick={goToNext} aria-label="Next slide">
+        &#10095;
+      </button>
+
+      {/* Hero Dots */}
       <div className="hero-carousel-dots">
         {heroCarouselImages.map((_, index) => (
           <button
             key={index}
-            className={`hero-carousel-dot ${
-              current === index ? "active" : ""
-            }`}
+            className={`hero-carousel-dot ${current === index ? "active" : ""}`}
             onClick={() => setCurrent(index)}
+            aria-label={`Go to slide ${index + 1}`}
           />
         ))}
       </div>
@@ -94,7 +109,7 @@ const HeroCarousel = () => {
   );
 };
 
-/* ── Quality Education Section ─────────────────────────── */
+/* ── Quality Education Section ──────────────────────────────────────────── */
 const QualityEducation = () => (
   <section className="quality-education-section">
     <div className="container">
@@ -110,7 +125,7 @@ const QualityEducation = () => (
             and every other area of life.
           </p>
           <p className="quality-education-text">
-            We use a mix of British, Nigerian, American, Singaporean curriculum to ensure that all
+            We use a mix of British, Nigerian, American, and Singaporean curricula to ensure that all
             our students are able to compete successfully both at national and
             international standards.
           </p>
@@ -118,7 +133,7 @@ const QualityEducation = () => (
         <div className="quality-education-image">
           <img
             src="/assets/images/excursion/school_photo_66.jpg"
-            alt="Students on excursion"
+            alt="Students on educational excursion"
             loading="lazy"
             decoding="async"
           />
@@ -128,21 +143,22 @@ const QualityEducation = () => (
   </section>
 );
 
-/* ── Academic Excellence Section with Auto-Carousel ─────────────────────────── */
+/* ── Academic Excellence Section ───────────────────────────────────────── */
+const academicImages = [
+  "/assets/images/school_photo_1.jpg",
+  "/assets/images/school_photo_2.jpeg",
+  "/assets/images/school_photo_3.jpeg",
+];
+
 const AcademicExcellence = () => {
   const [currentImage, setCurrentImage] = useState(0);
-  const academicImages = [
-    "/assets/images/school_photo_1.jpg",
-    "/assets/images/school_photo_2.jpeg",
-    "/assets/images/school_photo_3.jpeg",
-  ];
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % academicImages.length);
     }, 3000);
     return () => clearInterval(timer);
-  }, [academicImages.length]);
+  }, []);
 
   return (
     <section className="academic-excellence-section">
@@ -168,7 +184,7 @@ const AcademicExcellence = () => {
                 >
                   <img
                     src={src}
-                    alt={`Academic excellence ${i + 1}`}
+                    alt={`Academic excellence showcase ${i + 1}`}
                     loading="lazy"
                     decoding="async"
                   />
@@ -182,119 +198,117 @@ const AcademicExcellence = () => {
   );
 };
 
-const Testimonials = () => {
-  const feedback = [
-    {
-      quote:
-        "VIRGO PRAEDICANDA INTERNATIONAL SCHOOL is a really wonderful school which indeed builds global champions and ensures a child is competitive. Your kid can never go there and remain dumb but they will make the child the best both morally and academically.",
-      name: "ABIED Books HUB",
-      initials: "A",
-    },
-    {
-      quote:
-        "For the period of time my son has spent in VIRGO PRAEDICANDA INTERNATIONAL SCHOOL there has been a lot of progress in his Academics. Therefore, I consider VIRGO PRAEDICANDA INTERNATIONAL SCHOOL as one of the best schools in Portharcourt.",
-      name: "Pat Enosareba",
-      initials: "P",
-    },
-    {
-      quote:
-        "This is a school every well meaning Nigerians and foreigners should attend due to its high standard and quality delivery. You get more value both in character and learning. A trial will convince you.",
-      name: "Mr. N. Ikechukwu",
-      initials: "M",
-    },
-    {
-      quote:
-        "VIRGO PRAEDICANDA INTERNATIONAL SCHOOL, from the short time I have spent knowing it, is a school with class. It's exciting to see and experience the high standards upheld in VIRGO PRAEDICANDA INTERNATIONAL SCHOOL, from leadership to staff to every child in the school, nothing is taken for granted, excellence is the watch word here.",
-      name: "Tobor Chunu",
-      initials: "T",
-    },
-    {
-      quote:
-        "They offer sound academic services. An amazing school for every child.",
-      name: "Mr. David B",
-      initials: "D",
-    },
-    {
-      quote:
-        "The school is amazing, my son won two awards because of their teachers. VIRGO PRAEDICANDA INTERNATIONAL SCHOOL is the best school in the world.",
-      name: "Amarachi Alabraba",
-      initials: "A",
-    },
-  ];
-  return (
-    <section className="section testimonials-section" id="testimonials">
-      <div className="container">
-        <div className="section-title" data-aos="fade-up">
-          <h2>Why Parents Choose VIRGO PRAEDICANDA INTERNATIONAL SCHOOL</h2>
-        </div>
-        <div className="testimonial-grid-open">
-          {feedback.map((item, i) => (
-            <div
-              className="testimonial-open-card"
-              key={i}
-              data-aos="fade-up"
-              data-aos-delay={50 + i * 80}
-            >
-              <p className="testimonial-open-quote">
-                &ldquo;{item.quote}&rdquo;
-              </p>
-              <div className="testimonial-open-author">
-                <div className="testimonial-author-circle">{item.initials}</div>
-                <span>{item.name}</span>
-              </div>
-            </div>
-          ))}
-        </div>
+/* ── Testimonials Section ───────────────────────────────────────────────── */
+const feedbackData = [
+  {
+    quote:
+      "VIRGO PRAEDICANDA INTERNATIONAL SCHOOL is a really wonderful school which indeed builds global champions and ensures a child is competitive. Your kid can never go there and remain dumb but they will make the child the best both morally and academically.",
+    name: "ABIED Books HUB",
+    initials: "A",
+  },
+  {
+    quote:
+      "For the period of time my son has spent in VIRGO PRAEDICANDA INTERNATIONAL SCHOOL there has been a lot of progress in his Academics. Therefore, I consider VIRGO PRAEDICANDA INTERNATIONAL SCHOOL as one of the best schools in Portharcourt.",
+    name: "Pat Enosareba",
+    initials: "P",
+  },
+  {
+    quote:
+      "This is a school every well meaning Nigerians and foreigners should attend due to its high standard and quality delivery. You get more value both in character and learning. A trial will convince you.",
+    name: "Mr. N. Ikechukwu",
+    initials: "M",
+  },
+  {
+    quote:
+      "VIRGO PRAEDICANDA INTERNATIONAL SCHOOL, from the short time I have spent knowing it, is a school with class. It's exciting to see and experience the high standards upheld in VIRGO PRAEDICANDA INTERNATIONAL SCHOOL, from leadership to staff to every child in the school, nothing is taken for granted, excellence is the watch word here.",
+    name: "Tobor Chunu",
+    initials: "T",
+  },
+  {
+    quote:
+      "They offer sound academic services. An amazing school for every child.",
+    name: "Mr. David B",
+    initials: "D",
+  },
+  {
+    quote:
+      "The school is amazing, my son won two awards because of their teachers. VIRGO PRAEDICANDA INTERNATIONAL SCHOOL is the best school in the world.",
+    name: "Amarachi Alabraba",
+    initials: "A",
+  },
+];
+
+const Testimonials = () => (
+  <section className="section testimonials-section" id="testimonials">
+    <div className="container">
+      <div className="section-title" data-aos="fade-up">
+        <h2>Why Parents Choose VIRGO PRAEDICANDA INTERNATIONAL SCHOOL</h2>
       </div>
-    </section>
-  );
-};
-
-/* ── VPIS Gallery - Simple 3x3 Grid ──────────────────────────────── */
-const VPISGallery = () => {
-  const galleryImages = [
-    "/assets/images/farm/school_photo_78.jpg",
-    "/assets/images/art/school_photo_69.jpg",
-    "/assets/images/excursion/excursion 1.jpeg",
-    "/assets/images/interhouse/school_photo_35.jpg",
-    "/assets/images/home_econs/school_photo_45.jpg",
-    "/assets/images/literacy/financial/school_photo_22.jpg",
-    "/assets/images/competitions/science/school_photo_54.jpg",
-    "/assets/images/literacy/book_day/school_photo_17.jpg",
-    "/assets/images/literacy/dental/school_photo_23.jpg",
-  ];
-
-  return (
-    <section className="vpis-gallery-section" id="gallery">
-      <div className="container">
-        <div className="section-title" data-aos="fade-up">
-          <p>Campus Life</p>
-          <h2>VPIS Gallery</h2>
-        </div>
-
-        <div className="gallery-grid-3x3">
-          {galleryImages.map((src, i) => (
-            <div
-              key={i}
-              className="gallery-item-simple"
-              data-aos="fade-up"
-              data-aos-delay={i * 100}
-            >
-              <img
-                src={src}
-                alt={`VPIS Gallery ${i + 1}`}
-                loading="lazy"
-                decoding="async"
-              />
+      <div className="testimonial-grid-open">
+        {feedbackData.map((item, i) => (
+          <div
+            className="testimonial-open-card"
+            key={i}
+            data-aos="fade-up"
+            data-aos-delay={50 + i * 80}
+          >
+            <p className="testimonial-open-quote">
+              &ldquo;{item.quote}&rdquo;
+            </p>
+            <div className="testimonial-open-author">
+              <div className="testimonial-author-circle">{item.initials}</div>
+              <span>{item.name}</span>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
-/* ── Contact ────────── */
+/* ── VPIS Gallery ───────────────────────────────────────────────────────── */
+const galleryImages = [
+  "/assets/images/farm/school_photo_78.jpg",
+  "/assets/images/art/school_photo_69.jpg",
+  "/assets/images/excursion/excursion 1.jpeg",
+  "/assets/images/interhouse/school_photo_35.jpg",
+  "/assets/images/home_econs/school_photo_45.jpg",
+  "/assets/images/literacy/financial/school_photo_22.jpg",
+  "/assets/images/competitions/science/school_photo_54.jpg",
+  "/assets/images/literacy/book_day/school_photo_17.jpg",
+  "/assets/images/literacy/dental/school_photo_23.jpg",
+];
+
+const VPISGallery = () => (
+  <section className="vpis-gallery-section" id="gallery">
+    <div className="container">
+      <div className="section-title" data-aos="fade-up">
+        <p>Campus Life</p>
+        <h2>VPIS Gallery</h2>
+      </div>
+
+      <div className="gallery-grid-3x3">
+        {galleryImages.map((src, i) => (
+          <div
+            key={i}
+            className="gallery-item-simple"
+            data-aos="fade-up"
+            data-aos-delay={i * 100}
+          >
+            <img
+              src={src}
+              alt={`Campus activities gallery image ${i + 1}`}
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+/* ── Contact Section ────────────────────────────────────────────────────── */
 const Contact = () => (
   <section className="contact-section" id="contact">
     <div className="container">
@@ -302,17 +316,15 @@ const Contact = () => (
         Contact Us
       </h2>
       <div className="contact-card" data-aos="fade-up" data-aos-delay="100">
-        {/* Left — building photo */}
         <div className="contact-img-wrap">
           <img
             src="/assets/images/building.jpeg"
-            alt="School building"
+            alt="Virgo Praedicanda school building exterior"
             loading="lazy"
             decoding="async"
           />
         </div>
 
-        {/* Right — info panel */}
         <div className="contact-panel">
           <div className="contact-item">
             <div className="contact-icon">
@@ -355,7 +367,9 @@ const Contact = () => (
             </div>
             <div>
               <h4>Phone</h4>
-              <p>+234 913 255 4783</p>
+              <p>
+                <a href="tel:+2349132554783">+234 913 255 4783</a>
+              </p>
             </div>
           </div>
 
@@ -375,7 +389,9 @@ const Contact = () => (
             </div>
             <div>
               <h4>Email</h4>
-              <p>info@schools.com</p>
+              <p>
+                <a href="mailto:info@schools.com">info@schools.com</a>
+              </p>
             </div>
           </div>
         </div>
@@ -384,14 +400,14 @@ const Contact = () => (
   </section>
 );
 
-/* ── School Brand Banner — before footer ─────────────────────────── */
+/* ── School Brand Banner ────────────────────────────────────────────────── */
 const SchoolBrand = () => (
   <section className="school-brand-section">
     <div className="school-brand-inner">
       <img
         src="/assets/images/logo.png"
         className="school-brand-logo"
-        alt="Virgo Praedicanda logo"
+        alt="Virgo Praedicanda official school logo"
         loading="lazy"
         decoding="async"
       />
@@ -408,6 +424,7 @@ const SchoolBrand = () => (
   </section>
 );
 
+/* ── Footer ─────────────────────────────────────────────────────────────── */
 const Footer = () => (
   <footer className="site-footer-bar">
     <p>
@@ -417,27 +434,27 @@ const Footer = () => (
   </footer>
 );
 
-/* ── Recent Competitions Section ─────────────────────────── */
+/* ── Recent Competitions Section ────────────────────────────────────────── */
+const competitionImages = [
+  "/assets/images/competitions/science/school_photo_54.jpg",
+  "/assets/images/competitions/science/school_photo_55.jpg",
+  "/assets/images/competitions/bee/school_photo_52.jpg",
+  "/assets/images/competitions/bee/school_photo_53.jpg",
+];
+
 const RecentCompetitions = () => {
   const [currentCompetition, setCurrentCompetition] = useState(0);
-  const competitionImages = [
-    "/assets/images/competitions/science/school_photo_54.jpg",
-    "/assets/images/competitions/science/school_photo_55.jpg",
-    "/assets/images/competitions/bee/school_photo_52.jpg",
-    "/assets/images/competitions/bee/school_photo_53.jpg",
-  ];
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentCompetition((prev) => (prev + 1) % competitionImages.length);
     }, 4000);
     return () => clearInterval(timer);
-  }, [competitionImages.length]);
+  }, []);
 
   const goToPrevCompetition = () => {
     setCurrentCompetition(
-      (prev) =>
-        (prev - 1 + competitionImages.length) % competitionImages.length,
+      (prev) => (prev - 1 + competitionImages.length) % competitionImages.length
     );
   };
 
@@ -466,7 +483,7 @@ const RecentCompetitions = () => {
               >
                 <img
                   src={src}
-                  alt={`Competition ${i + 1}`}
+                  alt={`Competition highlight ${i + 1}`}
                   loading="lazy"
                   decoding="async"
                 />
@@ -505,6 +522,7 @@ const RecentCompetitions = () => {
   );
 };
 
+/* ── App Component ──────────────────────────────────────────────────────── */
 function App() {
   return (
     <>
