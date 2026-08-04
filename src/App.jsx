@@ -44,53 +44,49 @@ const HeroCarousel = () => {
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % heroCarouselImages.length);
     }, 5000);
-
     return () => clearInterval(timer);
   }, []);
 
-return (
-  <div
-    className="hero-carousel"
-    data-aos="fade-up"
-    data-aos-delay="200"
-  >
-    {heroCarouselImages.map((slide, index) => (
-      <div
-        key={index}
-        className={`hero-slide ${index === current ? "active" : ""}`}
-        style={{ backgroundImage: `url(${slide.src})` }}
-      >
-        <div className="hero-overlay" />
+  return (
+    <div className="hero-carousel" data-aos="fade-up" data-aos-delay="200">
+      {heroCarouselImages.map((slide, index) => (
+        <div
+          key={index}
+          className={`hero-slide ${index === current ? "active" : ""}`}
+          style={{ backgroundImage: `url(${slide.src})` }}
+        >
+          <div className="hero-overlay" />
 
-        <div className="hero-content">
-          <p>{slide.subtitle}</p>
+          <div className="hero-content">
+            <p>{slide.subtitle}</p>
 
-          <h2>{slide.title}</h2>
+            <h2>{slide.title}</h2>
 
-          <span>{slide.description}</span>
+            <span>{slide.description}</span>
 
-          <div className="hero-buttons">
-            <button className="hero-btn-primary">About Us</button>
-            <button className="hero-btn-secondary">Get In Touch</button>
+            <div className="hero-buttons">
+              <button className="hero-btn-primary">About Us</button>
+              <button className="hero-btn-secondary">Get In Touch</button>
+            </div>
           </div>
         </div>
-      </div>
-    ))}
-
-    <div className="hero-carousel-dots">
-      {heroCarouselImages.map((_, index) => (
-        <button
-          key={index}
-          className={`hero-carousel-dot ${
-            current === index ? "active" : ""
-          }`}
-          onClick={() => setCurrent(index)}
-        />
       ))}
+
+      <div className="hero-carousel-dots">
+        {heroCarouselImages.map((_, index) => (
+          <button
+            key={index}
+            className={`hero-carousel-dot ${
+              current === index ? "active" : ""
+            }`}
+            onClick={() => setCurrent(index)}
+          />
+        ))}
+      </div>
     </div>
-  </div>
-);
-  
+  );
+};
+
 /* ── Quality Education Section ─────────────────────────── */
 const QualityEducation = () => (
   <section className="quality-education-section">
@@ -506,7 +502,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <Hero />
+      <HeroCarousel />
       <AcademicExcellence />
       <QualityEducation />
       <RecentCompetitions />
