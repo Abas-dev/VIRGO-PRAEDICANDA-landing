@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar.jsx";
+import OurAchievements from "./components/OurAchievements.jsx";
 
 /* ── Hero Carousel — Enhanced with navigation and overlays ─────────────────────── */
 const heroCarouselImages = [
@@ -66,7 +67,14 @@ const HeroCarousel = () => {
 
             <div className="hero-buttons">
               <button className="hero-btn-primary">About Us</button>
-              <button className="hero-btn-secondary">Get In Touch</button>
+              <a
+                href="https://portal.schoolpaddi.com"
+                className="hero-btn-secondary"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Visit Portal
+              </a>
             </div>
           </div>
         </div>
@@ -506,7 +514,6 @@ function App() {
       <AcademicExcellence />
       <QualityEducation />
       <RecentCompetitions />
-      <OurAchievements />
       <Testimonials />
       <Contact />
       <VPISGallery />
