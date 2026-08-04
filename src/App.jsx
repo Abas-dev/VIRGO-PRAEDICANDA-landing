@@ -18,7 +18,7 @@ const heroCarouselImages = [
     subtitle: "A Place Where Learning Never Stops",
     title: "Building Future Leaders",
     description:
-      "Combining the Nigerian and British curriculum to help every child reach their full potential.",
+      "Combining the Nigerian, British, Ameriacn and Singaporean curriculum to help every child reach their full potential.",
   },
   {
     src: "/assets/images/students.jpeg",
