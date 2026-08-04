@@ -10,23 +10,31 @@
   font-size: 2em;
   height: 64px;
   justify-content: center;
-  outline: transparent;
   user-select: none;
   width: 64px;
+  padding: 0;
   -webkit-box-align: center;
   -webkit-box-pack: center;
   position: fixed;
-  bottom: 25px;
+  bottom: calc(25px + env(safe-area-inset-bottom, 0px));
   transition: all 0.3s ease;
   border: 2px solid rgba(255, 255, 255, 0.2);
+  /* Above page content and navbar (1000), below open mobile menu (1300+) */
+  z-index: 1100;
+  font-family: var(--font-sans, system-ui, -apple-system, 'Segoe UI', sans-serif);
 }
 
 .positionRight{
-  right: 25px;
+  right: calc(25px + env(safe-area-inset-right, 0px));
 }
 
 .positionLeft{
-  left: 25px;
+  left: calc(25px + env(safe-area-inset-left, 0px));
+}
+
+.root:focus-visible {
+  outline: 3px solid #128C7E;
+  outline-offset: 2px;
 }
 
 .root:hover {
@@ -79,14 +87,14 @@
     width: 56px;
     height: 56px;
     font-size: 1.8em;
-    bottom: 20px;
+    bottom: calc(20px + env(safe-area-inset-bottom, 0px));
   }
-  
+
   .positionRight{
-    right: 20px;
+    right: calc(16px + env(safe-area-inset-right, 0px));
   }
-  
+
   .positionLeft{
-    left: 20px;
+    left: calc(16px + env(safe-area-inset-left, 0px));
   }
 }

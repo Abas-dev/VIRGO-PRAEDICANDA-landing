@@ -101,7 +101,7 @@ const About = () => {
         {/* About the School — split layout */}
         <div className="split-row">
           <div className="split-img">
-            <img src="/assets/images/building.jpeg" alt="School building" />
+            <img src="/assets/images/building.jpeg" alt="School building" loading="lazy" decoding="async" />
           </div>
           <div className="split-text">
             <p className="section-label">Who We Are</p>
@@ -146,7 +146,7 @@ const About = () => {
         {/* Excellence — split reverse */}
         <div className="split-row reverse">
           <div className="split-img">
-            <img src="/assets/images/kids.jpeg" alt="Students learning" />
+            <img src="/assets/images/kids.jpeg" alt="Students learning" loading="lazy" decoding="async" />
           </div>
           <div className="split-text">
             <p className="section-label">Beyond the Classroom</p>

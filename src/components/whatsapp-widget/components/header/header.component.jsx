@@ -16,16 +16,21 @@ const Header = ({
 }) => {
     const { setIsChatOpen } = useContext(ChatContext);
 
-    const handleOpen = () => {
+    const handleClose = () => {
         setIsChatOpen(false);
     };
 
     return (
         <div className={styles.root}>
-            <span className={styles.close_btn} onClick={handleOpen}>
-                <AiOutlineClose />
-            </span>
-            <div className={styles.logo}>
+            <button
+                type="button"
+                className={styles.close_btn}
+                onClick={handleClose}
+                aria-label="Close chat"
+            >
+                <AiOutlineClose aria-hidden="true" focusable="false" />
+            </button>
+            <div className={styles.logo} aria-hidden="true">
                 {(CompanyIcon && <CompanyIcon />) || <FaGraduationCap />}
             </div>
             <div className={styles.texts}>

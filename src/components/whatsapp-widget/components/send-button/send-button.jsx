@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
+import { ChatContext } from '../../contexts/chat.context';
 import styles from './send-button.module.css';
 
 const defaultProps = {
@@ -12,13 +13,40 @@ const SendButton = ({
     sendButtonText = defaultProps.sendButtonText,
 }) => {
     const [message, setMessage] = useState('');
+    const { isChatOpen } = useContext(ChatContext);
+    const inputRef = useRef(null);
 
-    const handleClick = () => {
-        if (!phoneNumber) {
-            window.alert('Invalid Phone Number');
-            return false;
+    // Move focus into the input when the chat opens
+    useEffect(() => {
+        if (isChatOpen && inputRef.current) {
+            inputRef.current.focus();
         }
-        window.open(`https://wa.me/${phoneNumber}?text=${message}`);
+    }, [isChatOpen]);
+
+    const handleSend = (e) => {
+        e.preventDefault();
+
+        // wa.me expects digits only (country code + number, no "+", spaces or dashes)
+        const sanitizedPhone = (phoneNumber || '').replace(/\D/g, '');
+        if (!sanitizedPhone) {
+            window.alert('Invalid phone number');
+            return;
+        }
+
+        const trimmedMessage = message.trim();
+        if (!trimmedMessage) {
+            // Empty message guard: keep focus in the input instead of opening a blank chat
+            if (inputRef.current) {
+                inputRef.current.focus();
+            }
+            return;
+        }
+
+        window.open(
+            `https://wa.me/${sanitizedPhone}?text=${encodeURIComponent(trimmedMessage)}`,
+            '_blank',
+            'noopener,noreferrer'
+        );
         setMessage('');
     };
 
@@ -27,17 +55,20 @@ const SendButton = ({
     };
 
     return (
-        <div className={styles.root}>
+        <form className={styles.root} onSubmit={handleSend}>
             <input
+                ref={inputRef}
+                type="text"
                 placeholder={inputPlaceHolder}
+                aria-label={inputPlaceHolder}
                 className={styles.input}
                 onChange={handleChange}
                 value={message}
             />
-            <button className={styles.button} onClick={handleClick}>
+            <button type="submit" className={styles.button}>
                 {sendButtonText}
             </button>
-        </div>
+        </form>
     );
 };
 

@@ -80,7 +80,12 @@ const Management = () => {
             <div key={pairIndex} className="management-pair">
               {pair.map((member, memberIndex) => (
                 <div key={memberIndex} className="management-item">
-                  <img src={member.src} alt={member.alt} />
+                  <img
+                    src={member.src}
+                    alt={`${member.alt} ${pairIndex * 2 + memberIndex + 1}`}
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
               ))}
             </div>

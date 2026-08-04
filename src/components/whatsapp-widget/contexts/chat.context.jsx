@@ -1,5 +1,4 @@
-import React from 'react'
-import { createContext, useState } from 'react'
+import React, { createContext, useMemo, useState } from 'react'
 
 export const ChatContext = createContext({
   isChatOpen: false,
@@ -9,10 +8,13 @@ export const ChatContext = createContext({
 export const ChatProvider = ({ children }) => {
   const [isChatOpen, setIsChatOpen] = useState(false)
 
-  const value = {
-    isChatOpen,
-    setIsChatOpen
-  }
+  const value = useMemo(
+    () => ({
+      isChatOpen,
+      setIsChatOpen
+    }),
+    [isChatOpen]
+  )
 
   return <ChatContext.Provider value={value}>{children}</ChatContext.Provider>
 }

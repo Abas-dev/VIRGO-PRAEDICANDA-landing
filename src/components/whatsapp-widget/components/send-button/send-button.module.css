@@ -4,6 +4,8 @@
     flex-direction: column;
     padding: 18px;
     gap: 12px;
+    margin: 0;
+    flex-shrink: 0;
 }
 
 .input {
@@ -16,6 +18,9 @@
     outline: none;
     transition: all 0.2s ease;
     font-family: inherit;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
 }
 
 .input:focus {
@@ -52,4 +57,9 @@
 .button:active {
     transform: translateY(0);
     box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3);
+}
+
+.button:focus-visible {
+    outline: 3px solid #128C7E;
+    outline-offset: 2px;
 }

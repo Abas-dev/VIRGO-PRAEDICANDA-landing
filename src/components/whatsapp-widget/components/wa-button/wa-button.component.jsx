@@ -7,19 +7,26 @@ const defaultProps = {
     position: 'right',
 };
 
-const WaButton = ({
-    position = defaultProps.position
-}) => {
+const WaButton = ({ position = defaultProps.position }) => {
     const { isChatOpen, setIsChatOpen } = useContext(ChatContext);
 
-    const handleOpen = () => {
+    const handleToggle = () => {
         setIsChatOpen(!isChatOpen);
     };
 
     return (
-        <div className={`${styles.root}  ${position === 'left' ? styles.positionLeft : styles.positionRight} ` } onClick={handleOpen}>
-            <FaWhatsapp />
-        </div>
+        <button
+            type="button"
+            aria-label={isChatOpen ? 'Close WhatsApp chat' : 'Open WhatsApp chat'}
+            aria-expanded={isChatOpen}
+            aria-controls="whatsapp-chat-box"
+            className={`${styles.root} ${
+                position === 'left' ? styles.positionLeft : styles.positionRight
+            }`}
+            onClick={handleToggle}
+        >
+            <FaWhatsapp aria-hidden="true" focusable="false" />
+        </button>
     );
 };
 

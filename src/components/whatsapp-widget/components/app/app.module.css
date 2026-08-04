@@ -1,5 +1,7 @@
 .root {
-    width: 360px;
+    width: min(360px, calc(100vw - 32px));
+    max-height: calc(100vh - 140px);
+    max-height: calc(100dvh - 140px);
     box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 35px 0px, rgba(0, 0, 0, 0.1) 0px 5px 15px 0px;
     flex-direction: column;
     border-radius: 20px;
@@ -8,17 +10,20 @@
     transform: translate3d(0px, 0px, 0px);
     touch-action: auto;
     display: none;
-    bottom: 110px;
+    bottom: calc(110px + env(safe-area-inset-bottom, 0px));
     position: fixed;
     border: 1px solid rgba(0, 0, 0, 0.1);
+    /* Above page content and navbar (1000), below open mobile menu (1300+) */
+    z-index: 1100;
+    font-family: var(--font-sans, system-ui, -apple-system, 'Segoe UI', sans-serif);
 }
 
-.positionRight{
-    right: 25px;
+.positionRight {
+    right: calc(25px + env(safe-area-inset-right, 0px));
 }
 
-.positionLeft{
-    left: 25px;
+.positionLeft {
+    left: calc(25px + env(safe-area-inset-left, 0px));
 }
 
 .open {
@@ -43,19 +48,27 @@
 
 /*
     ##Device = Most of the Smartphones Mobiles (Portrait)
-    ##Screen = B/w 320px to 479px
+    ##Screen = B/w 320px to 479px (e.g. 360px Galaxy S10, 375px iPhone X)
   */
 
 @media (max-width: 480px) {
     .root {
-        bottom: 90px;
-        width: 280px;
-        right: 20px;
-        left: auto;
+        bottom: calc(90px + env(safe-area-inset-bottom, 0px));
+        /* Span the viewport minus margins instead of a fixed width so the
+           box never overflows narrow screens */
+        width: auto;
+        left: calc(16px + env(safe-area-inset-left, 0px));
+        right: calc(16px + env(safe-area-inset-right, 0px));
+        max-width: 400px;
+        max-height: calc(100vh - 120px);
+        max-height: calc(100dvh - 120px);
     }
-    
+
     .positionLeft {
-        left: 20px;
-        right: auto;
+        margin-right: auto;
+    }
+
+    .positionRight {
+        margin-left: auto;
     }
 }

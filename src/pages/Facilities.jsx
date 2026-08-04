@@ -1,47 +1,48 @@
-import Navbar from '../components/Navbar';
+import { Link } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 const Facilities = () => {
   const facilitiesList = [
     {
-      icon: "🏥",
       title: "Health Bay",
-      description: "Professional medical care and health monitoring for all students with qualified nursing staff."
+      description:
+        "Professional medical care and health monitoring for all students with qualified nursing staff.",
     },
     {
-      icon: "🔬",
-      title: "Science Laboratory", 
-      description: "Fully equipped modern science lab for hands-on experiments and practical learning in physics, chemistry, and biology."
+      title: "Science Laboratory",
+      description:
+        "Fully equipped modern science lab for hands-on experiments and practical learning in physics, chemistry, and biology.",
     },
     {
-      icon: "💻",
       title: "ICT Laboratory",
-      description: "Advanced computer lab with high-speed internet and latest technology for digital literacy and programming skills."
+      description:
+        "Advanced computer lab with high-speed internet and latest technology for digital literacy and programming skills.",
     },
     {
-      icon: "🗣️",
       title: "Language Laboratory",
-      description: "Interactive language learning environment with audio-visual equipment for enhanced communication skills."
+      description:
+        "Interactive language learning environment with audio-visual equipment for enhanced communication skills.",
     },
     {
-      icon: "🎵",
       title: "Music Studio & Art Studio",
-      description: "Creative spaces for artistic expression, music lessons, and developing talents in the performing and visual arts."
+      description:
+        "Creative spaces for artistic expression, music lessons, and developing talents in the performing and visual arts.",
     },
     {
-      icon: "📚",
       title: "E-Library",
-      description: "Digital library with extensive collection of books, research materials, and online resources for academic excellence."
+      description:
+        "Digital library with extensive collection of books, research materials, and online resources for academic excellence.",
     },
     {
-      icon: "🏊‍♂️",
       title: "Swimming Pool",
-      description: "Safe and supervised swimming facility for recreational activities, swimming lessons, and aquatic sports."
+      description:
+        "Safe and supervised swimming facility for recreational activities, swimming lessons, and aquatic sports.",
     },
     {
-      icon: "🎪",
       title: "Playground, Slides & Trampolines",
-      description: "Age-appropriate outdoor play equipment and recreational facilities for physical development and fun."
-    }
+      description:
+        "Age-appropriate outdoor play equipment and recreational facilities for physical development and fun.",
+    },
   ];
 
   const campuses = [
@@ -49,22 +50,25 @@ const Facilities = () => {
       name: "Woji Campus",
       image: "/assets/images/building.jpeg",
       address: "No. 9, Marina Close, Woji, Port Harcourt",
-      levels: "Creche, Nursery & Primary — Secondary school commenced this academic year",
-      knownFor: "Home of the original VPIS campus and the Early Years / Bloomers & Angels classrooms"
+      levels:
+        "Creche, Nursery & Primary — Secondary school commenced this academic year",
+      knownFor:
+        "Home of the original VPIS campus and the Early Years / Bloomers & Angels classrooms",
     },
     {
-      name: "Chinda Campus", 
-      image: "/assets/images/primary.jpeg",
+      name: "Chinda Campus",
+      image: "/assets/images/building.jpeg",
       address: "New Road, Relief | Victory Estate, Elelenwo, Port Harcourt",
       levels: "Primary and Secondary Education",
-      knownFor: "Advanced facilities and comprehensive secondary education programs"
-    }
+      knownFor:
+        "Advanced facilities and comprehensive secondary education programs",
+    },
   ];
 
   return (
     <div className="facilities-page">
       <Navbar />
-      
+
       {/* Hero */}
       <div className="facilities-hero">
         <div className="hero-label">Our Environment</div>
@@ -87,7 +91,6 @@ const Facilities = () => {
           <div className="facilities-grid">
             {facilitiesList.map((facility, index) => (
               <div key={index} className="facility-card">
-                <div className="facility-icon">{facility.icon}</div>
                 <h3>{facility.title}</h3>
                 <p>{facility.description}</p>
               </div>
@@ -104,7 +107,12 @@ const Facilities = () => {
             {campuses.map((campus, index) => (
               <div key={index} className="campus-card">
                 <div className="campus-image">
-                  <img src={campus.image} alt={`${campus.name}`} />
+                  <img
+                    src={campus.image}
+                    alt={`${campus.name} building`}
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
                 <div className="campus-content">
                   <h3>{campus.name}</h3>
@@ -134,12 +142,17 @@ const Facilities = () => {
           <div className="cta-card">
             <h3>Visit Our Campus</h3>
             <p>
-              Experience our world-class facilities firsthand. Schedule a tour to
-              see how we create the perfect learning environment for your child.
+              Experience our world-class facilities firsthand. Schedule a tour
+              to see how we create the perfect learning environment for your
+              child.
             </p>
             <div className="cta-buttons">
-              <a href="tel:+2349132554783" className="cta-btn primary">Schedule a Tour</a>
-              <a href="/admissions" className="cta-btn secondary">Learn About Admissions</a>
+              <a href="tel:+2349132554783" className="cta-btn primary">
+                Schedule a Tour
+              </a>
+              <Link to="/admissions" className="cta-btn secondary">
+                Learn About Admissions
+              </Link>
             </div>
           </div>
         </div>
@@ -147,7 +160,8 @@ const Facilities = () => {
 
       <footer className="page-footer">
         <p>
-          &copy; {new Date().getFullYear()} Virgo Praedicanda International School. All rights reserved.
+          &copy; {new Date().getFullYear()} Virgo Praedicanda International
+          School. All rights reserved.
         </p>
       </footer>
     </div>

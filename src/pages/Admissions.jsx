@@ -110,17 +110,17 @@ const Admissions = () => {
               <p>Contact our admissions team to begin your child's journey with us.</p>
               <div className="contact-methods">
                 <a href="tel:+2349132554783" className="contact-btn primary">
-                  <span>📞</span>
+                  <span aria-hidden="true">📞</span>
                   Call +234 913 255 4783
                 </a>
-                <a href="https://wa.me/2349132554783" className="contact-btn secondary">
-                  <span>💬</span>
+                <a href="https://wa.me/2349132554783" target="_blank" rel="noopener noreferrer" className="contact-btn secondary">
+                  <span aria-hidden="true">💬</span>
                   WhatsApp Us
                 </a>
               </div>
             </div>
             <div className="contact-image">
-              <img src="/assets/images/students.jpeg" alt="Happy students" />
+              <img src="/assets/images/students.jpeg" alt="Happy students" loading="lazy" decoding="async" />
             </div>
           </div>
         </div>

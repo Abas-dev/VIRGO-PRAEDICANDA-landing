@@ -4,8 +4,12 @@
     background-size: 60px 60px;
     position: relative;
     overflow: auto;
+    -webkit-overflow-scrolling: touch;
     max-height: 300px;
-    min-height: 200px;
+    min-height: 120px;
+    /* Let this area shrink first when the viewport is short */
+    flex: 1 1 auto;
+    min-width: 0;
 }
 
 .message {
@@ -25,7 +29,8 @@
     font-size: 13px;
     font-weight: 600;
     line-height: 18px;
-    color: #25D366;
+    /* Match the header brand green; better contrast on white than #25D366 */
+    color: #128C7E;
     margin-bottom: 4px;
 }
 

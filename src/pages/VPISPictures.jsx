@@ -1,11 +1,10 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 
 const VPISPictures = () => {
   const [currentFolder, setCurrentFolder] = useState(null);
   const [lightboxData, setLightboxData] = useState({ isOpen: false, imageIndex: 0, images: [] });
-  const galleryRef = useRef(null);
 
   const galleryFolders = [
     {
@@ -212,6 +211,17 @@ const VPISPictures = () => {
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [lightboxData.isOpen]);
 
+  // Lock page scroll while the lightbox is open
+  useEffect(() => {
+    if (lightboxData.isOpen) {
+      const previousOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = previousOverflow;
+      };
+    }
+  }, [lightboxData.isOpen]);
+
   return (
     <div className="vpis-pictures-page">
       <Navbar />
@@ -228,11 +238,24 @@ const VPISPictures = () => {
           <Link to="/" className="back-link">← Back to Home</Link>
           
           {!currentFolder && (
-            <div className="gallery-folders-grid" ref={galleryRef}>
-              {galleryFolders.map((folder, index) => (
-                <div key={folder.id} className="gallery-folder" onClick={() => openFolder(folder)}>
+            <div className="gallery-folders-grid">
+              {galleryFolders.map((folder) => (
+                <div
+                  key={folder.id}
+                  className="gallery-folder"
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`Open ${folder.name} album`}
+                  onClick={() => openFolder(folder)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      openFolder(folder);
+                    }
+                  }}
+                >
                   <div className="folder-image-container">
-                    <img src={folder.faceImage} alt={folder.name} />
+                    <img src={folder.faceImage} alt={folder.name} loading="lazy" decoding="async" />
                     <div className="folder-overlay">
                       <div className="folder-description">{folder.description}</div>
                     </div>
@@ -246,12 +269,25 @@ const VPISPictures = () => {
             <div className="folder-detail-view active">
               <div className="folder-header">
                 <h3>{currentFolder.name}</h3>
-                <button className="close-folder-btn" onClick={closeFolder}>✕</button>
+                <button className="close-folder-btn" onClick={closeFolder} aria-label="Close album">✕</button>
               </div>
               <div className="folder-images-grid">
                 {currentFolder.images.map((src, index) => (
-                  <div key={index} className="folder-image" onClick={() => openLightbox(index)}>
-                    <img src={src} alt={`${currentFolder.name} ${index + 1}`} />
+                  <div
+                    key={src}
+                    className="folder-image"
+                    role="button"
+                    tabIndex={0}
+                    aria-label={`View ${currentFolder.name} photo ${index + 1}`}
+                    onClick={() => openLightbox(index)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        openLightbox(index);
+                      }
+                    }}
+                  >
+                    <img src={src} alt={`${currentFolder.name} ${index + 1}`} loading="lazy" decoding="async" />
                     <div className="image-overlay"><span>View</span></div>
                   </div>
                 ))}
@@ -264,20 +300,22 @@ const VPISPictures = () => {
       {/* Lightbox */}
       {lightboxData.isOpen && (
         <div className="lightbox active" onClick={closeLightbox}>
-          <button className="lightbox-close" onClick={closeLightbox}>&times;</button>
-          <button 
-            className="lightbox-arrow lightbox-prev" 
+          <button className="lightbox-close" onClick={closeLightbox} aria-label="Close image viewer">&times;</button>
+          <button
+            className="lightbox-arrow lightbox-prev"
+            aria-label="Previous image"
             onClick={(e) => { e.stopPropagation(); navigateLightbox(-1); }}
           >
             &#10094;
           </button>
-          <img 
-            src={lightboxData.images[lightboxData.imageIndex]} 
-            alt={`${currentFolder?.name} ${lightboxData.imageIndex + 1}`}
+          <img
+            src={lightboxData.images[lightboxData.imageIndex]}
+            alt={`${currentFolder?.name || 'Gallery'} ${lightboxData.imageIndex + 1}`}
             onClick={(e) => e.stopPropagation()}
           />
-          <button 
-            className="lightbox-arrow lightbox-next" 
+          <button
+            className="lightbox-arrow lightbox-next"
+            aria-label="Next image"
             onClick={(e) => { e.stopPropagation(); navigateLightbox(1); }}
           >
             &#10095;

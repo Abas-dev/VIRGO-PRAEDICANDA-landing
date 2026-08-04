@@ -1,6 +1,4 @@
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Navbar from './components/Navbar.jsx';
 
 /* ── Hero Carousel — Enhanced with navigation and overlays ─────────────────────── */
@@ -26,6 +24,7 @@ const heroCarouselImages = [
 const HeroCarousel = () => {
   const [current, setCurrent] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const resumeTimeoutRef = useRef(null);
   const total = heroCarouselImages.length;
 
   // Auto-scroll functionality
@@ -36,26 +35,32 @@ const HeroCarousel = () => {
     }
   }, [total, isPaused]);
 
+  // Clear any pending resume timeout on unmount to avoid leaks
+  useEffect(() => {
+    return () => clearTimeout(resumeTimeoutRef.current);
+  }, []);
+
+  // Pause auto-scroll, then resume after 5 seconds
+  const pauseThenResume = () => {
+    setIsPaused(true);
+    clearTimeout(resumeTimeoutRef.current);
+    resumeTimeoutRef.current = setTimeout(() => setIsPaused(false), 5000);
+  };
+
   // Manual navigation handlers
   const goToPrevious = () => {
-    setIsPaused(true);
+    pauseThenResume();
     setCurrent((p) => (p - 1 + total) % total);
-    // Resume auto-scroll after 5 seconds
-    setTimeout(() => setIsPaused(false), 5000);
   };
 
   const goToNext = () => {
-    setIsPaused(true);
+    pauseThenResume();
     setCurrent((p) => (p + 1) % total);
-    // Resume auto-scroll after 5 seconds
-    setTimeout(() => setIsPaused(false), 5000);
   };
 
   const goToSlide = (index) => {
-    setIsPaused(true);
+    pauseThenResume();
     setCurrent(index);
-    // Resume auto-scroll after 5 seconds
-    setTimeout(() => setIsPaused(false), 5000);
   };
 
   return (
@@ -107,6 +112,22 @@ const HeroCarousel = () => {
 
 const Hero = () => (
   <section className="hero-modern" id="home">
+    {/* Visually hidden page heading for screen readers / SEO */}
+    <h1
+      style={{
+        position: 'absolute',
+        width: '1px',
+        height: '1px',
+        margin: '-1px',
+        padding: 0,
+        overflow: 'hidden',
+        clip: 'rect(0 0 0 0)',
+        whiteSpace: 'nowrap',
+        border: 0,
+      }}
+    >
+      Virgo Praedicanda International School — Making Excellence A Habit
+    </h1>
     <div className="container hero-stacked">
       {/* Carousel — full focus */}
       <div className="hero-stacked-carousel hero-carousel-order" data-aos="fade-up" data-aos-delay="200">
@@ -135,7 +156,7 @@ const QualityEducation = () => (
           </p>
         </div>
         <div className="quality-education-image">
-          <img src="/assets/images/excursion/school_photo_66.jpg" alt="Students on excursion" />
+          <img src="/assets/images/excursion/school_photo_66.jpg" alt="Students on excursion" loading="lazy" decoding="async" />
         </div>
       </div>
     </div>
@@ -163,7 +184,7 @@ const AcademicExcellence = () => {
       <div className="container">
         <div className="academic-excellence-layout" data-aos="fade-up">
           <div className="academic-excellence-content">
-            <h2 className="academic-excellence-title">Excellence In Acdemics And Life</h2>
+            <h2 className="academic-excellence-title">Excellence In Academics And Life</h2>
             <p className="academic-excellence-text">
               With <strong>8 years</strong> of experience, Virgo Praedicanda Schools, one of the best 
               schools in Port Harcourt, is committed to academic excellence and the 
@@ -174,7 +195,7 @@ const AcademicExcellence = () => {
             <div className="academic-carousel-track">
               {academicImages.map((src, i) => (
                 <div key={i} className={`academic-carousel-slide ${i === currentImage ? 'active' : ''}`}>
-                  <img src={src} alt={`Academic excellence ${i + 1}`} />
+                  <img src={src} alt={`Academic excellence ${i + 1}`} loading="lazy" decoding="async" />
                 </div>
               ))}
             </div>
@@ -265,7 +286,7 @@ const VPISGallery = () => {
         <div className="gallery-grid-3x3">
           {galleryImages.map((src, i) => (
             <div key={i} className="gallery-item-simple" data-aos="fade-up" data-aos-delay={i * 100}>
-              <img src={src} alt={`VPIS Gallery ${i + 1}`} />
+              <img src={src} alt={`VPIS Gallery ${i + 1}`} loading="lazy" decoding="async" />
             </div>
           ))}
         </div>
@@ -285,7 +306,7 @@ const Contact = () => (
 
         {/* Left — building photo */}
         <div className="contact-img-wrap">
-          <img src="/assets/images/building.jpeg" alt="School building" />
+          <img src="/assets/images/building.jpeg" alt="School building" loading="lazy" decoding="async" />
         </div>
 
         {/* Right — info panel */}
@@ -339,7 +360,7 @@ const Contact = () => (
 const SchoolBrand = () => (
   <section className="school-brand-section">
     <div className="school-brand-inner">
-      <img src="/assets/images/logo.png" className="school-brand-logo" alt="Virgo Praedicanda logo" />
+      <img src="/assets/images/logo.png" className="school-brand-logo" alt="Virgo Praedicanda logo" loading="lazy" decoding="async" />
       <h2 className="school-brand-name">VIRGO PRAEDICANDA INTERNATIONAL SCHOOL</h2>
       <p className="school-brand-tagline">Making Excellence A Habit.</p>
       <p className="school-brand-desc">
@@ -394,7 +415,7 @@ const RecentCompetitions = () => {
           <div className="competitions-track">
             {competitionImages.map((src, i) => (
               <div key={i} className={`competition-slide ${i === currentCompetition ? 'active' : ''}`}>
-                <img src={src} alt={`Competition ${i + 1}`} />
+                <img src={src} alt={`Competition ${i + 1}`} loading="lazy" decoding="async" />
               </div>
             ))}
           </div>
@@ -431,10 +452,6 @@ const RecentCompetitions = () => {
 };
 
 function App() {
-  useEffect(() => {
-    AOS.init({ duration: 800, once: true, offset: 100 });
-  }, []);
-
   return (
     <>
       <Navbar />

@@ -1,9 +1,2 @@
-/* add css module styles here (optional) */
-
-.test {
-  margin: 2em;
-  padding: 0.5em;
-  border: 2px solid #000;
-  font-size: 2em;
-  text-align: center;
-}
+/* Intentionally empty — shared widget styles live in the per-component
+   *.module.css files. Kept to avoid breaking any external imports. */
