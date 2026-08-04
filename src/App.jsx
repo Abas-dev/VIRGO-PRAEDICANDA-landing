@@ -541,8 +541,8 @@ function App() {
       <QualityEducation />
       <RecentCompetitions />
       <OurAchievements />
-      <Testimonials />
       <SchoolStats />
+      <Testimonials />
       <Contact />
       <VPISGallery />
       <SchoolBrand />
