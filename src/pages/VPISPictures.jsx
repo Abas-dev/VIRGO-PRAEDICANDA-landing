@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 
 const VPISPictures = () => {
@@ -235,8 +234,6 @@ const VPISPictures = () => {
 
       <div className="content">
         <div className="container">
-          <Link to="/" className="back-link">← Back to Home</Link>
-          
           {!currentFolder && (
             <div className="gallery-folders-grid">
               {galleryFolders.map((folder) => (
