@@ -24,14 +24,15 @@ const Management = () => {
       { src: "/assets/images/management/school_photo_10.jpg", alt: "Management Team Member" },
       { src: "/assets/images/management/school_photo_11.jpg", alt: "Management Team Member" } 
     ], 
-
+/* HOD */
     [
       { src: "/assets/images/management/school_photo_34.jpg", alt: "Management Team Member" },
       { src: "/assets/images/management/school_photo_33.jpg", alt: "Management Team Member" }
     ],
+/* HOS */
     [
-      { src: "/assets/images/management/school_photo_4.jpg", alt: "Management Team Member" },
-      { src: "/assets/images/management/school_photo_5.jpg", alt: "Management Team Member" }
+      { src: "/assets/images/management/school_photo_2.jpg", alt: "Management Team Member" },
+      { src: "/assets/images/management/school_photo_3.jpg", alt: "Management Team Member" }
     ],
 
 /* principal */
@@ -39,9 +40,10 @@ const Management = () => {
       { src: "/assets/images/management/school_photo_8.jpg", alt: "Management Team Member" },
       { src: "/assets/images/management/school_photo_9.jpg", alt: "Management Team Member" }
     ], 
+/* School admin */
     [
-      { src: "/assets/images/management/school_photo_2.jpg", alt: "Management Team Member" },
-      { src: "/assets/images/management/school_photo_3.jpg", alt: "Management Team Member" }
+      { src: "/assets/images/management/school_photo_4.jpg", alt: "Management Team Member" },
+      { src: "/assets/images/management/school_photo_5.jpg", alt: "Management Team Member" }
     ]
   ];
 
