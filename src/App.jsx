@@ -5,7 +5,7 @@ import OurAchievements from "./components/OurAchievements.jsx";
 /* ── Hero Carousel Data ─────────────────────────────────────────────────── */
 const heroCarouselImages = [
   {
-    src: "/assets/images/primary.jpeg",
+    src: "/assets/images/interhouse/school_photo_36.jpg",
     alt: "Primary school students in uniform",
     subtitle: "Welcome to Virgo Praedicanda International School",
     title: "Making Excellence A Habit",
@@ -13,7 +13,7 @@ const heroCarouselImages = [
       "We nurture confident, disciplined and academically excellent students prepared for global opportunities.",
   },
   {
-    src: "/assets/images/class photo_3.jpeg",
+    src: "/assets/images/competitions/science/school_photo_54.jpg",
     alt: "Students during class activities",
     subtitle: "A Place Where Learning Never Stops",
     title: "Building Future Leaders",
@@ -21,7 +21,7 @@ const heroCarouselImages = [
       "Combining the Nigerian, British, American and Singaporean curriculum to help every child reach their full potential.",
   },
   {
-    src: "/assets/images/students.jpeg",
+    src: "/assets/images/art/school_photo_70.jpg",
     alt: "Students engaging in collaborative learning",
     subtitle: "Academic Excellence",
     title: "Inspiring Young Minds",
@@ -29,7 +29,7 @@ const heroCarouselImages = [
       "Creating an environment where children grow intellectually, morally and socially.",
   },
   {
-    src: "/assets/images/students_3.jpeg",
+    src: "./assets/images/skill/school_photo_12.jpg",
     alt: "Smiling students on campus",
     subtitle: "Quality Education",
     title: "Every Child Matters",
