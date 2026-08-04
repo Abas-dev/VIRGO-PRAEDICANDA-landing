@@ -1,23 +1,23 @@
 import { useEffect, useRef, useState } from "react";
-import Navbar from './components/Navbar.jsx';
+import Navbar from "./components/Navbar.jsx";
 
 /* ── Hero Carousel — Enhanced with navigation and overlays ─────────────────────── */
 const heroCarouselImages = [
-  { 
+  {
     src: "/assets/images/primary.jpeg",
-    alt: "Primary school students in classroom"
+    alt: "Primary school students in classroom",
   },
-  { 
+  {
     src: "/assets/images/class photo_3.jpeg",
-    alt: "Class graduation ceremony"
+    alt: "Class graduation ceremony",
   },
-  { 
+  {
     src: "/assets/images/students.jpeg",
-    alt: "Students engaged in learning activities"
+    alt: "Students engaged in learning activities",
   },
-  { 
+  {
     src: "/assets/images/students_3.jpeg",
-    alt: "Students participating in group activities"
+    alt: "Students participating in group activities",
   },
 ];
 
@@ -64,30 +64,33 @@ const HeroCarousel = () => {
   };
 
   return (
-    <div 
-      className="hero-carousel" 
-      data-aos="fade-left" 
+    <div
+      className="hero-carousel"
+      data-aos="fade-left"
       data-aos-delay="400"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
       <div className="hero-carousel-track">
         {heroCarouselImages.map((img, i) => (
-          <div key={i} className={`hero-carousel-slide${i === current ? " active" : ""}`}>
+          <div
+            key={i}
+            className={`hero-carousel-slide${i === current ? " active" : ""}`}
+          >
             <img src={img.src} alt={img.alt} />
           </div>
         ))}
       </div>
-      
+
       {/* Navigation Arrows */}
-      <button 
+      <button
         className="hero-carousel-arrow hero-carousel-prev"
         onClick={goToPrevious}
         aria-label="Previous slide"
       >
         &#10094;
       </button>
-      <button 
+      <button
         className="hero-carousel-arrow hero-carousel-next"
         onClick={goToNext}
         aria-label="Next slide"
@@ -115,14 +118,14 @@ const Hero = () => (
     {/* Visually hidden page heading for screen readers / SEO */}
     <h1
       style={{
-        position: 'absolute',
-        width: '1px',
-        height: '1px',
-        margin: '-1px',
+        position: "absolute",
+        width: "1px",
+        height: "1px",
+        margin: "-1px",
         padding: 0,
-        overflow: 'hidden',
-        clip: 'rect(0 0 0 0)',
-        whiteSpace: 'nowrap',
+        overflow: "hidden",
+        clip: "rect(0 0 0 0)",
+        whiteSpace: "nowrap",
         border: 0,
       }}
     >
@@ -130,7 +133,11 @@ const Hero = () => (
     </h1>
     <div className="container hero-stacked">
       {/* Carousel — full focus */}
-      <div className="hero-stacked-carousel hero-carousel-order" data-aos="fade-up" data-aos-delay="200">
+      <div
+        className="hero-stacked-carousel hero-carousel-order"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
         <HeroCarousel />
       </div>
     </div>
@@ -143,20 +150,28 @@ const QualityEducation = () => (
     <div className="container">
       <div className="quality-education-layout" data-aos="fade-up">
         <div className="quality-education-content">
-          <h3 className="quality-education-title">Quality Education That Shapes the Future</h3>
+          <h3 className="quality-education-title">
+            Quality Education That Shapes the Future
+          </h3>
           <p className="quality-education-text">
-            At Virgo Praedicanda Schools, we aim to train every child to be distinct and 
-            confidently face the future. We believe education is not only academics 
-            but in morals, sports, presentations, confidence and every other area of life.
+            At Virgo Praedicanda Schools, we aim to train every child to be
+            distinct and confidently face the future. We believe education is
+            not only academics but in morals, sports, presentations, confidence
+            and every other area of life.
           </p>
           <p className="quality-education-text">
-            We use a mix of British and Nigerian curriculum to ensure that all our 
-            students are able to compete successfully both at national and 
+            We use a mix of British and Nigerian curriculum to ensure that all
+            our students are able to compete successfully both at national and
             international standards.
           </p>
         </div>
         <div className="quality-education-image">
-          <img src="/assets/images/excursion/school_photo_66.jpg" alt="Students on excursion" loading="lazy" decoding="async" />
+          <img
+            src="/assets/images/excursion/school_photo_66.jpg"
+            alt="Students on excursion"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
       </div>
     </div>
@@ -168,8 +183,8 @@ const AcademicExcellence = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const academicImages = [
     "/assets/images/school_photo_1.jpg",
-    "/assets/images/school_photo_2.jpeg", 
-    "/assets/images/school_photo_3.jpeg"
+    "/assets/images/school_photo_2.jpeg",
+    "/assets/images/school_photo_3.jpeg",
   ];
 
   useEffect(() => {
@@ -184,18 +199,29 @@ const AcademicExcellence = () => {
       <div className="container">
         <div className="academic-excellence-layout" data-aos="fade-up">
           <div className="academic-excellence-content">
-            <h2 className="academic-excellence-title">Excellence In Academics And Life</h2>
+            <h2 className="academic-excellence-title">
+              Excellence In Academics And Life
+            </h2>
             <p className="academic-excellence-text">
-              With <strong>8 years</strong> of experience, Virgo Praedicanda Schools, one of the best 
-              schools in Port Harcourt, is committed to academic excellence and the 
-              nurturing of responsible, courteous, and happy students.
+              With <strong>8 years</strong> of experience, Virgo Praedicanda
+              Schools, one of the best schools in Port Harcourt, is committed to
+              academic excellence and the nurturing of responsible, courteous,
+              and happy students.
             </p>
           </div>
           <div className="academic-excellence-carousel">
             <div className="academic-carousel-track">
               {academicImages.map((src, i) => (
-                <div key={i} className={`academic-carousel-slide ${i === currentImage ? 'active' : ''}`}>
-                  <img src={src} alt={`Academic excellence ${i + 1}`} loading="lazy" decoding="async" />
+                <div
+                  key={i}
+                  className={`academic-carousel-slide ${i === currentImage ? "active" : ""}`}
+                >
+                  <img
+                    src={src}
+                    alt={`Academic excellence ${i + 1}`}
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
               ))}
             </div>
@@ -209,32 +235,38 @@ const AcademicExcellence = () => {
 const Testimonials = () => {
   const feedback = [
     {
-      quote: "VIRGO PRAEDICANDA INTERNATIONAL SCHOOL is a really wonderful school which indeed builds global champions and ensures a child is competitive. Your kid can never go there and remain dumb but they will make the child the best both morally and academically.",
+      quote:
+        "VIRGO PRAEDICANDA INTERNATIONAL SCHOOL is a really wonderful school which indeed builds global champions and ensures a child is competitive. Your kid can never go there and remain dumb but they will make the child the best both morally and academically.",
       name: "ABIED Books HUB",
       initials: "A",
     },
     {
-      quote: "For the period of time my son has spent in VIRGO PRAEDICANDA INTERNATIONAL SCHOOL there has been a lot of progress in his Academics. Therefore, I consider VIRGO PRAEDICANDA INTERNATIONAL SCHOOL as one of the best schools in Portharcourt.",
+      quote:
+        "For the period of time my son has spent in VIRGO PRAEDICANDA INTERNATIONAL SCHOOL there has been a lot of progress in his Academics. Therefore, I consider VIRGO PRAEDICANDA INTERNATIONAL SCHOOL as one of the best schools in Portharcourt.",
       name: "Pat Enosareba",
       initials: "P",
     },
     {
-      quote: "This is a school every well meaning Nigerians and foreigners should attend due to its high standard and quality delivery. You get more value both in character and learning. A trial will convince you.",
+      quote:
+        "This is a school every well meaning Nigerians and foreigners should attend due to its high standard and quality delivery. You get more value both in character and learning. A trial will convince you.",
       name: "Mr. N. Ikechukwu",
       initials: "M",
     },
     {
-      quote: "VIRGO PRAEDICANDA INTERNATIONAL SCHOOL, from the short time I have spent knowing it, is a school with class. It's exciting to see and experience the high standards upheld in VIRGO PRAEDICANDA INTERNATIONAL SCHOOL, from leadership to staff to every child in the school, nothing is taken for granted, excellence is the watch word here.",
+      quote:
+        "VIRGO PRAEDICANDA INTERNATIONAL SCHOOL, from the short time I have spent knowing it, is a school with class. It's exciting to see and experience the high standards upheld in VIRGO PRAEDICANDA INTERNATIONAL SCHOOL, from leadership to staff to every child in the school, nothing is taken for granted, excellence is the watch word here.",
       name: "Tobor Chunu",
       initials: "T",
     },
     {
-      quote: "They offer sound academic services. An amazing school for every child.",
+      quote:
+        "They offer sound academic services. An amazing school for every child.",
       name: "Mr. David B",
       initials: "D",
     },
     {
-      quote: "The school is amazing, my son won two awards because of their teachers. VIRGO PRAEDICANDA INTERNATIONAL SCHOOL is the best school in the world.",
+      quote:
+        "The school is amazing, my son won two awards because of their teachers. VIRGO PRAEDICANDA INTERNATIONAL SCHOOL is the best school in the world.",
       name: "Amarachi Alabraba",
       initials: "A",
     },
@@ -247,8 +279,15 @@ const Testimonials = () => {
         </div>
         <div className="testimonial-grid-open">
           {feedback.map((item, i) => (
-            <div className="testimonial-open-card" key={i} data-aos="fade-up" data-aos-delay={50 + i * 80}>
-              <p className="testimonial-open-quote">&ldquo;{item.quote}&rdquo;</p>
+            <div
+              className="testimonial-open-card"
+              key={i}
+              data-aos="fade-up"
+              data-aos-delay={50 + i * 80}
+            >
+              <p className="testimonial-open-quote">
+                &ldquo;{item.quote}&rdquo;
+              </p>
               <div className="testimonial-open-author">
                 <div className="testimonial-author-circle">{item.initials}</div>
                 <span>{item.name}</span>
@@ -264,15 +303,15 @@ const Testimonials = () => {
 /* ── VPIS Gallery - Simple 3x3 Grid ──────────────────────────────── */
 const VPISGallery = () => {
   const galleryImages = [
-    '/assets/images/farm/school_photo_78.jpg',
-    '/assets/images/art/school_photo_69.jpg',
-    '/assets/images/excursion/excursion 1.jpeg',
-    '/assets/images/interhouse/school_photo_35.jpg',
-    '/assets/images/home_econs/school_photo_45.jpg',
-    '/assets/images/literacy/financial/school_photo_22.jpg',
-    '/assets/images/competitions/science/school_photo_54.jpg',
-    '/assets/images/literacy/book_day/school_photo_17.jpg',
-    '/assets/images/literacy/dental/school_photo_23.jpg'
+    "/assets/images/farm/school_photo_78.jpg",
+    "/assets/images/art/school_photo_69.jpg",
+    "/assets/images/excursion/excursion 1.jpeg",
+    "/assets/images/interhouse/school_photo_35.jpg",
+    "/assets/images/home_econs/school_photo_45.jpg",
+    "/assets/images/literacy/financial/school_photo_22.jpg",
+    "/assets/images/competitions/science/school_photo_54.jpg",
+    "/assets/images/literacy/book_day/school_photo_17.jpg",
+    "/assets/images/literacy/dental/school_photo_23.jpg",
   ];
 
   return (
@@ -285,8 +324,18 @@ const VPISGallery = () => {
 
         <div className="gallery-grid-3x3">
           {galleryImages.map((src, i) => (
-            <div key={i} className="gallery-item-simple" data-aos="fade-up" data-aos-delay={i * 100}>
-              <img src={src} alt={`VPIS Gallery ${i + 1}`} loading="lazy" decoding="async" />
+            <div
+              key={i}
+              className="gallery-item-simple"
+              data-aos="fade-up"
+              data-aos-delay={i * 100}
+            >
+              <img
+                src={src}
+                alt={`VPIS Gallery ${i + 1}`}
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           ))}
         </div>
@@ -295,40 +344,63 @@ const VPISGallery = () => {
   );
 };
 
-
-
 /* ── Contact ────────── */
 const Contact = () => (
   <section className="contact-section" id="contact">
     <div className="container">
-      <h2 className="contact-heading" data-aos="fade-up">Contact Us</h2>
+      <h2 className="contact-heading" data-aos="fade-up">
+        Contact Us
+      </h2>
       <div className="contact-card" data-aos="fade-up" data-aos-delay="100">
-
         {/* Left — building photo */}
         <div className="contact-img-wrap">
-          <img src="/assets/images/building.jpeg" alt="School building" loading="lazy" decoding="async" />
+          <img
+            src="/assets/images/building.jpeg"
+            alt="School building"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
 
         {/* Right — info panel */}
         <div className="contact-panel">
-
           <div className="contact-item">
             <div className="contact-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/>
-                <circle cx="12" cy="10" r="3"/>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
               </svg>
             </div>
             <div>
               <h4>Address</h4>
-              <p>New Road, Relief | Victory Estate,<br />Elelenwo, Port Harcourt, Rivers State,<br />Nigeria</p>
+              <p>
+                New Road, Relief | Victory Estate,
+                <br />
+                Elelenwo, Port Harcourt, Rivers State,
+                <br />
+                Nigeria
+              </p>
             </div>
           </div>
 
           <div className="contact-item">
             <div className="contact-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l1.17-.96a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l1.17-.96a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
               </svg>
             </div>
             <div>
@@ -339,9 +411,16 @@ const Contact = () => (
 
           <div className="contact-item">
             <div className="contact-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                <polyline points="22,6 12,13 2,6"/>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
               </svg>
             </div>
             <div>
@@ -349,7 +428,6 @@ const Contact = () => (
               <p>info@schools.com</p>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -360,8 +438,16 @@ const Contact = () => (
 const SchoolBrand = () => (
   <section className="school-brand-section">
     <div className="school-brand-inner">
-      <img src="/assets/images/logo.png" className="school-brand-logo" alt="Virgo Praedicanda logo" loading="lazy" decoding="async" />
-      <h2 className="school-brand-name">VIRGO PRAEDICANDA INTERNATIONAL SCHOOL</h2>
+      <img
+        src="/assets/images/logo.png"
+        className="school-brand-logo"
+        alt="Virgo Praedicanda logo"
+        loading="lazy"
+        decoding="async"
+      />
+      <h2 className="school-brand-name">
+        VIRGO PRAEDICANDA INTERNATIONAL SCHOOL
+      </h2>
       <p className="school-brand-tagline">Making Excellence A Habit.</p>
       <p className="school-brand-desc">
         An independent Christian school committed to inspiring and nurturing
@@ -374,7 +460,10 @@ const SchoolBrand = () => (
 
 const Footer = () => (
   <footer className="site-footer-bar">
-    <p>&copy; {new Date().getFullYear()} VIRGO PRAEDICANDA INTERNATIONAL SCHOOL. All rights reserved.</p>
+    <p>
+      &copy; {new Date().getFullYear()} VIRGO PRAEDICANDA INTERNATIONAL SCHOOL.
+      All rights reserved.
+    </p>
   </footer>
 );
 
@@ -383,9 +472,9 @@ const RecentCompetitions = () => {
   const [currentCompetition, setCurrentCompetition] = useState(0);
   const competitionImages = [
     "/assets/images/competitions/science/school_photo_54.jpg",
-    "/assets/images/competitions/science/school_photo_55.jpg", 
+    "/assets/images/competitions/science/school_photo_55.jpg",
     "/assets/images/competitions/bee/school_photo_52.jpg",
-    "/assets/images/competitions/bee/school_photo_53.jpg"
+    "/assets/images/competitions/bee/school_photo_53.jpg",
   ];
 
   useEffect(() => {
@@ -396,7 +485,10 @@ const RecentCompetitions = () => {
   }, [competitionImages.length]);
 
   const goToPrevCompetition = () => {
-    setCurrentCompetition((prev) => (prev - 1 + competitionImages.length) % competitionImages.length);
+    setCurrentCompetition(
+      (prev) =>
+        (prev - 1 + competitionImages.length) % competitionImages.length,
+    );
   };
 
   const goToNextCompetition = () => {
@@ -410,24 +502,36 @@ const RecentCompetitions = () => {
           <h2>Recent Competitions</h2>
           <p>Celebrating our students' achievements and excellence</p>
         </div>
-        
-        <div className="competitions-carousel" data-aos="fade-up" data-aos-delay="200">
+
+        <div
+          className="competitions-carousel"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
           <div className="competitions-track">
             {competitionImages.map((src, i) => (
-              <div key={i} className={`competition-slide ${i === currentCompetition ? 'active' : ''}`}>
-                <img src={src} alt={`Competition ${i + 1}`} loading="lazy" decoding="async" />
+              <div
+                key={i}
+                className={`competition-slide ${i === currentCompetition ? "active" : ""}`}
+              >
+                <img
+                  src={src}
+                  alt={`Competition ${i + 1}`}
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
             ))}
           </div>
-          
-          <button 
+
+          <button
             className="competition-arrow competition-prev"
             onClick={goToPrevCompetition}
             aria-label="Previous competition"
           >
             &#10094;
           </button>
-          <button 
+          <button
             className="competition-arrow competition-next"
             onClick={goToNextCompetition}
             aria-label="Next competition"
@@ -439,7 +543,7 @@ const RecentCompetitions = () => {
             {competitionImages.map((_, i) => (
               <button
                 key={i}
-                className={`competition-dot ${i === currentCompetition ? 'active' : ''}`}
+                className={`competition-dot ${i === currentCompetition ? "active" : ""}`}
                 onClick={() => setCurrentCompetition(i)}
                 aria-label={`Go to competition ${i + 1}`}
               />

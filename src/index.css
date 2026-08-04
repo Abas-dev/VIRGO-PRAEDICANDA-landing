@@ -16,18 +16,22 @@
 /* ── 1. Design tokens ─────────────────────────────────────── */
 :root {
   /* Font stacks */
-  --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-sans:
+    ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
   --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --font-display: "Cormorant Garamond", ui-serif, Georgia, serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-mono:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
 
   /* Gray palette */
-  --color-gray-200: oklch(92.8% .006 264.531);
-  --color-gray-300: oklch(87.2% .01 258.338);
-  --color-gray-400: oklch(70.7% .022 261.325);
-  --color-gray-600: oklch(44.6% .03 256.802);
-  --color-gray-700: oklch(37.3% .034 259.733);
-  --color-gray-900: oklch(21% .034 264.665);
+  --color-gray-200: oklch(92.8% 0.006 264.531);
+  --color-gray-300: oklch(87.2% 0.01 258.338);
+  --color-gray-400: oklch(70.7% 0.022 261.325);
+  --color-gray-600: oklch(44.6% 0.03 256.802);
+  --color-gray-700: oklch(37.3% 0.034 259.733);
+  --color-gray-900: oklch(21% 0.034 264.665);
   --color-white: #ffffff;
 
   /* Brand colors */
@@ -41,10 +45,11 @@
   --surface-color: var(--color-white);
   --text-main: var(--color-gray-900);
   --text-muted: var(--color-gray-600);
-  --muted: var(--color-gray-600);      /* used by page styles */
-  --border: #dbe4f0;                   /* used by page cards   */
+  --muted: var(--color-gray-600); /* used by page styles */
+  --border: #dbe4f0; /* used by page cards   */
 
-  --shadow-sm: 0 1px 3px rgba(16, 42, 67, 0.08), 0 1px 2px rgba(16, 42, 67, 0.05);
+  --shadow-sm:
+    0 1px 3px rgba(16, 42, 67, 0.08), 0 1px 2px rgba(16, 42, 67, 0.05);
   --shadow-md: 0 4px 18px rgba(16, 42, 67, 0.12);
   --shadow-lg: 0 8px 30px rgba(16, 42, 67, 0.16);
   --transition: all 0.25s ease;
@@ -184,7 +189,7 @@ iframe {
   align-items: center;
   gap: 0.85rem;
   text-decoration: none;
-  min-width: 0;           /* allow the brand text to shrink, not overflow */
+  min-width: 0; /* allow the brand text to shrink, not overflow */
   flex: 1 1 auto;
 }
 
@@ -260,7 +265,7 @@ iframe {
 
 .nav-link-dropdown {
   display: inline-block;
-  padding: 0.5rem 0;             /* larger hover/tap target */
+  padding: 0.5rem 0; /* larger hover/tap target */
   color: var(--text-main);
   font-size: 0.9rem;
   font-weight: 600;
@@ -286,7 +291,10 @@ iframe {
   opacity: 0;
   visibility: hidden;
   transform: translateY(-10px);
-  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    visibility 0.25s ease;
   z-index: 1001;
 }
 
@@ -350,7 +358,7 @@ iframe {
   align-items: center;
   gap: 5px;
   padding: 0.5rem;
-  width: 44px;             /* comfortable tap target */
+  width: 44px; /* comfortable tap target */
   height: 44px;
   border-radius: 6px;
   flex-shrink: 0;
@@ -378,7 +386,9 @@ iframe {
   z-index: 1200;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
 }
 
 .mobile-overlay.active {
@@ -399,7 +409,9 @@ iframe {
   flex-direction: column;
   padding: 0;
   transform: translateX(105%);
-  transition: transform 0.3s ease, visibility 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    visibility 0.3s ease;
   box-shadow: -8px 0 32px rgba(0, 0, 0, 0.15);
   visibility: hidden;
   overflow-y: auto;
@@ -478,7 +490,9 @@ iframe {
   font-weight: 500;
   color: #1a1a1a;
   text-decoration: none;
-  transition: color 0.2s, background 0.2s;
+  transition:
+    color 0.2s,
+    background 0.2s;
 }
 
 .drawer-links li a:hover {
@@ -545,7 +559,9 @@ iframe {
   color: #555;
   text-decoration: none;
   border-bottom: 1px solid #f5f5f5;
-  transition: color 0.2s, background 0.2s;
+  transition:
+    color 0.2s,
+    background 0.2s;
 }
 
 .dropdown-links li a:hover {
@@ -570,7 +586,10 @@ iframe {
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
-  transition: opacity 0.2s, background 0.2s, color 0.2s;
+  transition:
+    opacity 0.2s,
+    background 0.2s,
+    color 0.2s;
 }
 
 .drawer-btn-primary {
@@ -922,8 +941,12 @@ iframe {
   background: rgba(0, 0, 0, 0.8);
 }
 
-.competition-prev { left: 15px; }
-.competition-next { right: 15px; }
+.competition-prev {
+  left: 15px;
+}
+.competition-next {
+  right: 15px;
+}
 
 .competition-dots {
   position: absolute;
@@ -1045,7 +1068,7 @@ iframe {
   .folder-overlay {
     opacity: 0;
   }
-  
+
   .gallery-folder:hover .folder-overlay {
     opacity: 1;
   }
@@ -1238,7 +1261,7 @@ iframe {
   grid-template-columns: 1fr 1fr;
   border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 4px 32px rgba(16, 42, 67, 0.10);
+  box-shadow: 0 4px 32px rgba(16, 42, 67, 0.1);
   max-width: 1100px;
   margin: 0 auto;
 }
@@ -1758,7 +1781,11 @@ iframe {
 }
 
 .motto-banner {
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--primary-dark) 100%
+  );
   color: white;
   border-radius: 20px;
   padding: 2.5rem 2.5rem;
@@ -1844,7 +1871,9 @@ iframe {
   border: 1px solid var(--border);
   box-shadow: 0 2px 12px rgba(16, 42, 67, 0.05);
   text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .subject-card:hover {
@@ -1933,13 +1962,27 @@ iframe {
   animation: fadeInUp 0.8s ease forwards;
 }
 
-.management-pair:nth-child(1) { animation-delay: 0.1s; }
-.management-pair:nth-child(2) { animation-delay: 0.2s; }
-.management-pair:nth-child(3) { animation-delay: 0.3s; }
-.management-pair:nth-child(4) { animation-delay: 0.4s; }
-.management-pair:nth-child(5) { animation-delay: 0.5s; }
-.management-pair:nth-child(6) { animation-delay: 0.6s; }
-.management-pair:nth-child(7) { animation-delay: 0.7s; }
+.management-pair:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.management-pair:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.management-pair:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.management-pair:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.management-pair:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.management-pair:nth-child(6) {
+  animation-delay: 0.6s;
+}
+.management-pair:nth-child(7) {
+  animation-delay: 0.7s;
+}
 
 .management-item {
   flex: 1;
@@ -1947,7 +1990,9 @@ iframe {
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(16, 42, 67, 0.08);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
 }
 
 .management-item:hover {
@@ -2001,7 +2046,9 @@ iframe {
   border-radius: 14px;
   padding: 1.4rem 1.25rem;
   box-shadow: 0 2px 12px rgba(16, 42, 67, 0.05);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .admission-step:hover {
@@ -2046,7 +2093,9 @@ iframe {
   border-radius: 16px;
   padding: 1.5rem 1.25rem;
   box-shadow: 0 2px 12px rgba(16, 42, 67, 0.05);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .class-card:hover {
@@ -2122,7 +2171,10 @@ iframe {
   font-size: 0.9rem;
   font-weight: 600;
   text-decoration: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
 }
 
 .contact-btn.primary {
@@ -2176,7 +2228,9 @@ iframe {
   border: 1px solid var(--border);
   box-shadow: 0 2px 12px rgba(16, 42, 67, 0.05);
   text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .facility-card:hover {
@@ -2218,7 +2272,9 @@ iframe {
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 2px 12px rgba(16, 42, 67, 0.05);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .campus-card:hover {
@@ -2315,7 +2371,10 @@ iframe {
   font-size: 0.9rem;
   font-weight: 600;
   text-decoration: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
 }
 
 .cta-btn.primary {
@@ -2613,8 +2672,12 @@ iframe {
     font-size: 0.88rem;
   }
 
-  .lightbox-prev { left: 0.5rem; }
-  .lightbox-next { right: 0.5rem; }
+  .lightbox-prev {
+    left: 0.5rem;
+  }
+  .lightbox-next {
+    right: 0.5rem;
+  }
 
   .lightbox img {
     max-width: 96vw;
