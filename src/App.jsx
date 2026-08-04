@@ -343,11 +343,19 @@ const Contact = () => (
             <div>
               <h4>Address</h4>
               <p>
-                New Road, Relief | Victory Estate,
+               Woji Campus- No. 9, Marina Close
                 <br />
-                Elelenwo, Port Harcourt, Rivers State,
+                Woji, Port Harcourt, Rivers State,
                 <br />
-                Nigeria
+                Nigeria.
+              </p>
+               <br />
+              <p>
+               Chinda Campus- No. 100 Ada George Road
+                <br />
+                Chinda, Port Harcourt, Rivers  State 
+                <br />
+                Nigeria.
               </p>
             </div>
           </div>
