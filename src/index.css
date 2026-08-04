@@ -616,8 +616,8 @@ iframe {
 .hero-carousel {
   position: relative;
   width: 100%;
-  height: calc(100vh - var(--nav-height));
-  height: calc(100dvh - var(--nav-height));
+  height: 80vh;
+  height: 80dvh;
   overflow: hidden;
 }
 
@@ -662,13 +662,14 @@ iframe {
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
+  align-items: flex-start;
 
-  text-align: center;
+  text-align: left;
 
   width: min(90%, 700px);
-  margin: auto;
+  margin: 0 auto;
+  padding: 0 5% 90px;
 
   color: white;
 }
@@ -676,7 +677,8 @@ iframe {
 .hero-content p {
   font-size: 18px;
   font-weight: 500;
-  margin-bottom: 18px;
+  letter-spacing: 0.3px;
+  margin-bottom: 14px;
 }
 
 .hero-content h2 {
@@ -697,21 +699,23 @@ iframe {
 
 .hero-buttons {
   display: flex;
-  gap: 20px;
+  gap: 16px;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .hero-btn-primary,
 .hero-btn-secondary {
   display: inline-block;
-  padding: 16px 38px;
-  border-radius: 10px;
-  font-size: 17px;
+  width: auto;
+  padding: 14px 30px;
+  border-radius: 8px;
+  font-size: 16px;
   font-weight: 700;
   text-decoration: none;
   cursor: pointer;
   transition: 0.3s;
+  white-space: nowrap;
 }
 
 .hero-btn-primary {
@@ -2506,12 +2510,15 @@ iframe {
 
   /* Hero */
   .hero-carousel {
-    height: calc(60vh - var(--nav-height));
-    height: calc(60dvh - var(--nav-height));
+    height: calc(100vh - var(--nav-height));
+    height: calc(100dvh - var(--nav-height));
   }
 
   .hero-content {
-    width: 85%;
+    width: 100%;
+    padding: 0 6% 70px;
+    align-items: center;
+    text-align: center;
   }
 
   .hero-content h2 {
@@ -2520,6 +2527,10 @@ iframe {
 
   .hero-content span {
     font-size: 18px;
+  }
+
+  .hero-buttons {
+    justify-content: center;
   }
 
   .hero-title {
@@ -2609,8 +2620,10 @@ iframe {
 
   /* Hero */
   .hero-content {
-    width: 90%;
-    padding: 0 12px;
+    width: 100%;
+    padding: 0 6% 60px;
+    align-items: center;
+    text-align: center;
   }
 
   .hero-content p {
@@ -2618,22 +2631,24 @@ iframe {
   }
 
   .hero-content h2 {
-    font-size: 38px;
+    font-size: 34px;
   }
 
   .hero-content span {
-    font-size: 17px;
-    line-height: 1.7;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 26px;
   }
 
   .hero-buttons {
-    gap: 15px;
+    gap: 12px;
+    justify-content: center;
   }
 
   .hero-btn-primary,
   .hero-btn-secondary {
-    padding: 14px 28px;
-    font-size: 15px;
+    padding: 12px 22px;
+    font-size: 14px;
   }
 
   .hero-carousel-dots {
@@ -2863,26 +2878,30 @@ iframe {
   }
 
   .hero-content h2 {
-    font-size: 32px;
+    font-size: 28px;
   }
 
   .hero-content span {
-    font-size: 15px;
-  }
-
-  .hero-content p {
     font-size: 14px;
   }
 
+  .hero-content p {
+    font-size: 13px;
+  }
+
   .hero-buttons {
-    flex-direction: column;
-    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: auto;
     align-items: center;
+    justify-content: center;
   }
 
   .hero-btn-primary,
   .hero-btn-secondary {
-    width: 220px;
+    width: auto;
+    padding: 11px 18px;
+    font-size: 13px;
   }
 
   .quality-education-title,
