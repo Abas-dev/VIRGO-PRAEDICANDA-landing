@@ -108,9 +108,14 @@ const Navbar = () => {
 
           {/* Desktop CTA */}
           <div className="nav-cta desktop-cta">
-            <Link to="/admissions" className="btn btn-primary">
-              Apply Now
-            </Link>
+            <a
+              href="https://portal.schoolpaddi.com"
+              className="btn btn-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Visit Portal
+            </a>
           </div>
 
           <button
@@ -220,13 +225,6 @@ const Navbar = () => {
             </ul>
           </li>
 
-          {/* Schools */}
-          <li>
-            <Link to="/academics" onClick={closeMenu}>
-              Schools
-            </Link>
-          </li>
-
           {/* Academics Dropdown */}
           <li
             className={`dropdown-item ${activeDropdown === "academics" ? "open" : ""}`}
@@ -313,13 +311,15 @@ const Navbar = () => {
 
         {/* CTA buttons */}
         <div className="drawer-actions">
-          <Link
+          <a
             className="drawer-btn drawer-btn-primary"
-            to="/admissions"
+            href="https://portal.schoolpaddi.com"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={closeMenu}
           >
-            Apply Now
-          </Link>
+            Visit Portal
+          </a>
           <a
             className="drawer-btn drawer-btn-outline"
             href="tel:+2349132554783"
