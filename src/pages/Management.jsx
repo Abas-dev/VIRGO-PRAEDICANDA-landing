@@ -7,32 +7,33 @@ const Management = () => {
   // Management team photos data
   const managementPairs = [
     [
-      { src: "/assets/images/management/school_photo_2.jpg", alt: "Management Team Member" },
-      { src: "/assets/images/management/school_photo_3.jpg", alt: "Management Team Member" }
-    ],
-    [
-      { src: "/assets/images/management/school_photo_4.jpg", alt: "Management Team Member" },
-      { src: "/assets/images/management/school_photo_5.jpg", alt: "Management Team Member" }
-    ],
-    [
       { src: "/assets/images/management/school_photo_6.jpg", alt: "Management Team Member" },
       { src: "/assets/images/management/school_photo_7.jpg", alt: "Management Team Member" }
-    ],
-    [
-      { src: "/assets/images/management/school_photo_8.jpg", alt: "Management Team Member" },
-      { src: "/assets/images/management/school_photo_9.jpg", alt: "Management Team Member" }
-    ],
-    [
-      { src: "/assets/images/management/school_photo_10.jpg", alt: "Management Team Member" },
-      { src: "/assets/images/management/school_photo_11.jpg", alt: "Management Team Member" }
     ],
     [
       { src: "/assets/images/management/school_photo_29.jpg", alt: "Management Team Member" },
       { src: "/assets/images/management/school_photo_30.jpg", alt: "Management Team Member" }
     ],
     [
+      { src: "/assets/images/management/school_photo_8.jpg", alt: "Management Team Member" },
+      { src: "/assets/images/management/school_photo_9.jpg", alt: "Management Team Member" }
+    ],
+    [
+      
       { src: "/assets/images/management/school_photo_34.jpg", alt: "Management Team Member" },
       { src: "/assets/images/management/school_photo_33.jpg", alt: "Management Team Member" }
+    ],
+    [
+      { src: "/assets/images/management/school_photo_4.jpg", alt: "Management Team Member" },
+      { src: "/assets/images/management/school_photo_5.jpg", alt: "Management Team Member" }
+    ],
+    [
+      { src: "/assets/images/management/school_photo_2.jpg", alt: "Management Team Member" },
+      { src: "/assets/images/management/school_photo_3.jpg", alt: "Management Team Member" }
+    ],
+    [
+      { src: "/assets/images/management/school_photo_10.jpg", alt: "Management Team Member" },
+      { src: "/assets/images/management/school_photo_11.jpg", alt: "Management Team Member" }
     ]
   ];
 
