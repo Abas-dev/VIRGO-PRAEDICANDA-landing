@@ -718,6 +718,7 @@ iframe {
 }
 
 .hero-buttons {
+  background: red;
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
