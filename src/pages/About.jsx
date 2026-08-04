@@ -8,17 +8,17 @@ const About = () => {
     vision: {
       image: "/assets/images/students_2.jpeg",
       alt: "Our Vision",
-      desc: "Our vision is to raise children with strong, personable character equipped with knowledge that can compete globally. We inspire and nurture excellent children for global impact — developing confident, compassionate leaders who are rooted in faith and ready to thrive in a rapidly changing world."
+      desc: "To inspire and nurture excellent children for global impact."
     },
     mission: {
       image: "/assets/images/outdoor.jpeg",
       alt: "Our Mission",
-      desc: "Our mission is to develop young men and women with active and creative minds, a sense of compassion for others, and the courage to act on their beliefs and dreams. We are committed to providing a world-class education that integrates academic rigour with Christian values, equipping every learner with the knowledge, skills, and character needed to make a meaningful difference in society."
+      desc: "​To develop young men and women with active and creative minds, a sense of understanding, compassion for others, and courage to act on their beliefs."
     },
     values: {
       image: "/assets/images/kids.jpeg",
       alt: "Our Core Values",
-      desc: "Everything we do at Virgo Praedicanda is shaped by our core values: Academic Excellence, Christian Character, Faith in God, Love & Compassion, Discipline, and Independence. These principles are woven into every lesson, every interaction, and every opportunity we provide — ensuring that our students grow not just in knowledge, but in wisdom, integrity, and purpose."
+      desc: "Academic excellence, Christian character, faith in God, love and compassion for others, discipline, independence, and initiative."
     }
   };
 
