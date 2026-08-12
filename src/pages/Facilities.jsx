@@ -24,6 +24,11 @@ const Facilities = () => {
         "Interactive language learning environment with audio-visual equipment for enhanced communication skills.",
     },
     {
+      title: "Montessori Lab",
+      description:
+        "Specially designed Montessori learning environment with hands-on materials for early childhood development and self-directed learning.",
+    },
+    {
       title: "Music Studio & Art Studio",
       description:
         "Creative spaces for artistic expression, music lessons, and developing talents in the performing and visual arts.",

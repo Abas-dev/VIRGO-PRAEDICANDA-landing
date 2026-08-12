@@ -13,12 +13,12 @@ const About = () => {
     mission: {
       image: "/assets/images/outdoor.jpeg",
       alt: "Our Mission",
-      desc: "​To develop young men and women with active and creative minds, a sense of understanding, compassion for others, and courage to act on their beliefs."
+      desc: "To develop young men and women with active and creative minds, a sense of understanding and compassion for others, and the courage to act on their beliefs."
     },
     values: {
       image: "/assets/images/kids.jpeg",
       alt: "Our Core Values",
-      desc: "Academic excellence, Christian character, faith in God, love and compassion for others, discipline, independence, and initiative."
+      desc: "Academic Excellence | Christian Character | Faith in God | Love & Compassion for Others | Discipline | Independence & Initiative"
     }
   };
 
@@ -34,7 +34,7 @@ const About = () => {
       <div className="about-hero">
         <div className="hero-label">About the School</div>
         <h1 className="hero-title">Virgo Praedicanda International School</h1>
-        <p className="hero-tagline">Making Excellence A Habit.</p>
+        <p className="hero-tagline">Raising Lights for the World</p>
       </div>
 
       <div className="page">
@@ -44,12 +44,23 @@ const About = () => {
 
             {/* Left: heading + summary + accordion */}
             <div className="about-acc-left">
-              <h2 className="about-acc-heading">About us</h2>
+              <h2 className="about-acc-heading">About Virgo Praedicanda International School</h2>
               <p className="about-acc-summary">
-                The founding of Virgo Praedicanda International School was motivated by
-                the desire to provide top-notch instruction. Our bond is our word, or what
-                we pledge to our parents. The school is the pinnacle of achievement,
-                teamwork, intelligence, discipline, and devotion.
+                Virgo Praedicanda International School is a leading co-educational institution in Port Harcourt, Nigeria, committed to academic excellence, character formation, and global leadership development. Our name, <em>Virgo Praedicanda</em> — "The Virgin to be Proclaimed" — reflects our vision of raising exceptional children who will shine as lights in the world. We provide a world-class education that blends rigorous academics with strong moral and spiritual foundations, preparing our students to lead and serve with distinction both in Nigeria and across the globe.
+              </p>
+              <p className="about-acc-summary">
+                At VPIS, we deliver a dual-curriculum approach that gives our students the best of both worlds:<br />
+                - <strong>Primary School:</strong> British Pearson Edexcel iPrimary Curriculum<br />
+                - <strong>Secondary School:</strong> Cambridge International School offering Cambridge Checkpoint and IGCSE
+              </p>
+              <p className="about-acc-summary">
+                To ensure our students are fully prepared for opportunities at home and abroad, we also prepare them for and register them for West African Examinations Council (WAEC), SAT, and IELTS. This guarantees multiple pathways for university admission in Nigeria, the UK, US, Canada, and beyond.
+              </p>
+              <p className="about-acc-summary">
+                With a dedicated faculty, state-of-the-art facilities, and a student-centered approach, every child at VPIS is discovered, developed, and deployed for greatness.
+              </p>
+              <p className="about-acc-summary">
+                We are also advancing discussions for a proposed Sixth Form College in partnership with leading institutions in the UK, to provide our students with seamless pathways for A-Levels and university placement.
               </p>
 
               <div className="vmv-accordion">
@@ -107,17 +118,17 @@ const About = () => {
             <p className="section-label">Who We Are</p>
             <h2 className="section-heading">A School Built on Purpose</h2>
             <p>
-              Established in 2018, Virgo Praedicanda International School (VPIS) is an independent, Christian, co-educational day school committed to providing outstanding education for children from six weeks of age through the secondary school level. Since inception, the school has remained dedicated to nurturing academic excellence while developing sound moral values, leadership qualities, creativity, and lifelong learning skills that prepare learners for success in an ever-changing global society.
+              Virgo Praedicanda International School (VPIS) is a leading co-educational institution in Port Harcourt, Nigeria, committed to academic excellence, character formation, and global leadership development. Since our founding, we have remained dedicated to nurturing academic excellence while developing sound moral values, leadership qualities, creativity, and lifelong learning skills that prepare every learner for success in an ever-changing global society.
             </p>
             <p>
-              VPIS operates as a co-educational institution offering quality education from Early Years through Nursery, Primary, and Secondary School — integrating the English National Curriculum with the Nigerian Curriculum, and providing a standard of education comparable to leading schools in the United Kingdom, the United States, and Singapore.
+              At VPIS, we believe education is more than examinations. It is about forming the whole child — intellectually, morally, and spiritually — for leadership, service, and purpose.
             </p>
             <ul className="prose-list">
-              <li>Education from Early Years, Nursery, Primary through Secondary School.</li>
-              <li>Standards comparable to leading schools in the UK, USA, and Singapore.</li>
-              <li>English National Curriculum integrated with the Nigerian Curriculum.</li>
-              <li>A safe, inclusive, nurturing environment rooted in Christian values.</li>
-              <li>Located at Woji Campus 1 — No. 9 Marina Close, Chinda.</li>
+              <li>Dual-curriculum approach: Pearson Edexcel iPrimary and Cambridge International</li>
+              <li>Preparation for WAEC, SAT, and IELTS examinations</li>
+              <li>Standards comparable to leading schools in the UK, USA, and Singapore</li>
+              <li>A safe, inclusive, nurturing environment rooted in Christian values</li>
+              <li>Proposed Sixth Form College in partnership with UK institutions</li>
             </ul>
           </div>
         </div>
@@ -182,8 +193,11 @@ const About = () => {
 
         {/* Motto */}
         <div className="motto-banner">
-          <p>&ldquo;Making Excellence A Habit.&rdquo;</p>
+          <p>&ldquo;Raising Lights for the World&rdquo;</p>
           <small>VIRGO PRAEDICANDA INTERNATIONAL SCHOOL</small>
+          <p style={{ marginTop: '1rem', fontSize: '0.95rem', fontStyle: 'italic' }}>
+            To God be the Glory. Amen.
+          </p>
         </div>
 
       </div>

@@ -96,10 +96,10 @@ const Navbar = () => {
               </ul>
             </li>
             <li>
-              <a href="/#contact">Our Campuses</a>
+              <Link to="/admissions">Admissions</Link>
             </li>
             <li>
-              <a href="/#testimonials">Testimonials</a>
+              <Link to="/faq">FAQ</Link>
             </li>
             <li>
               <a href="/#contact">Contact</a>
@@ -174,14 +174,14 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <a href="/#contact" onClick={closeMenu}>
-              Our Campuses
-            </a>
+            <Link to="/admissions" onClick={closeMenu}>
+              Admissions
+            </Link>
           </li>
           <li>
-            <a href="/#testimonials" onClick={closeMenu}>
-              Testimonials
-            </a>
+            <Link to="/faq" onClick={closeMenu}>
+              FAQ
+            </Link>
           </li>
           <li>
             <a href="/#contact" onClick={closeMenu}>

@@ -5,46 +5,14 @@ const Management = () => {
   const galleryRef = useRef(null);
 
   // Management team photos data
-  const managementPairs = [
-
-/* proprietress */
-    [
-      { src: "/assets/images/management/school_photo_6.jpg", alt: "Management Team Member" },
-      { src: "/assets/images/management/school_photo_7.jpg", alt: "Management Team Member" }
-    ],
-
-/* Dean */
-    [
-      { src: "/assets/images/management/school_photo_29.jpg", alt: "Management Team Member" },
-      { src: "/assets/images/management/school_photo_30.jpg", alt: "Management Team Member" }
-    ],
-
-/* head of academics */
-    [
-      { src: "/assets/images/management/school_photo_10.jpg", alt: "Management Team Member" },
-      { src: "/assets/images/management/school_photo_11.jpg", alt: "Management Team Member" } 
-    ], 
-/* HOD */
-    [
-      { src: "/assets/images/management/school_photo_34.jpg", alt: "Management Team Member" },
-      { src: "/assets/images/management/school_photo_33.jpg", alt: "Management Team Member" }
-    ],
-/* HOS */
-    [
-      { src: "/assets/images/management/school_photo_2.jpg", alt: "Management Team Member" },
-      { src: "/assets/images/management/school_photo_3.jpg", alt: "Management Team Member" }
-    ],
-
-/* principal */
-    [
-      { src: "/assets/images/management/school_photo_8.jpg", alt: "Management Team Member" },
-      { src: "/assets/images/management/school_photo_9.jpg", alt: "Management Team Member" }
-    ], 
-/* School admin */
-    [
-      { src: "/assets/images/management/school_photo_4.jpg", alt: "Management Team Member" },
-      { src: "/assets/images/management/school_photo_5.jpg", alt: "Management Team Member" }
-    ]
+  const managementMembers = [
+    { src: "/assets/images/management/school_photo_6.jpg", alt: "Proprietress", title: "Dr. Vivian Chinaza Dimmwobi -Proprietress and Director" },
+    { src: "/assets/images/management/school_photo_29.jpg", alt: "Dean", title: "Chinedu Joseph -Dean of Studies, Chinda Campus" },
+    { src: "/assets/images/management/school_photo_10.jpg", alt: "Head of Academics", title: "Ekeh Ifuynanya Blessing -Head of Academics" },
+    { src: "/assets/images/management/school_photo_34.jpg", alt: "HOD", title: "Mrs Anthonia Kelechi Osuji -Head of Department, Nursery" },
+    { src: "/assets/images/management/school_photo_2.jpg", alt: "HOS", title: "Mr Osuka Chidiebere -Head of School" },
+    { src: "/assets/images/management/school_photo_8.jpg", alt: "Principal", title: "Mr Godwin John -Principal, Chinda Campus" },
+    { src: "/assets/images/management/school_photo_4.jpg", alt: "School Admin", title: "Mrs Obiano Lynda -School Administrator" }
   ];
 
   // Intersection Observer for animation on scroll
@@ -61,10 +29,10 @@ const Management = () => {
       { threshold: 0.1 }
     );
 
-    const pairs = galleryRef.current?.querySelectorAll('.management-pair');
-    pairs?.forEach((pair, index) => {
-      pair.style.animationDelay = `${(index + 1) * 0.1}s`;
-      observer.observe(pair);
+    const items = galleryRef.current?.querySelectorAll('.management-item-single');
+    items?.forEach((item, index) => {
+      item.style.animationDelay = `${(index + 1) * 0.1}s`;
+      observer.observe(item);
     });
 
     return () => observer.disconnect();
@@ -86,19 +54,16 @@ const Management = () => {
 
       <div className="page">
         {/* Management Gallery with animations */}
-        <div className="management-gallery" ref={galleryRef}>
-          {managementPairs.map((pair, pairIndex) => (
-            <div key={pairIndex} className="management-pair">
-              {pair.map((member, memberIndex) => (
-                <div key={memberIndex} className="management-item">
-                  <img
-                    src={member.src}
-                    alt={`${member.alt} ${pairIndex * 2 + memberIndex + 1}`}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-              ))}
+        <div className="management-gallery-single" ref={galleryRef}>
+          {managementMembers.map((member, index) => (
+            <div key={index} className="management-item-single">
+              <img
+                src={member.src}
+                alt={member.alt}
+                loading="lazy"
+                decoding="async"
+              />
+              <h3 className="management-title">{member.title}</h3>
             </div>
           ))}
         </div>

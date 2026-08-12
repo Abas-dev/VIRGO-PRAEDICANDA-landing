@@ -13,6 +13,8 @@ import Management from './pages/Management.jsx';
 import VPISPictures from './pages/VPISPictures.jsx';
 import Admissions from './pages/Admissions.jsx';
 import Facilities from './pages/Facilities.jsx';
+import ProprietorMessage from './pages/ProprietorMessage.jsx';
+import FAQ from './pages/FAQ.jsx';
 
 /* Scroll to top (or to hash target) on route change, and re-collect
    AOS elements so animations work after client-side navigation. */
@@ -71,9 +73,11 @@ const AppRouter = () => {
           <Route path="/about" element={<About />} />
           <Route path="/academics" element={<Academics />} />
           <Route path="/management" element={<Management />} />
+          <Route path="/proprietor-message" element={<ProprietorMessage />} />
           <Route path="/vpis-pictures" element={<VPISPictures />} />
           <Route path="/admissions" element={<Admissions />} />
           <Route path="/facilities" element={<Facilities />} />
+          <Route path="/faq" element={<FAQ />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
 

@@ -6,7 +6,7 @@ import SchoolStats from "./components/SchoolStats.jsx";
 /* ── Hero Carousel Data ─────────────────────────────────────────────────── */
 const heroCarouselImages = [
   {
-    src: "/assets/images/building.jpeg",
+    src: "/assets/images/carousel3.png",
     alt: "Primary school students in uniform",
     subtitle: "Welcome to Virgo Praedicanda International School",
     title: "Making Excellence A Habit",
@@ -14,7 +14,7 @@ const heroCarouselImages = [
       "We nurture confident, disciplined and academically excellent students prepared for global opportunities.",
   },
   {
-    src: "/assets/images/competitions/science/school_photo_54.jpg",
+    src: "/assets/images/carousel2.png",
     alt: "Students during class activities",
     subtitle: "A Place Where Learning Never Stops",
     title: "Building Future Leaders",
@@ -22,7 +22,7 @@ const heroCarouselImages = [
       "Combining the Nigerian, British, American and Singaporean curriculum to help every child reach their full potential.",
   },
   {
-    src: "/assets/images/art/school_photo_70.jpg",
+    src: "/assets/images/carousel1.png",
     alt: "Students engaging in collaborative learning",
     subtitle: "Academic Excellence",
     title: "Inspiring Young Minds",
@@ -30,7 +30,7 @@ const heroCarouselImages = [
       "Creating an environment where children grow intellectually, morally and socially.",
   },
   {
-    src: "./assets/images/skill/school_photo_12.jpg",
+    src: "./assets/images/carousel4.png",
     alt: "Smiling students on campus",
     subtitle: "Quality Education",
     title: "Every Child Matters",
@@ -75,12 +75,25 @@ const HeroCarousel = () => {
 
             <div className="hero-buttons">
               <a
-                href="https://portal.schoolpaddi.com"
-                className="hero-btn-secondary"
+                href="https://wa.me/2349132554783?text=Hello!%20I%27d%20like%20to%20book%20a%20school%20tour."
+                className="hero-btn-primary"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Visit Portal
+                Book a School Tour
+              </a>
+              <a
+                href="/admissions#download"
+                className="hero-btn-secondary"
+              >
+                Apply Now
+              </a>
+              <a
+                href="/assets/files/VPIS PROSPECTUS 2026-2027 ACADEMIC SESSION (1).pdf"
+                className="hero-btn-secondary"
+                download
+              >
+                Download Prospectus
               </a>
             </div>
           </div>
@@ -109,6 +122,194 @@ const HeroCarousel = () => {
     </div>
   );
 };
+
+/* ── Accreditation Badges Section ──────────────────────────────────────── */
+const accreditationBadges = [
+  { src: "/assets/images/cambridge.png", alt: "Cambridge Assessment International Education" },
+  { src: "/assets/images/pearson.png", alt: "Pearson Edexcel", mono: true },
+  { src: "/assets/images/scholastic.png", alt: "Scholastic", mono: true },
+];
+
+const AccreditationBadges = () => (
+  <section className="accreditation-section">
+    <div className="container">
+      <div className="accreditation-badge">
+        {accreditationBadges.map((badge) => (
+          <div className="accreditation-badge-chip" key={badge.src}>
+            <img
+              className={badge.mono ? "mono-logo" : undefined}
+              src={badge.src}
+              alt={badge.alt}
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+
+/* ── Why VPIS Section ──────────────────────────────────────────────── */
+const WhyVPIS = () => (
+  <section className="why-vpis-section">
+    <div className="container">
+      <div className="why-vpis-layout" data-aos="fade-up">
+        <div className="why-vpis-content">
+          <p className="section-label">Why Choose Us</p>
+          <h2 className="section-heading-left">Why VPIS</h2>
+          <p className="why-vpis-lead">
+            At Virgo Praedicanda International School, we don't just prepare students for exams. 
+            We prepare them for life, leadership, and global impact.
+          </p>
+          <p className="why-vpis-highlight">
+            Every child at VPIS is <strong>discovered, developed, and deployed for greatness</strong> through 
+            academic excellence, Christian character, and faith in God.
+          </p>
+        </div>
+        <div className="why-vpis-image">
+          <img
+            src="/assets/images/class photo.jpeg"
+            alt="Students in classroom at VPIS"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+/* ── Academic Advantage Section ─────────────────────────────────────────── */
+const AcademicAdvantage = () => (
+  <section className="academic-advantage-section">
+    <div className="container">
+      <div className="advantage-layout" data-aos="fade-up">
+        <div className="advantage-image">
+          <img
+            src="/assets/images/competitions/bee/school_photo_52.jpg"
+            alt="Students at academic competition"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <div className="advantage-content">
+          <p className="section-label">Excellence in Education</p>
+          <h2 className="section-heading-left">Our Academic Advantage</h2>
+          <h3 className="advantage-subtitle">The Dual-Pathway to Global Universities</h3>
+          <ul className="advantage-list">
+            <li>
+              <svg className="list-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              <span><strong>Primary:</strong> Pearson Edexcel iPrimary Curriculum</span>
+            </li>
+            <li>
+              <svg className="list-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              <span><strong>Secondary:</strong> Cambridge International - Checkpoint & IGCSE</span>
+            </li>
+            <li>
+              <svg className="list-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              <span><strong>Global Exams:</strong> WAEC, SAT, IELTS</span>
+            </li>
+            <li>
+              <svg className="list-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              <span><strong>Coming Soon:</strong> Sixth Form College with UK Partner</span>
+            </li>
+          </ul>
+          <p className="advantage-conclusion">
+            With VPIS, your child has access to top universities in Nigeria, UK, US, Canada, and beyond.
+          </p>
+          <a href="/academics" className="btn-advantage">Explore Our Curriculum</a>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+/* ── Life at VPIS Section ───────────────────────────────────────────────── */
+const LifeAtVPIS = () => (
+  <section className="life-at-vpis-section">
+    <div className="container">
+      <div className="life-layout" data-aos="fade-up">
+        <div className="life-image">
+          <img
+            src="/assets/images/interhouse/school_photo_35.jpg"
+            alt="Students at campus activities"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <div className="life-content">
+          <p className="section-label">Campus Experience</p>
+          <h2 className="section-heading-left">Life at VPIS</h2>
+          <p className="life-lead">
+            A nurturing environment where academics meet character.
+          </p>
+          <p className="life-description">
+            Modern classrooms, science labs, library, sports, clubs, and spiritual formation.
+          </p>
+          <p className="life-emphasis">
+            <em>Every child is known, loved, and challenged to excel.</em>
+          </p>
+          <a href="/vpis-pictures" className="btn-life">See Gallery</a>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+/* ── Proprietor Message Preview ─────────────────────────────────────────── */
+const ProprietorPreview = () => (
+  <section className="proprietor-preview-section">
+    <div className="container">
+      <div className="section-title" data-aos="fade-up">
+        <p>Leadership Vision</p>
+        <h2>Message from Proprietoress</h2>
+      </div>
+      <div className="proprietor-preview-content" data-aos="fade-up" data-aos-delay="100">
+        <blockquote className="proprietor-quote">
+          "At VPIS, we believe every child is a gift from God and a solution to the world. 
+          Our goal is to raise leaders who are brilliant, rooted in faith, and ready to transform society."
+        </blockquote>
+        <p className="proprietor-attribution">
+          <strong>- Dr. C.V. Dimmwobi, Proprietoress</strong>
+        </p>
+        <a href="/proprietor-message" className="btn-proprietor">Read Full Message</a>
+      </div>
+    </div>
+  </section>
+);
+
+/* ── Final CTA Section ──────────────────────────────────────────────────── */
+const FinalCTA = () => (
+  <section className="final-cta-section">
+    <div className="container">
+      <div className="final-cta-content" data-aos="fade-up">
+        <h2>Give Your Child the VPIS Advantage</h2>
+        <p>Limited spaces available for 2026/2027 Academic Session.</p>
+        <div className="final-cta-buttons">
+          <a href="/admissions#download" className="btn-cta-primary">Apply Now</a>
+          <a 
+            href="https://wa.me/2349132554783?text=Hello!%20I%27d%20like%20to%20learn%20more%20about%20VPIS." 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="btn-cta-secondary"
+          >
+            Chat on WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+);
 
 /* ── Quality Education Section ──────────────────────────────────────────── */
 const QualityEducation = () => (
@@ -305,9 +506,108 @@ const VPISGallery = () => (
           </div>
         ))}
       </div>
+
+      <div className="gallery-cta" data-aos="fade-up" data-aos-delay="200">
+        <a href="/vpis-pictures" className="btn-gallery">See Full Gallery</a>
+      </div>
     </div>
   </section>
 );
+
+/* ── FAQ Section ─────────────────────────────────────────────────────────── */
+const FAQSection = () => {
+  const [openIndexes, setOpenIndexes] = useState([]);
+
+  const faqs = [
+    {
+      question: "Do you take Muslim children?",
+      answer: "Yes, we welcome children of all faiths. While we are a Christian school with Christian values and chapel services, we respect and accommodate students from all religious backgrounds."
+    },
+    {
+      question: "Do you have school bus service?",
+      answer: "No, we do not currently provide school bus service. Parents are responsible for transportation to and from school."
+    },
+    {
+      question: "What is the school academic year?",
+      answer: "Our academic year runs from September to July, following the standard Nigerian academic calendar."
+    },
+    {
+      question: "What age groups do you admit?",
+      answer: "We admit children from six weeks of age (Creche) through Secondary School, covering Early Years, Nursery, Primary, and Secondary education levels."
+    },
+    {
+      question: "What curriculum do you follow?",
+      answer: "We follow a dual-curriculum approach. For Primary, we use the British Pearson Edexcel iPrimary Curriculum. For Secondary, we are a Cambridge International School offering Cambridge Checkpoint and IGCSE. We also prepare students for WAEC, SAT, and IELTS examinations."
+    },
+    {
+      question: "How can I apply for admission?",
+      answer: "You can download our admission form from the Admissions page, complete it, and submit it to our admissions office. You can also contact us via WhatsApp or phone to schedule a tour and begin the application process."
+    },
+    {
+      question: "Do you offer scholarships?",
+      answer: "Yes, we offer academic excellence scholarships for outstanding students. Please contact our admissions office for more information on scholarship opportunities and eligibility criteria."
+    },
+    {
+      question: "What are your school fees?",
+      answer: "Our fees depend on the class level. Please contact our admissions office directly for the current fee schedule and payment plans for your child's class."
+    },
+    {
+      question: "Do you have both day and boarding facilities?",
+      answer: "We are currently a day school. Students attend classes during the day and return home in the evening."
+    },
+    {
+      question: "What extracurricular activities do you offer?",
+      answer: "We offer a wide range of activities including sports, music, art, coding, STEM clubs, debate, public speaking, ballet, and leadership programs. We also have chapel services and community service opportunities."
+    }
+  ];
+
+  const toggleFAQ = (index) => {
+    if (openIndexes.includes(index)) {
+      setOpenIndexes(openIndexes.filter(i => i !== index));
+    } else {
+      setOpenIndexes([...openIndexes, index]);
+    }
+  };
+
+  return (
+    <section className="faq-section" id="faq">
+      <div className="container">
+        <div className="section-title" data-aos="fade-up">
+          <p>Have Questions?</p>
+          <h2>Frequently Asked Questions</h2>
+        </div>
+
+        <div className="faq-intro" data-aos="fade-up" data-aos-delay="100">
+          <p>
+            Find answers to common questions about Virgo Praedicanda International School. 
+            If you need more information, please don't hesitate to contact us.
+          </p>
+        </div>
+
+        <div className="faq-list" data-aos="fade-up" data-aos-delay="200">
+          {faqs.map((faq, index) => (
+            <div 
+              key={index} 
+              className={`faq-item ${openIndexes.includes(index) ? 'open' : ''}`}
+            >
+              <button 
+                className="faq-question"
+                onClick={() => toggleFAQ(index)}
+                aria-expanded={openIndexes.includes(index)}
+              >
+                <span>{faq.question}</span>
+                <span className="faq-icon">{openIndexes.includes(index) ? '−' : '+'}</span>
+              </button>
+              <div className="faq-answer">
+                <p>{faq.answer}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
 
 /* ── Contact Section ────────────────────────────────────────────────────── */
 const Contact = () => (
@@ -399,7 +699,9 @@ const Contact = () => (
             <div>
               <h4>Email</h4>
               <p>
-                <a href="mailto:info@schools.com">info@schools.com</a>
+                <a href="mailto:Virgopraedicandaintschool@gmail.com">Virgopraedicandaintschool@gmail.com</a>
+                <br />
+                <a href="mailto:Virgopotensintentionalschool@gmail.com">Virgopotensintentionalschool@gmail.com</a>
               </p>
             </div>
           </div>
@@ -531,20 +833,114 @@ const RecentCompetitions = () => {
   );
 };
 
+/* ── Key Highlights Section ──────────────────────────────────────────────── */
+const KeyHighlights = () => (
+  <section className="key-highlights-section">
+    <div className="container">
+      <div className="section-title" data-aos="fade-up">
+        <p>What Makes Us Different</p>
+        <h2>Key Highlights</h2>
+      </div>
+      <div className="highlights-grid" data-aos="fade-up" data-aos-delay="100">
+        <div className="highlight-card">
+          <div className="highlight-icon-wrapper">
+            <svg className="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+            </svg>
+          </div>
+          <h3>Dual Curriculum</h3>
+          <p>
+            Cambridge International and Pearson Edexcel programs preparing students for global opportunities
+          </p>
+        </div>
+        <div className="highlight-card">
+          <div className="highlight-icon-wrapper">
+            <svg className="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3>Christian Values</h3>
+          <p>
+            Faith-based education building strong moral character and spiritual foundation
+          </p>
+        </div>
+        <div className="highlight-card">
+          <div className="highlight-icon-wrapper">
+            <svg className="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+              <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+              <path d="M4 22h16"/>
+              <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
+              <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
+              <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
+            </svg>
+          </div>
+          <h3>Proven Excellence</h3>
+          <p>
+            98 medals won this year in academic competitions and inter-house sports
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+/* ── Short About Section ──────────────────────────────────────────────── */
+const ShortAbout = () => (
+  <section className="short-about-section">
+    <div className="container">
+      <div className="short-about-layout" data-aos="fade-up">
+        <div className="short-about-image">
+          <img
+            src="/assets/images/graduates.jpeg"
+            alt="VPIS graduates"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <div className="short-about-content">
+          <div className="section-title-left">
+            <p style={{ color: 'var(--primary-light)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px', fontSize: '1.1rem', marginBottom: '0.5rem' }}>About Us</p>
+            <h2>Building Global Champions</h2>
+          </div>
+          <p>
+            Virgo Praedicanda International School is an independent Christian school 
+            committed to inspiring and nurturing excellent children for global impact.
+          </p>
+          <p>
+            We develop young men and women with active minds, compassion, and strong 
+            character through a blend of Nigerian, British, American, and Singaporean curricula.
+          </p>
+          <a href="/about" className="btn-read-more">Learn More About Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
 /* ── App Component ──────────────────────────────────────────────────────── */
 function App() {
   return (
     <>
       <Navbar />
       <HeroCarousel />
+      <AccreditationBadges />
+      <KeyHighlights />
+      <ShortAbout />
+      <WhyVPIS />
+      <AcademicAdvantage />
       <AcademicExcellence />
-      <QualityEducation />
-      <RecentCompetitions />
+      <Testimonials />
+      <ProprietorPreview />
       <OurAchievements />
       <SchoolStats />
-      <Testimonials />
-      <Contact />
       <VPISGallery />
+      <FAQSection />
+      <FinalCTA />
+      <Contact />
       <SchoolBrand />
       <Footer />
     </>

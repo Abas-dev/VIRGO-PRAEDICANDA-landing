@@ -5,7 +5,9 @@ const Academics = () => {
     'Literacy', 'Numeracy', 'Science', 'Bible Knowledge', 'General Knowledge',
     'Computing', 'Music', 'Vocational/Technical Education', 'Creative Arts',
     'Critical Thinking', 'Handwriting', 'History', 'PSHE', 'Diction',
-    'Verbal Reasoning', 'Quantitative Reasoning', 'Geography'
+    'Verbal Reasoning', 'Quantitative Reasoning', 'Geography',
+    'Chemistry', 'Physics', 'Government', 'ICT', 'Economics', 'Commerce',
+    'Physical and Health Education', 'Biology', 'Basic Technology'
   ];
 
   const trainingAreas = [
@@ -13,7 +15,11 @@ const Academics = () => {
     'Security Education', 
     'Financial Literacy',
     'Character Building',
-    'Moral Instruction'
+    'Moral Instruction',
+    'Sex Education',
+    'Anti-Bullying',
+    'French',
+    'Spanish'
   ];
 
   return (

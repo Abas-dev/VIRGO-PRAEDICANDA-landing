@@ -99,6 +99,32 @@ const Admissions = () => {
           </div>
         </div>
 
+        {/* Download Admission Form */}
+        <div className="download-section" id="download">
+          <p className="section-label">Application Materials</p>
+          <h2 className="section-heading">Download Admission Form</h2>
+          <p className="section-intro">
+            Download our admission form to begin your application process
+          </p>
+
+          <div className="download-card">
+            <div className="download-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="12" y1="18" x2="12" y2="12"/>
+                <line x1="9" y1="15" x2="12" y2="18"/>
+                <line x1="15" y1="15" x2="12" y2="18"/>
+              </svg>
+            </div>
+            <h3>VPIS Admission Form</h3>
+            <p>Complete this form to apply for admission to Virgo Praedicanda International School</p>
+            <a href="/assets/files/admission form.pdf" download className="download-btn">
+              Download Admission Form (PDF)
+            </a>
+          </div>
+        </div>
+
         {/* Contact for Admissions */}
         <div className="contact-section" id="contact">
           <p className="section-label">Get Started</p>
@@ -110,11 +136,9 @@ const Admissions = () => {
               <p>Contact our admissions team to begin your child's journey with us.</p>
               <div className="contact-methods">
                 <a href="tel:+2349132554783" className="contact-btn primary">
-                  <span aria-hidden="true">📞</span>
                   Call +234 913 255 4783
                 </a>
                 <a href="https://wa.me/2349132554783" target="_blank" rel="noopener noreferrer" className="contact-btn secondary">
-                  <span aria-hidden="true">💬</span>
                   WhatsApp Us
                 </a>
               </div>
