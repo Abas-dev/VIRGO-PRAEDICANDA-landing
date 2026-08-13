@@ -56,68 +56,6 @@ const Navbar = () => {
             </div>
           </Link>
 
-          {/* Desktop Navigation Links */}
-          <ul className="nav-links desktop-nav">
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li className="nav-dropdown">
-              <span className="nav-link-dropdown">About Us ▾</span>
-              <ul className="nav-dropdown-menu">
-                <li>
-                  <Link to="/about">Vision &amp; Mission</Link>
-                </li>
-                <li>
-                  <Link to="/management">Leadership Team</Link>
-                </li>
-                <li>
-                  <Link to="/facilities">School Facilities</Link>
-                </li>
-                <li>
-                  <Link to="/vpis-pictures">VPIS in Pictures</Link>
-                </li>
-              </ul>
-            </li>
-            <li className="nav-dropdown">
-              <span className="nav-link-dropdown">Academics ▾</span>
-              <ul className="nav-dropdown-menu">
-                <li>
-                  <Link to="/academics">Early Years &amp; Creche</Link>
-                </li>
-                <li>
-                  <Link to="/academics">Primary School</Link>
-                </li>
-                <li>
-                  <Link to="/academics">Secondary School</Link>
-                </li>
-                <li>
-                  <Link to="/academics#subjects">Subjects We Offer</Link>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <Link to="/admissions">Admissions</Link>
-            </li>
-            <li>
-              <Link to="/faq">FAQ</Link>
-            </li>
-            <li>
-              <a href="/#contact">Contact</a>
-            </li>
-          </ul>
-
-          {/* Desktop CTA */}
-          <div className="nav-cta desktop-cta">
-            <a
-              href="https://portal.schoolpaddi.com"
-              className="btn btn-primary"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Visit Portal
-            </a>
-          </div>
-
           <button
             className="hamburger-btn"
             onClick={openMenu}
@@ -179,9 +117,14 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link to="/faq" onClick={closeMenu}>
-              FAQ
+            <Link to="/blog" onClick={closeMenu}>
+              Blog &amp; Documents
             </Link>
+          </li>
+          <li>
+            <a href="/#faq" onClick={closeMenu}>
+              FAQ
+            </a>
           </li>
           <li>
             <a href="/#contact" onClick={closeMenu}>

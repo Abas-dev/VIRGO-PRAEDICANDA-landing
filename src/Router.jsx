@@ -14,7 +14,14 @@ import VPISPictures from './pages/VPISPictures.jsx';
 import Admissions from './pages/Admissions.jsx';
 import Facilities from './pages/Facilities.jsx';
 import ProprietorMessage from './pages/ProprietorMessage.jsx';
-import FAQ from './pages/FAQ.jsx';
+import Careers from './pages/Careers.jsx';
+import Resources from './pages/Resources.jsx';
+import Blog from './pages/Blog.jsx';
+import Fees from './pages/Fees.jsx';
+import Accreditations from './pages/Accreditations.jsx';
+import PrivacyPolicy from './pages/PrivacyPolicy.jsx';
+import TermsOfUse from './pages/TermsOfUse.jsx';
+import SafeguardingPolicy from './pages/SafeguardingPolicy.jsx';
 
 /* Scroll to top (or to hash target) on route change, and re-collect
    AOS elements so animations work after client-side navigation. */
@@ -77,7 +84,15 @@ const AppRouter = () => {
           <Route path="/vpis-pictures" element={<VPISPictures />} />
           <Route path="/admissions" element={<Admissions />} />
           <Route path="/facilities" element={<Facilities />} />
-          <Route path="/faq" element={<FAQ />} />
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/resources" element={<Resources />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/news" element={<Blog />} />
+          <Route path="/fees" element={<Fees />} />
+          <Route path="/accreditations" element={<Accreditations />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-use" element={<TermsOfUse />} />
+          <Route path="/safeguarding-policy" element={<SafeguardingPolicy />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
 

@@ -1,25 +1,27 @@
 import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar.jsx";
+import Footer from "./components/Footer.jsx";
 import OurAchievements from "./components/OurAchievements.jsx";
 import SchoolStats from "./components/SchoolStats.jsx";
+import { faqData } from "./data/faqData.js";
 
 /* ── Hero Carousel Data ─────────────────────────────────────────────────── */
 const heroCarouselImages = [
   {
     src: "/assets/images/carousel3.png",
     alt: "Primary school students in uniform",
-    subtitle: "Welcome to Virgo Praedicanda International School",
-    title: "Making Excellence A Habit",
+    subtitle: "Virgo Praedicanda International School, Port Harcourt",
+    title: "Raising Lights for the World",
     description:
-      "We nurture confident, disciplined and academically excellent students prepared for global opportunities.",
+      "World-Class British & Nigerian Curriculum | Cambridge International School | WAEC, SAT & IELTS Ready",
   },
   {
     src: "/assets/images/carousel2.png",
     alt: "Students during class activities",
-    subtitle: "A Place Where Learning Never Stops",
+    subtitle: "Excellence in Education",
     title: "Building Future Leaders",
     description:
-      "Combining the Nigerian, British, American and Singaporean curriculum to help every child reach their full potential.",
+      "Pearson Edexcel iPrimary & Cambridge International curriculum preparing students for global universities.",
   },
   {
     src: "/assets/images/carousel1.png",
@@ -27,7 +29,7 @@ const heroCarouselImages = [
     subtitle: "Academic Excellence",
     title: "Inspiring Young Minds",
     description:
-      "Creating an environment where children grow intellectually, morally and socially.",
+      "Creating an environment where children grow intellectually, morally and spiritually through faith-based education.",
   },
   {
     src: "./assets/images/carousel4.png",
@@ -35,7 +37,7 @@ const heroCarouselImages = [
     subtitle: "Quality Education",
     title: "Every Child Matters",
     description:
-      "Empowering children with knowledge, confidence and strong values for lifelong success.",
+      "Empowering children with knowledge, confidence and strong Christian values for lifelong success.",
   },
 ];
 
@@ -234,37 +236,7 @@ const AcademicAdvantage = () => (
   </section>
 );
 
-/* ── Life at VPIS Section ───────────────────────────────────────────────── */
-const LifeAtVPIS = () => (
-  <section className="life-at-vpis-section">
-    <div className="container">
-      <div className="life-layout" data-aos="fade-up">
-        <div className="life-image">
-          <img
-            src="/assets/images/interhouse/school_photo_35.jpg"
-            alt="Students at campus activities"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-        <div className="life-content">
-          <p className="section-label">Campus Experience</p>
-          <h2 className="section-heading-left">Life at VPIS</h2>
-          <p className="life-lead">
-            A nurturing environment where academics meet character.
-          </p>
-          <p className="life-description">
-            Modern classrooms, science labs, library, sports, clubs, and spiritual formation.
-          </p>
-          <p className="life-emphasis">
-            <em>Every child is known, loved, and challenged to excel.</em>
-          </p>
-          <a href="/vpis-pictures" className="btn-life">See Gallery</a>
-        </div>
-      </div>
-    </div>
-  </section>
-);
+/* Removed unused component - LifeAtVPIS */
 
 /* ── Proprietor Message Preview ─────────────────────────────────────────── */
 const ProprietorPreview = () => (
@@ -287,6 +259,95 @@ const ProprietorPreview = () => (
     </div>
   </section>
 );
+
+/* ── Documents Preview Section ──────────────────────────────────────────── */
+const DocumentsPreview = () => {
+  const featuredDocuments = [
+    {
+      title: "School Prospectus 2026-2027",
+      description: "Comprehensive guide to VPIS programs and facilities",
+      icon: "document",
+      downloadUrl: "/assets/files/VPIS PROSPECTUS 2026-2027 ACADEMIC SESSION (1).pdf"
+    },
+    {
+      title: "Admission Form",
+      description: "Begin your application to VPIS",
+      icon: "form",
+      downloadUrl: "/assets/files/admission form.pdf"
+    },
+    {
+      title: "Year Book 2026",
+      description: "Celebrating our students' achievements",
+      icon: "book",
+      downloadUrl: "/assets/files/YEAR BOOK 2026..pdf"
+    }
+  ];
+
+  const renderIcon = (iconType) => {
+    switch(iconType) {
+      case 'document':
+        return (
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+          </svg>
+        );
+      case 'form':
+        return (
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+          </svg>
+        );
+      case 'book':
+        return (
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+        );
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <section className="documents-preview-section">
+      <div className="container">
+        <div className="section-title" data-aos="fade-up">
+          <p>Resources & Downloads</p>
+          <h2>Important Documents</h2>
+        </div>
+        
+        <div className="documents-preview-grid" data-aos="fade-up" data-aos-delay="100">
+          {featuredDocuments.map((doc, index) => (
+            <div key={index} className="document-preview-card" data-aos="fade-up" data-aos-delay={100 + index * 100}>
+              <div className="document-preview-icon">
+                {renderIcon(doc.icon)}
+              </div>
+              <h3>{doc.title}</h3>
+              <p>{doc.description}</p>
+              <a href={doc.downloadUrl} download className="document-preview-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="7 10 12 15 17 10"/>
+                  <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                Download PDF
+              </a>
+            </div>
+          ))}
+        </div>
+
+        <div className="documents-preview-cta" data-aos="fade-up" data-aos-delay="400">
+          <a href="/blog" className="btn-view-all-docs">View All Documents</a>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 /* ── Final CTA Section ──────────────────────────────────────────────────── */
 const FinalCTA = () => (
@@ -311,39 +372,7 @@ const FinalCTA = () => (
   </section>
 );
 
-/* ── Quality Education Section ──────────────────────────────────────────── */
-const QualityEducation = () => (
-  <section className="quality-education-section">
-    <div className="container">
-      <div className="quality-education-layout" data-aos="fade-up">
-        <div className="quality-education-content">
-          <h3 className="quality-education-title">
-            Quality Education That Shapes the Future
-          </h3>
-          <p className="quality-education-text">
-            At Virgo Praedicanda Schools, we aim to train every child to be
-            distinct and confidently face the future. We believe education is
-            not only academics but in morals, sports, presentations, confidence
-            and every other area of life.
-          </p>
-          <p className="quality-education-text">
-            We use a mix of British, Nigerian, American, and Singaporean curricula to ensure that all
-            our students are able to compete successfully both at national and
-            international standards.
-          </p>
-        </div>
-        <div className="quality-education-image">
-          <img
-            src="/assets/images/excursion/school_photo_66.jpg"
-            alt="Students on educational excursion"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-      </div>
-    </div>
-  </section>
-);
+/* This section has been removed - content consolidated into other sections */
 
 /* ── Academic Excellence Section ───────────────────────────────────────── */
 const academicImages = [
@@ -371,10 +400,9 @@ const AcademicExcellence = () => {
               Excellence In Academics And Life
             </h2>
             <p className="academic-excellence-text">
-              With <strong>8 years</strong> of experience, Virgo Praedicanda
-              Schools, one of the best schools in Port Harcourt, is committed to
+              Virgo Praedicanda International School is committed to
               academic excellence and the nurturing of responsible, courteous,
-              and happy students.
+              and happy students prepared for global success.
             </p>
           </div>
           <div className="academic-excellence-carousel">
@@ -518,49 +546,6 @@ const VPISGallery = () => (
 const FAQSection = () => {
   const [openIndexes, setOpenIndexes] = useState([]);
 
-  const faqs = [
-    {
-      question: "Do you take Muslim children?",
-      answer: "Yes, we welcome children of all faiths. While we are a Christian school with Christian values and chapel services, we respect and accommodate students from all religious backgrounds."
-    },
-    {
-      question: "Do you have school bus service?",
-      answer: "No, we do not currently provide school bus service. Parents are responsible for transportation to and from school."
-    },
-    {
-      question: "What is the school academic year?",
-      answer: "Our academic year runs from September to July, following the standard Nigerian academic calendar."
-    },
-    {
-      question: "What age groups do you admit?",
-      answer: "We admit children from six weeks of age (Creche) through Secondary School, covering Early Years, Nursery, Primary, and Secondary education levels."
-    },
-    {
-      question: "What curriculum do you follow?",
-      answer: "We follow a dual-curriculum approach. For Primary, we use the British Pearson Edexcel iPrimary Curriculum. For Secondary, we are a Cambridge International School offering Cambridge Checkpoint and IGCSE. We also prepare students for WAEC, SAT, and IELTS examinations."
-    },
-    {
-      question: "How can I apply for admission?",
-      answer: "You can download our admission form from the Admissions page, complete it, and submit it to our admissions office. You can also contact us via WhatsApp or phone to schedule a tour and begin the application process."
-    },
-    {
-      question: "Do you offer scholarships?",
-      answer: "Yes, we offer academic excellence scholarships for outstanding students. Please contact our admissions office for more information on scholarship opportunities and eligibility criteria."
-    },
-    {
-      question: "What are your school fees?",
-      answer: "Our fees depend on the class level. Please contact our admissions office directly for the current fee schedule and payment plans for your child's class."
-    },
-    {
-      question: "Do you have both day and boarding facilities?",
-      answer: "We are currently a day school. Students attend classes during the day and return home in the evening."
-    },
-    {
-      question: "What extracurricular activities do you offer?",
-      answer: "We offer a wide range of activities including sports, music, art, coding, STEM clubs, debate, public speaking, ballet, and leadership programs. We also have chapel services and community service opportunities."
-    }
-  ];
-
   const toggleFAQ = (index) => {
     if (openIndexes.includes(index)) {
       setOpenIndexes(openIndexes.filter(i => i !== index));
@@ -585,7 +570,7 @@ const FAQSection = () => {
         </div>
 
         <div className="faq-list" data-aos="fade-up" data-aos-delay="200">
-          {faqs.map((faq, index) => (
+          {faqData.map((faq, index) => (
             <div 
               key={index} 
               className={`faq-item ${openIndexes.includes(index) ? 'open' : ''}`}
@@ -644,19 +629,19 @@ const Contact = () => (
             <div>
               <h4>Our Campuses</h4>
               <p>
-               Woji Campus- No. 9, Marina Close
+                <strong>Campus 1 (Woji):</strong>
                 <br />
-                Woji, Port Harcourt, Rivers State,
+                No 9 Marina Close, Woji
                 <br />
-                Nigeria.
+                Port Harcourt, Rivers State, Nigeria
               </p>
-               <br />
+              <br />
               <p>
-               Chinda Campus- No. 100 Ada George Road
+                <strong>Campus 2 (Chinda):</strong>
                 <br />
-                Chinda, Port Harcourt, Rivers  State 
+                No 100 Chinda, Ada George
                 <br />
-                Nigeria.
+                Port Harcourt, Rivers State, Nigeria
               </p>
             </div>
           </div>
@@ -700,8 +685,6 @@ const Contact = () => (
               <h4>Email</h4>
               <p>
                 <a href="mailto:Virgopraedicandaintschool@gmail.com">Virgopraedicandaintschool@gmail.com</a>
-                <br />
-                <a href="mailto:Virgopotensintentionalschool@gmail.com">Virgopotensintentionalschool@gmail.com</a>
               </p>
             </div>
           </div>
@@ -725,113 +708,17 @@ const SchoolBrand = () => (
       <h2 className="school-brand-name">
         VIRGO PRAEDICANDA INTERNATIONAL SCHOOL
       </h2>
-      <p className="school-brand-tagline">Making Excellence A Habit.</p>
+      <p className="school-brand-tagline">Raising Lights for the World</p>
       <p className="school-brand-desc">
         An independent Christian school committed to inspiring and nurturing
         excellent children for global impact — developing young men and women
-        with active minds, compassion, and strong character.
+        with active minds, compassion, and strong character rooted in faith.
       </p>
     </div>
   </section>
 );
 
-/* ── Footer ─────────────────────────────────────────────────────────────── */
-const Footer = () => (
-  <footer className="site-footer-bar">
-    <p>
-      &copy; {new Date().getFullYear()} VIRGO PRAEDICANDA INTERNATIONAL SCHOOL.
-      All rights reserved.
-    </p>
-  </footer>
-);
-
-/* ── Recent Competitions Section ────────────────────────────────────────── */
-const competitionImages = [
-  "/assets/images/competitions/science/school_photo_54.jpg",
-  "/assets/images/competitions/science/school_photo_55.jpg",
-  "/assets/images/competitions/bee/school_photo_52.jpg",
-  "/assets/images/competitions/bee/school_photo_53.jpg",
-];
-
-const RecentCompetitions = () => {
-  const [currentCompetition, setCurrentCompetition] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentCompetition((prev) => (prev + 1) % competitionImages.length);
-    }, 4000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const goToPrevCompetition = () => {
-    setCurrentCompetition(
-      (prev) => (prev - 1 + competitionImages.length) % competitionImages.length
-    );
-  };
-
-  const goToNextCompetition = () => {
-    setCurrentCompetition((prev) => (prev + 1) % competitionImages.length);
-  };
-
-  return (
-    <section className="recent-competitions-section" id="competitions">
-      <div className="container">
-        <div className="section-title" data-aos="fade-up">
-          <h2>Recent Competitions</h2>
-          <p>Celebrating our students' achievements and excellence</p>
-        </div>
-
-        <div
-          className="competitions-carousel"
-          data-aos="fade-up"
-          data-aos-delay="200"
-        >
-          <div className="competitions-track">
-            {competitionImages.map((src, i) => (
-              <div
-                key={i}
-                className={`competition-slide ${i === currentCompetition ? "active" : ""}`}
-              >
-                <img
-                  src={src}
-                  alt={`Competition highlight ${i + 1}`}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-            ))}
-          </div>
-
-          <button
-            className="competition-arrow competition-prev"
-            onClick={goToPrevCompetition}
-            aria-label="Previous competition"
-          >
-            &#10094;
-          </button>
-          <button
-            className="competition-arrow competition-next"
-            onClick={goToNextCompetition}
-            aria-label="Next competition"
-          >
-            &#10095;
-          </button>
-
-          <div className="competition-dots">
-            {competitionImages.map((_, i) => (
-              <button
-                key={i}
-                className={`competition-dot ${i === currentCompetition ? "active" : ""}`}
-                onClick={() => setCurrentCompetition(i)}
-                aria-label={`Go to competition ${i + 1}`}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
+/* Removed unused component - RecentCompetitions */
 
 /* ── Key Highlights Section ──────────────────────────────────────────────── */
 const KeyHighlights = () => (
@@ -912,7 +799,7 @@ const ShortAbout = () => (
           </p>
           <p>
             We develop young men and women with active minds, compassion, and strong 
-            character through a blend of Nigerian, British, American, and Singaporean curricula.
+            character through Pearson Edexcel iPrimary and Cambridge International curriculum.
           </p>
           <a href="/about" className="btn-read-more">Learn More About Us</a>
         </div>
@@ -938,6 +825,7 @@ function App() {
       <OurAchievements />
       <SchoolStats />
       <VPISGallery />
+      <DocumentsPreview />
       <FAQSection />
       <FinalCTA />
       <Contact />

@@ -34,6 +34,73 @@ const Academics = () => {
       </div>
 
       <div className="page">
+        {/* Curriculum Overview */}
+        <div className="curriculum-overview">
+          <p className="section-label">Excellence in Education</p>
+          <h2 className="section-heading">Excellence in Learning, Rooted in Purpose</h2>
+          
+          <div className="curriculum-intro">
+            <p>
+              At Virgo Praedicanda International School, we provide a robust dual-curriculum model that 
+              prepares students for success in Nigeria and around the world.
+            </p>
+          </div>
+
+          <div className="curriculum-levels">
+            <div className="curriculum-card">
+              <h3>Primary School</h3>
+              <p><strong>Pearson Edexcel iPrimary Curriculum</strong></p>
+              <p>
+                Our primary school follows the British Pearson Edexcel iPrimary Curriculum, providing 
+                a strong foundation in literacy, numeracy, and critical thinking.
+              </p>
+            </div>
+
+            <div className="curriculum-card">
+              <h3>Secondary School</h3>
+              <p><strong>Cambridge International</strong></p>
+              <p>
+                <strong>Key Stage 3:</strong> Cambridge Checkpoint
+                <br />
+                <strong>Key Stage 4:</strong> Cambridge IGCSE
+              </p>
+              <p>
+                Our secondary school curriculum prepares students for globally recognized qualifications.
+              </p>
+            </div>
+
+            <div className="curriculum-card">
+              <h3>Global Pathway Exams</h3>
+              <p><strong>WAEC, SAT, IELTS</strong></p>
+              <p>
+                We prepare students for West African Examinations Council (WAEC), SAT, and IELTS, 
+                opening doors to universities in Nigeria, UK, US, Canada, and beyond.
+              </p>
+            </div>
+
+            <div className="curriculum-card">
+              <h3>Sixth Form College</h3>
+              <p><strong>Coming Soon</strong></p>
+              <p>
+                We are advancing discussions for a proposed Sixth Form College in partnership with 
+                leading UK institutions, providing A-Level pathways and seamless university placement.
+              </p>
+            </div>
+          </div>
+
+          <div className="beyond-classroom">
+            <h3>Beyond the Classroom</h3>
+            <p>Our comprehensive education includes:</p>
+            <ul className="prose-list">
+              <li>Leadership training and character development</li>
+              <li>Public speaking and debate</li>
+              <li>STEM education and coding</li>
+              <li>Sports, music, and creative arts</li>
+              <li>Chapel services and spiritual formation</li>
+            </ul>
+          </div>
+        </div>
+
         {/* Subjects We Offer */}
         <div className="subjects-section" id="subjects">
           <p className="section-label">Our Curriculum</p>
@@ -73,8 +140,8 @@ const Academics = () => {
               feedback), <strong> Summative Assessment</strong> (written exams,
               projects, presentations), and
               <strong> Computer-Based Testing (CBT)</strong> for selected exams —
-              building the same digital-exam confidence pupils will need at WAEC,
-              NECO and JAMB level.
+              building the same digital-exam confidence students will need for
+              international and national examinations.
             </p>
           </div>
         </div>

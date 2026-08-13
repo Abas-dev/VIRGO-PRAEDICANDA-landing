@@ -126,7 +126,6 @@ const About = () => {
             <ul className="prose-list">
               <li>Dual-curriculum approach: Pearson Edexcel iPrimary and Cambridge International</li>
               <li>Preparation for WAEC, SAT, and IELTS examinations</li>
-              <li>Standards comparable to leading schools in the UK, USA, and Singapore</li>
               <li>A safe, inclusive, nurturing environment rooted in Christian values</li>
               <li>Proposed Sixth Form College in partnership with UK institutions</li>
             </ul>
