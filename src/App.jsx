@@ -278,7 +278,7 @@ const ProprietorPreview = () => (
         <p className="proprietor-attribution">
           <strong>- Dr. C.V. Dimmwobi, Proprietoress</strong>
         </p>
-        <a href="/proprietor-message" className="btn-proprietor">Read Full Message</a>
+        <Link to="/proprietor-message" className="btn-proprietor">Read Full Message</Link>
       </div>
     </div>
   </section>
