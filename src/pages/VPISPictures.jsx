@@ -112,13 +112,100 @@ const VPISPictures = () => {
       ]
     },
     {
+      id: 'graduation',
+      name: 'Graduation Ceremony',
+      description: 'GRADUATION CEREMONY – VPIS CLASS OF 2026',
+      faceImage: '/assets/images/graduation/graduation_photo_1.jpg',
+      images: [
+        '/assets/images/graduation/graduation_photo_1.jpg',
+        '/assets/images/graduation/graduation_photo_2.jpg',
+        '/assets/images/graduation/graduation_photo_3.jpg',
+        '/assets/images/graduation/graduation_photo_4.jpg',
+        '/assets/images/graduation/graduation_photo_5.jpg',
+        '/assets/images/graduation/graduation_photo_6.jpg',
+        '/assets/images/graduation/graduation_photo_7.jpg',
+        '/assets/images/graduation/graduation_photo_8.jpg',
+        '/assets/images/graduation/graduation_photo_9.jpg',
+        '/assets/images/graduation/graduation_photo_10.jpg',
+        '/assets/images/graduation/graduation_photo_11.jpg',
+        '/assets/images/graduation/graduation_photo_12.jpg',
+        '/assets/images/graduation/graduation_photo_13.jpg',
+        '/assets/images/graduation/graduation_photo_14.jpg',
+        '/assets/images/graduation/graduation_photo_15.jpg',
+        '/assets/images/graduation/graduation_photo_16.jpg',
+        '/assets/images/graduation/graduation_photo_17.jpg',
+        '/assets/images/graduation/graduation_photo_18.jpg',
+        '/assets/images/graduation/graduation_photo_19.jpg',
+        '/assets/images/graduation/graduation_photo_20.jpg',
+        '/assets/images/graduation/graduation_photo_21.jpg',
+        '/assets/images/graduation/graduation_photo_22.jpg',
+        '/assets/images/graduation/graduation_photo_23.jpg',
+        '/assets/images/graduation/graduation_photo_24.jpg',
+        '/assets/images/graduation/graduation_photo_25.jpg',
+        '/assets/images/graduation/graduation_photo_26.jpg',
+        '/assets/images/graduation/graduation_photo_27.jpg',
+        '/assets/images/graduation/graduation_photo_28.jpg',
+        '/assets/images/graduation/graduation_photo_29.jpg',
+        '/assets/images/graduation/graduation_photo_30.jpg',
+        '/assets/images/graduation/graduation_photo_31.jpg',
+        '/assets/images/graduation/graduation_photo_32.jpg'
+      ]
+    },
+    {
+      id: 'career_day',
+      name: 'Career Day',
+      description: 'CAREER DAY – DISCOVERING FUTURE PATHWAYS',
+      faceImage: '/assets/images/career/career1.jpg',
+      images: [
+        '/assets/images/career/career1.jpg',
+        '/assets/images/career/career2.jpg',
+        '/assets/images/career/career3.jpg',
+        '/assets/images/career/career4.jpg',
+        '/assets/images/career/career5.jpg',
+        '/assets/images/career/career6.jpg',
+        '/assets/images/career/career7.jpg',
+        '/assets/images/career/career8.jpg',
+        '/assets/images/career/career9.jpg',
+        '/assets/images/career/career10.jpg',
+        '/assets/images/career/career11.jpg',
+        '/assets/images/career/career12.jpg',
+        '/assets/images/career/career13.jpg'
+      ]
+    },
+    {
+      id: 'museum',
+      name: 'Visit to the Museum',
+      description: 'VISIT TO THE MUSEUM – EXPLORING HISTORY AND CULTURE',
+      faceImage: '/assets/images/museum/museum_photo_1.jpg',
+      images: [
+        '/assets/images/museum/museum_photo_1.jpg',
+        '/assets/images/museum/museum_photo_2.jpg',
+        '/assets/images/museum/museum_photo_3.jpg',
+        '/assets/images/museum/museum_photo_4.jpg',
+        '/assets/images/museum/museum_photo_5.jpg',
+        '/assets/images/museum/museum_photo_6.jpg',
+        '/assets/images/museum/museum_photo_7.jpg',
+        '/assets/images/museum/museum_photo_8.jpg',
+        '/assets/images/museum/museum_photo_9.jpg',
+        '/assets/images/museum/museum_photo_10.jpg'
+      ]
+    },
+    {
       id: 'competitions_science',
       name: 'Science Competition',
       description: 'CELEBRATING EXCELLENCE IN SCIENCE',
       faceImage: '/assets/images/competitions/science/school_photo_54.jpg',
       images: [
         '/assets/images/competitions/science/school_photo_54.jpg',
-        '/assets/images/competitions/science/school_photo_55.jpg'
+        '/assets/images/competitions/science/school_photo_55.jpg',
+        '/assets/images/competitions/science/science_photo_1.jpg',
+        '/assets/images/competitions/science/science_photo_2.jpg',
+        '/assets/images/competitions/science/science_photo_3.jpg',
+        '/assets/images/competitions/science/science_photo_4.jpg',
+        '/assets/images/competitions/science/science_photo_5.jpg',
+        '/assets/images/competitions/science/science_photo_6.jpg',
+        '/assets/images/competitions/science/science_photo_7.jpg',
+        '/assets/images/competitions/science/science_photo_8.jpg'
       ]
     },
     {
