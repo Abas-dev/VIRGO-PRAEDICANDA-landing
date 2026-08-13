@@ -53,7 +53,7 @@ const Facilities = () => {
   const campuses = [
     {
       name: "Campus 1 (Woji)",
-      image: "/assets/images/woji.jpeg",
+      image: "/assets/images/woji.png",
       address: "No 9 Marina Close, Woji, Port Harcourt, Rivers State, Nigeria",
       levels:
         "Creche, Nursery & Primary — Secondary school commenced this academic year",

@@ -631,22 +631,20 @@ const Contact = () => (
         <div className="contact-campuses-grid">
           <div className="contact-img-wrap">
             <img
-              src="/assets/images/building.jpeg"
+              src="/assets/images/woji.png"
               alt="Virgo Praedicanda Woji campus building exterior"
               loading="lazy"
               decoding="async"
             />
-            <div className="contact-img-caption">Campus 1 (Woji)</div>
           </div>
 
           <div className="contact-img-wrap">
             <img
-              src="/assets/images/building-chinda.jpeg"
+              src="/assets/images/chinda.jpeg"
               alt="Virgo Praedicanda Chinda campus building exterior"
               loading="lazy"
               decoding="async"
             />
-            <div className="contact-img-caption">Campus 2 (Chinda)</div>
           </div>
         </div>
 
