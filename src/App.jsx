@@ -364,7 +364,7 @@ const DocumentsPreview = () => {
         </div>
 
         <div className="documents-preview-cta" data-aos="fade-up" data-aos-delay="400">
-          <a href="/blog" className="btn-view-all-docs">View All Documents</a>
+          <Link to="/resources" className="btn-proprietor">View All Documents</Link>
         </div>
       </div>
     </section>
