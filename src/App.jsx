@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
 import OurAchievements from "./components/OurAchievements.jsx";
 import SchoolStats from "./components/SchoolStats.jsx";
 import { faqData } from "./data/faqData.js";
+
 
 /* ── Hero Carousel Data ─────────────────────────────────────────────────── */
 const heroCarouselImages = [
