@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const CTASection = ({
   heading = "Begin Your Journey at VPIS",
   subtext = "Limited spaces available for the 2026/2027 Academic Session.",
@@ -10,9 +12,8 @@ const CTASection = ({
         <h2 className="cta-shared-heading">{heading}</h2>
         <p className="cta-shared-sub">{subtext}</p>
         <div className="cta-shared-buttons">
-          <a href="/admissions" className="cta-shared-btn cta-shared-btn--primary">
-            {applyLabel}
-          </a>
+          
+              <Link to="/admissions" className="cta-shared-btn cta-shared-btn--primary"> {applyLabel} </Link>
           <a
             href="https://wa.me/2349132554783?text=Hello!%20I%27d%20like%20to%20book%20a%20school%20tour."
             className="cta-shared-btn cta-shared-btn--outline"
