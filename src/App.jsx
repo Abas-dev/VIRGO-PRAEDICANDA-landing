@@ -50,7 +50,7 @@ const HeroCarousel = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % heroCarouselImages.length);
-    }, 8000);
+    }, 9000);
     return () => clearInterval(timer);
   }, []);
 
