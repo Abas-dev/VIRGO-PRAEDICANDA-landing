@@ -18,26 +18,26 @@ const heroCarouselImages = [
   {
     src: "/assets/images/carousel2.png",
     alt: "Students during class activities",
-    subtitle: "Excellence in Education",
+    subtitle: "Dual Curriculum",
     title: "Building Future Leaders",
     description:
-      "Pearson Edexcel iPrimary & Cambridge International curriculum preparing students for global universities.",
+      "Cambridge International and Pearson Edexcel programs preparing students for global opportunities.",
   },
   {
     src: "/assets/images/carousel1.png",
     alt: "Students engaging in collaborative learning",
-    subtitle: "Academic Excellence",
+    subtitle: "Christian Values",
     title: "Inspiring Young Minds",
     description:
-      "Creating an environment where children grow intellectually, morally and spiritually through faith-based education.",
+      "Faith-based education building strong moral character and spiritual foundation.",
   },
   {
     src: "./assets/images/carousel4.png",
     alt: "Smiling students on campus",
-    subtitle: "Quality Education",
+    subtitle: "Proven Excellence",
     title: "Every Child Matters",
     description:
-      "Empowering children with knowledge, confidence and strong Christian values for lifelong success.",
+      "98 medals won this year in academic competitions and inter-house sports.",
   },
 ];
 
@@ -720,94 +720,6 @@ const SchoolBrand = () => (
 
 /* Removed unused component - RecentCompetitions */
 
-/* ── Key Highlights Section ──────────────────────────────────────────────── */
-const KeyHighlights = () => (
-  <section className="key-highlights-section">
-    <div className="container">
-      <div className="section-title" data-aos="fade-up">
-        <p>What Makes Us Different</p>
-        <h2>Key Highlights</h2>
-      </div>
-      <div className="highlights-grid" data-aos="fade-up" data-aos-delay="100">
-        <div className="highlight-card">
-          <div className="highlight-icon-wrapper">
-            <svg className="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-              <path d="M6 12v5c3 3 9 3 12 0v-5"/>
-            </svg>
-          </div>
-          <h3>Dual Curriculum</h3>
-          <p>
-            Cambridge International and Pearson Edexcel programs preparing students for global opportunities
-          </p>
-        </div>
-        <div className="highlight-card">
-          <div className="highlight-icon-wrapper">
-            <svg className="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-              <path d="M2 17l10 5 10-5"/>
-              <path d="M2 12l10 5 10-5"/>
-            </svg>
-          </div>
-          <h3>Christian Values</h3>
-          <p>
-            Faith-based education building strong moral character and spiritual foundation
-          </p>
-        </div>
-        <div className="highlight-card">
-          <div className="highlight-icon-wrapper">
-            <svg className="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
-              <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
-              <path d="M4 22h16"/>
-              <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
-              <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
-              <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
-            </svg>
-          </div>
-          <h3>Proven Excellence</h3>
-          <p>
-            98 medals won this year in academic competitions and inter-house sports
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-);
-
-/* ── Short About Section ──────────────────────────────────────────────── */
-const ShortAbout = () => (
-  <section className="short-about-section">
-    <div className="container">
-      <div className="short-about-layout" data-aos="fade-up">
-        <div className="short-about-image">
-          <img
-            src="/assets/images/graduates.jpeg"
-            alt="VPIS graduates"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-        <div className="short-about-content">
-          <div className="section-title-left">
-            <p style={{ color: 'var(--primary-light)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px', fontSize: '1.1rem', marginBottom: '0.5rem' }}>About Us</p>
-            <h2>Building Global Champions</h2>
-          </div>
-          <p>
-            Virgo Praedicanda International School is an independent Christian school 
-            committed to inspiring and nurturing excellent children for global impact.
-          </p>
-          <p>
-            We develop young men and women with active minds, compassion, and strong 
-            character through Pearson Edexcel iPrimary and Cambridge International curriculum.
-          </p>
-          <a href="/about" className="btn-read-more">Learn More About Us</a>
-        </div>
-      </div>
-    </div>
-  </section>
-);
-
 /* ── App Component ──────────────────────────────────────────────────────── */
 function App() {
   return (
@@ -815,21 +727,19 @@ function App() {
       <Navbar />
       <HeroCarousel />
       <AccreditationBadges />
-      <KeyHighlights />
-      <ShortAbout />
       <WhyVPIS />
+      <SchoolBrand />
       <AcademicAdvantage />
       <AcademicExcellence />
-      <Testimonials />
-      <ProprietorPreview />
       <OurAchievements />
       <SchoolStats />
+      <Testimonials />
+      <ProprietorPreview />
       <VPISGallery />
       <DocumentsPreview />
       <FAQSection />
       <FinalCTA />
       <Contact />
-      <SchoolBrand />
       <Footer />
     </>
   );
