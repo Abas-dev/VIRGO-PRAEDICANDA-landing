@@ -628,13 +628,26 @@ const Contact = () => (
         Contact Us
       </h2>
       <div className="contact-card" data-aos="fade-up" data-aos-delay="100">
-        <div className="contact-img-wrap">
-          <img
-            src="/assets/images/building.jpeg"
-            alt="Virgo Praedicanda school building exterior"
-            loading="lazy"
-            decoding="async"
-          />
+        <div className="contact-campuses-grid">
+          <div className="contact-img-wrap">
+            <img
+              src="/assets/images/building.jpeg"
+              alt="Virgo Praedicanda Woji campus building exterior"
+              loading="lazy"
+              decoding="async"
+            />
+            <div className="contact-img-caption">Campus 1 (Woji)</div>
+          </div>
+
+          <div className="contact-img-wrap">
+            <img
+              src="/assets/images/building-chinda.jpeg"
+              alt="Virgo Praedicanda Chinda campus building exterior"
+              loading="lazy"
+              decoding="async"
+            />
+            <div className="contact-img-caption">Campus 2 (Chinda)</div>
+          </div>
         </div>
 
         <div className="contact-panel">
