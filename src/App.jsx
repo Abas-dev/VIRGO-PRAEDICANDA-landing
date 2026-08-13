@@ -127,25 +127,51 @@ const HeroCarousel = () => {
 
 /* ── Accreditation Badges Section ──────────────────────────────────────── */
 const accreditationBadges = [
-  { src: "/assets/images/cambridge.png", alt: "Cambridge Assessment International Education" },
-  { src: "/assets/images/pearson.png", alt: "Pearson Edexcel", mono: true },
-  { src: "/assets/images/scholastic.png", alt: "Scholastic", mono: true },
+  {
+    src: "/assets/images/cambridge.png",
+    alt: "Cambridge Assessment International Education",
+    aos: "fade-right",
+  },
+  {
+    src: "/assets/images/pearson.png",
+    alt: "Pearson Edexcel",
+    mono: true,
+    aos: "fade-down",
+  },
+  {
+    src: "/assets/images/scholastic.png",
+    alt: "Scholastic",
+    mono: true,
+    aos: "fade-left",
+  },
 ];
 
 const AccreditationBadges = () => (
   <section className="accreditation-section">
     <div className="container">
-      <div className="accreditation-badge">
-        {accreditationBadges.map((badge) => (
-          <div className="accreditation-badge-chip" key={badge.src}>
-            <img
-              className={badge.mono ? "mono-logo" : undefined}
-              src={badge.src}
-              alt={badge.alt}
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
+      <p
+        className="accreditation-label"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        Accredited by:
+      </p>
+      <div
+        className="accreditation-badge"
+        data-aos="zoom-in"
+        data-aos-delay="200"
+      >
+        {accreditationBadges.map((badge, i) => (
+          <img
+            key={badge.src}
+            className={badge.mono ? "mono-logo" : undefined}
+            src={badge.src}
+            alt={badge.alt}
+            loading="lazy"
+            decoding="async"
+            data-aos={badge.aos}
+            data-aos-delay={300 + i * 100}
+          />
         ))}
       </div>
     </div>
@@ -728,7 +754,6 @@ function App() {
       <HeroCarousel />
       <AccreditationBadges />
       <WhyVPIS />
-      <SchoolBrand />
       <AcademicAdvantage />
       <AcademicExcellence />
       <OurAchievements />
@@ -740,6 +765,7 @@ function App() {
       <FAQSection />
       <FinalCTA />
       <Contact />
+      <SchoolBrand />
       <Footer />
     </>
   );
