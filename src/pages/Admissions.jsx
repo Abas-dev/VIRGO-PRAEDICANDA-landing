@@ -4,23 +4,28 @@ const Admissions = () => {
   const admissionSteps = [
     {
       number: "01",
-      title: "Enquire",
-      description: "Enquire via phone or WhatsApp for a prospectus and school tour."
+      title: "Enquiry",
+      description: "Submit an enquiry form or visit our admissions office to get started."
     },
     {
-      number: "02", 
-      title: "Schedule a Visit",
-      description: "Schedule a visit — see the Science Lab, ICT Lab and classrooms in person."
+      number: "02",
+      title: "Application",
+      description: "Complete the application form and pay the application fee."
     },
     {
       number: "03",
-      title: "Complete Registration", 
-      description: "Complete registration and an age-appropriate assessment where applicable."
+      title: "Assessment",
+      description: "Attend an entrance assessment/interview for your child and parents."
     },
     {
       number: "04",
-      title: "Receive Confirmation",
-      description: "Receive confirmation and welcome pack ahead of resumption."
+      title: "Offer",
+      description: "Successful candidates receive an official admission letter."
+    },
+    {
+      number: "05",
+      title: "Acceptance",
+      description: "Pay the acceptance and tuition fees to secure your child's place."
     }
   ];
 
@@ -32,7 +37,7 @@ const Admissions = () => {
     },
     {
       title: "Nursery",
-      ageRange: "The Angels · Pacesetters", 
+      ageRange: "The Angels · Pacesetters",
       description: "Foundation learning through play-based activities that develop social, emotional, and cognitive skills."
     },
     {
@@ -47,22 +52,58 @@ const Admissions = () => {
     }
   ];
 
+  const requiredDocuments = [
+    "Birth Certificate",
+    "Last 2 years' school report",
+    "Passport photographs",
+    "Medical report"
+  ];
+
   return (
     <div className="admissions-page">
       <Navbar />
-      
+
       {/* Hero */}
       <div className="admissions-hero">
         <div className="hero-label">Join Our Community</div>
         <h1 className="hero-title">Admissions</h1>
-        <p className="hero-tagline">Join our community of future global leaders</p>
+        <p className="hero-tagline">Join the VPIS Family</p>
       </div>
 
       <div className="page">
+        {/* Intro */}
+        <div className="admissions-intro-section">
+          <p>
+            Thank you for considering Virgo Praedicanda International School for your child.
+            We welcome applications from families who share our commitment to excellence,
+            character, and faith.
+          </p>
+        </div>
+
+        {/* Who Can Apply */}
+        <div className="eligibility-section" id="eligibility">
+          <p className="section-label">Who Can Apply</p>
+          <h2 className="section-heading">Where They Belong</h2>
+          <p className="section-intro">
+            We offer admission into Creche, Nursery, Primary, and Secondary School.
+            Entry is based on assessment and availability of space.
+          </p>
+
+          <div className="classes-grid">
+            {classLevels.map((level, index) => (
+              <div key={index} className="class-card">
+                <h3>{level.title}</h3>
+                <p className="age-range">{level.ageRange}</p>
+                <p>{level.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Admissions Process */}
         <div className="process-section" id="process">
           <p className="section-label">How to Apply</p>
-          <h2 className="section-heading">Admissions Process</h2>
+          <h2 className="section-heading">Admission Process</h2>
           <p className="section-intro">
             Follow these simple steps to join our school community
           </p>
@@ -80,22 +121,59 @@ const Admissions = () => {
           </div>
         </div>
 
-        {/* Classes and Age Groups */}
-        <div className="classes-section" id="classes">
-          <p className="section-label">Where They Belong</p>
-          <h2 className="section-heading">Classes And Age Group</h2>
+        {/* Required Documents */}
+        <div className="documents-section" id="documents">
+          <p className="section-label">Application Materials</p>
+          <h2 className="section-heading">Required Documents</h2>
           <p className="section-intro">
-            Quality education for every stage of your child's development
+            Please have the following documents ready when you apply
           </p>
 
-          <div className="classes-grid">
-            {classLevels.map((level, index) => (
-              <div key={index} className="class-card">
-                <h3>{level.title}</h3>
-                <p className="age-range">{level.ageRange}</p>
-                <p>{level.description}</p>
-              </div>
+          <ul className="documents-list">
+            {requiredDocuments.map((doc, index) => (
+              <li key={index} className="document-item">
+                <span className="document-check">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </span>
+                {doc}
+              </li>
             ))}
+          </ul>
+        </div>
+
+        {/* Tuition & Fees */}
+        <div className="fees-section" id="fees">
+          <p className="section-label">Investing In Your Child</p>
+          <h2 className="section-heading">Tuition &amp; Fees</h2>
+          <p className="section-intro">
+            We offer transparent and value-driven fees. Fees cover tuition, exams, and core resources.
+          </p>
+
+          <div className="fees-card">
+            <p>Contact admissions for the current fee schedule and payment plans.</p>
+            <a href="tel:+2349132554783" className="contact-btn primary">
+              Call +234 913 255 4783
+            </a>
+          </div>
+        </div>
+
+        {/* Scholarships */}
+        <div className="scholarships-section" id="scholarships">
+          <p className="section-label">Recognising Excellence</p>
+          <h2 className="section-heading">Scholarships</h2>
+          <p className="section-intro">
+            Academic excellence scholarships are available for outstanding students.
+          </p>
+        </div>
+
+        {/* Key Dates */}
+        <div className="key-dates-section" id="key-dates">
+          <p className="section-label">Mark Your Calendar</p>
+          <h2 className="section-heading">Key Dates</h2>
+          <div className="key-dates-card">
+            <p>Applications for the 2026/2027 Session are now open.</p>
           </div>
         </div>
 
@@ -119,9 +197,17 @@ const Admissions = () => {
             </div>
             <h3>VPIS Admission Form</h3>
             <p>Complete this form to apply for admission to Virgo Praedicanda International School</p>
-            <a href="/assets/files/admission form.pdf" download className="download-btn">
-              Download Admission Form (PDF)
-            </a>
+            <div className="admissions-cta-buttons">
+              <a href="/assets/files/admission form.pdf" download className="download-btn">
+                Download Application Form
+              </a>
+              <a href="/admissions/apply" className="download-btn download-btn-outline">
+                Apply Online
+              </a>
+              <a href="/contact#tour" className="download-btn download-btn-outline">
+                Book a Tour
+              </a>
+            </div>
           </div>
         </div>
 
@@ -133,7 +219,7 @@ const Admissions = () => {
           <div className="contact-card">
             <div className="contact-content">
               <h3>Ready to Join VPIS?</h3>
-              <p>Contact our admissions team to begin your child's journey with us.</p>
+              <p>Have questions? Chat with our admissions team to begin your child's journey with us.</p>
               <div className="contact-methods">
                 <a href="tel:+2349132554783" className="contact-btn primary">
                   Call +234 913 255 4783
