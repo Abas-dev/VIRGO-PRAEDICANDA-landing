@@ -86,7 +86,7 @@ const HeroCarousel = () => {
               >
                 Book a School Tour
               </a>
-              <Link to="/admissions" className="btn-secondary">Apply Now</Link>
+              <Link to="/admissions" className="hero-btn-secondary">Apply Now</Link>
               <a
                 href="/assets/files/VPIS PROSPECTUS 2026-2027 ACADEMIC SESSION (1).pdf"
                 className="hero-btn-secondary"
