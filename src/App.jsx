@@ -571,7 +571,7 @@ const VPISGallery = () => (
       </div>
 
       <div className="gallery-cta" data-aos="fade-up" data-aos-delay="200">
-        <a href="/vpis-pictures" className="btn-gallery">See Full Gallery</a>
+        <Link to="/vpis-pictures" className="btn-proprietor">See Full Gallery</Link>
       </div>
     </div>
   </section>
