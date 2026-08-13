@@ -86,12 +86,8 @@ const HeroCarousel = () => {
               >
                 Book a School Tour
               </a>
-              <a
-                href="/admissions#download"
-                className="hero-btn-secondary"
-              >
+              <Link to="/admissions" className="btn-proprietor">Apply Now</Link>
                 Apply Now
-              </a>
               <a
                 href="/assets/files/VPIS PROSPECTUS 2026-2027 ACADEMIC SESSION (1).pdf"
                 className="hero-btn-secondary"
@@ -255,7 +251,7 @@ const AcademicAdvantage = () => (
           <p className="advantage-conclusion">
             With VPIS, your child has access to top universities in Nigeria, UK, US, Canada, and beyond.
           </p>
-          <a href="/academics" className="btn-advantage">Explore Our Curriculum</a>
+          <Link to="/academics" className="btn-proprietor">Explore Our Curriculum</Link>
         </div>
       </div>
     </div>
