@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const Blog = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -204,17 +205,14 @@ const Blog = () => {
         )}
 
         {/* Contact CTA */}
-        <div className="blog-cta">
+        <div className="resources-cta">
           <h3>Need More Information?</h3>
-          <p>
-            Can't find what you're looking for? Contact our admissions office for assistance 
-            or additional documents.
-          </p>
+          <p>Can't find what you're looking for? Contact our admissions office for assistance or additional documents.</p>
           <div className="cta-buttons">
             <a href="tel:+2349132554783" className="btn-primary">Call +234 913 255 4783</a>
-            <a 
-              href="https://wa.me/2349132554783?text=Hello!%20I%20need%20information%20about%20VPIS%20documents." 
-              target="_blank" 
+            <a
+              href="https://wa.me/2349132554783?text=Hello!%20I%20need%20information%20about%20VPIS%20documents."
+              target="_blank"
               rel="noopener noreferrer"
               className="btn-secondary"
             >
@@ -224,9 +222,7 @@ const Blog = () => {
         </div>
       </div>
 
-      <footer className="page-footer">
-        <p>&copy; {new Date().getFullYear()} Virgo Praedicanda International School. All rights reserved.</p>
-      </footer>
+      <Footer />
     </div>
   );
 };

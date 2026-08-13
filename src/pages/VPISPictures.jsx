@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const VPISPictures = () => {
   const [currentFolder, setCurrentFolder] = useState(null);
@@ -406,6 +407,7 @@ const VPISPictures = () => {
           </button>
         </div>
       )}
+      <Footer />
     </div>
   );
 };

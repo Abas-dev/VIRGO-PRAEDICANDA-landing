@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import CTASection from "../components/CTASection";
 
 const Facilities = () => {
   const facilitiesList = [
@@ -144,18 +146,14 @@ const Facilities = () => {
           <p className="section-label">See It Yourself</p>
           <h2 className="section-heading">Plan a Visit</h2>
 
-          <div className="cta-card">
+          <div className="resources-cta">
             <h3>Visit Our Campus</h3>
-            <p>
-              Experience our world-class facilities firsthand. Schedule a tour
-              to see how we create the perfect learning environment for your
-              child.
-            </p>
+            <p>Experience our world-class facilities firsthand. Schedule a tour to see how we create the perfect learning environment for your child.</p>
             <div className="cta-buttons">
-              <a href="tel:+2349132554783" className="cta-btn primary">
-                Schedule a Tour
+              <a href="https://wa.me/2349132554783?text=Hello!%20I%27d%20like%20to%20book%20a%20school%20tour." target="_blank" rel="noopener noreferrer" className="btn-primary">
+                Book a School Tour
               </a>
-              <Link to="/admissions" className="cta-btn secondary">
+              <Link to="/admissions" className="btn-secondary">
                 Learn About Admissions
               </Link>
             </div>
@@ -163,12 +161,13 @@ const Facilities = () => {
         </div>
       </div>
 
-      <footer className="page-footer">
-        <p>
-          &copy; {new Date().getFullYear()} Virgo Praedicanda International
-          School. All rights reserved.
-        </p>
-      </footer>
+      <CTASection
+        heading="Ready to Learn More?"
+        subtext="Contact our admissions team for fees, facilities, and enrolment details."
+        applyLabel="Apply Now"
+        tourLabel="Book a School Tour"
+      />
+      <Footer />
     </div>
   );
 };

@@ -1,4 +1,6 @@
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import CTASection from '../components/CTASection';
 
 const Academics = () => {
   const subjects = [
@@ -36,62 +38,81 @@ const Academics = () => {
       <div className="page">
         {/* Curriculum Overview */}
         <div className="curriculum-overview">
-          <p className="section-label">Excellence in Education</p>
-          <h2 className="section-heading">Excellence in Learning, Rooted in Purpose</h2>
-          
-          <div className="curriculum-intro">
-            <p>
-              At Virgo Praedicanda International School, we provide a robust dual-curriculum model that 
+          <div className="curriculum-overview-header">
+            <p className="section-label">Excellence in Education</p>
+            <h2 className="section-heading">Excellence in Learning, Rooted in Purpose</h2>
+            <p className="curriculum-intro-text">
+              At Virgo Praedicanda International School, we provide a robust dual-curriculum model that
               prepares students for success in Nigeria and around the world.
             </p>
           </div>
 
           <div className="curriculum-levels">
-            <div className="curriculum-card">
-              <h3>Primary School</h3>
-              <p><strong>Pearson Edexcel iPrimary Curriculum</strong></p>
-              <p>
-                Our primary school follows the British Pearson Edexcel iPrimary Curriculum, providing 
-                a strong foundation in literacy, numeracy, and critical thinking.
-              </p>
+
+            <div className="curriculum-card curriculum-card--primary">
+              <div className="curriculum-card-icon curriculum-card-icon--primary">01</div>
+              <div className="curriculum-card-body">
+                <span className="curriculum-card-tag">Primary School</span>
+                <h3 className="curriculum-card-title">Pearson Edexcel iPrimary Curriculum</h3>
+                <p className="curriculum-card-desc">
+                  Our primary school follows the British Pearson Edexcel iPrimary Curriculum, providing
+                  a strong foundation in literacy, numeracy, and critical thinking.
+                </p>
+              </div>
             </div>
 
-            <div className="curriculum-card">
-              <h3>Secondary School</h3>
-              <p><strong>Cambridge International</strong></p>
-              <p>
-                <strong>Key Stage 3:</strong> Cambridge Checkpoint
-                <br />
-                <strong>Key Stage 4:</strong> Cambridge IGCSE
-              </p>
-              <p>
-                Our secondary school curriculum prepares students for globally recognized qualifications.
-              </p>
+            <div className="curriculum-card curriculum-card--secondary">
+              <div className="curriculum-card-icon curriculum-card-icon--secondary">02</div>
+              <div className="curriculum-card-body">
+                <span className="curriculum-card-tag">Secondary School</span>
+                <h3 className="curriculum-card-title">Cambridge International</h3>
+                <ul className="curriculum-card-list">
+                  <li><strong>Key Stage 3:</strong> Cambridge Checkpoint</li>
+                  <li><strong>Key Stage 4:</strong> Cambridge IGCSE</li>
+                </ul>
+                <p className="curriculum-card-desc">
+                  Globally recognised qualifications that open doors worldwide.
+                </p>
+              </div>
             </div>
 
-            <div className="curriculum-card">
-              <h3>Global Pathway Exams</h3>
-              <p><strong>WAEC, SAT, IELTS</strong></p>
-              <p>
-                We prepare students for West African Examinations Council (WAEC), SAT, and IELTS, 
-                opening doors to universities in Nigeria, UK, US, Canada, and beyond.
-              </p>
+            <div className="curriculum-card curriculum-card--exams">
+              <div className="curriculum-card-icon curriculum-card-icon--exams">03</div>
+              <div className="curriculum-card-body">
+                <span className="curriculum-card-tag">Global Pathway Exams</span>
+                <h3 className="curriculum-card-title">WAEC · SAT · IELTS</h3>
+                <p className="curriculum-card-desc">
+                  We prepare and register students for WAEC, SAT, and IELTS — opening doors to
+                  universities in Nigeria, the UK, US, Canada, and beyond.
+                </p>
+              </div>
             </div>
 
-            <div className="curriculum-card">
-              <h3>Sixth Form College</h3>
-              <p><strong>Coming Soon</strong></p>
-              <p>
-                We are advancing discussions for a proposed Sixth Form College in partnership with 
-                leading UK institutions, providing A-Level pathways and seamless university placement.
-              </p>
+            <div className="curriculum-card curriculum-card--sixth">
+              <div className="curriculum-card-icon curriculum-card-icon--sixth">04</div>
+              <div className="curriculum-card-body">
+                <span className="curriculum-card-tag curriculum-card-tag--soon">Coming Soon</span>
+                <h3 className="curriculum-card-title">Sixth Form College</h3>
+                <p className="curriculum-card-desc">
+                  A proposed Sixth Form College in partnership with leading UK institutions —
+                  seamless A-Level pathways and direct university placement.
+                </p>
+              </div>
             </div>
+
           </div>
 
+          {/* Beyond the Classroom */}
           <div className="beyond-classroom">
-            <h3>Beyond the Classroom</h3>
-            <p>Our comprehensive education includes:</p>
-            <ul className="prose-list">
+            <div className="beyond-classroom-text">
+              <p className="section-label">Holistic Development</p>
+              <h3 className="beyond-classroom-title">Beyond the Classroom</h3>
+              <p className="beyond-classroom-desc">
+                Our comprehensive education extends far beyond textbooks. We develop the whole child —
+                intellectually, morally, physically, and spiritually.
+              </p>
+            </div>
+            <ul className="beyond-classroom-list">
               <li>Leadership training and character development</li>
               <li>Public speaking and debate</li>
               <li>STEM education and coding</li>
@@ -147,11 +168,11 @@ const Academics = () => {
         </div>
       </div>
 
-      <footer className="page-footer">
-        <p>
-          &copy; {new Date().getFullYear()} Virgo Praedicanda International School. All rights reserved.
-        </p>
-      </footer>
+      <CTASection
+        heading="Begin Your Journey at VPIS"
+        subtext="Limited spaces available for the 2026/2027 Academic Session."
+      />
+      <Footer />
     </div>
   );
 };

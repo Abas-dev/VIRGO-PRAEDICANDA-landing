@@ -1,4 +1,5 @@
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const ProprietorMessage = () => {
   return (
@@ -83,9 +84,7 @@ const ProprietorMessage = () => {
         </div>
       </div>
 
-      <footer className="page-footer">
-        <p>&copy; {new Date().getFullYear()} Virgo Praedicanda International School. All rights reserved.</p>
-      </footer>
+      <Footer />
     </div>
   );
 };

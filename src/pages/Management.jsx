@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const Management = () => {
   const galleryRef = useRef(null);
@@ -68,6 +69,7 @@ const Management = () => {
           ))}
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

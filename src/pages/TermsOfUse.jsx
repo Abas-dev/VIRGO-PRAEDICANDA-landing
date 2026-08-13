@@ -1,4 +1,5 @@
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const TermsOfUse = () => {
   return (
@@ -141,9 +142,7 @@ const TermsOfUse = () => {
         </div>
       </div>
 
-      <footer className="page-footer">
-        <p>&copy; {new Date().getFullYear()} Virgo Praedicanda International School. All rights reserved.</p>
-      </footer>
+      <Footer />
     </div>
   );
 };

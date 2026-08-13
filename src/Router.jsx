@@ -4,6 +4,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { WhatsAppWidget } from './components/whatsapp-widget/index.jsx';
 import Navbar from './components/Navbar.jsx';
+import Footer from './components/Footer.jsx';
 
 // Import all pages
 import HomePage from './App.jsx';
@@ -60,9 +61,7 @@ const NotFound = () => (
     <div className="page" style={{ textAlign: 'center', padding: '2rem 1rem' }}>
       <Link to="/" className="back-link">&larr; Back to Home</Link>
     </div>
-    <footer className="page-footer">
-      <p>&copy; {new Date().getFullYear()} Virgo Praedicanda International School. All rights reserved.</p>
-    </footer>
+    <Footer />
   </div>
 );
 

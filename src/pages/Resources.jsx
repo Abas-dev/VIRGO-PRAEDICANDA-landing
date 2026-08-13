@@ -1,4 +1,5 @@
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const Resources = () => {
   // Resource data structure - easy to update when real documents are available
@@ -238,9 +239,7 @@ const Resources = () => {
         </div>
       </div>
 
-      <footer className="page-footer">
-        <p>&copy; {new Date().getFullYear()} Virgo Praedicanda International School. All rights reserved.</p>
-      </footer>
+      <Footer />
     </div>
   );
 };

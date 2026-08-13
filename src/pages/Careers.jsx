@@ -1,4 +1,6 @@
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import CTASection from '../components/CTASection';
 
 const Careers = () => {
   return (
@@ -90,31 +92,19 @@ const Careers = () => {
           <p className="section-label">Apply Now</p>
           <h2 className="section-heading">How to Apply</h2>
           
-          <div className="apply-card">
+          <div className="resources-cta">
             <h3>Submit Your Application</h3>
             <p>
-              To express your interest in joining the VPIS team, please send your CV and 
-              cover letter to our recruitment email:
+              To express your interest in joining the VPIS team, send your CV and cover letter to our recruitment email:
+              <br /><a href="mailto:Virgopraedicandaintschool@gmail.com" style={{color:'#fff', display:'block', marginTop:'0.5rem', fontWeight:'600'}}>Virgopraedicandaintschool@gmail.com</a>
             </p>
-            <div className="apply-contact">
-              <a href="mailto:Virgopraedicandaintschool@gmail.com" className="apply-email">
-                Virgopraedicandaintschool@gmail.com
-              </a>
-            </div>
-            <p className="apply-note">
-              Please include the position you're interested in and a brief statement about 
-              why you'd like to join VPIS.
-            </p>
-            <p className="apply-note">
-              Alternatively, you can contact us via phone or WhatsApp for more information:
-            </p>
-            <div className="apply-buttons">
+            <div className="cta-buttons">
               <a href="tel:+2349132554783" className="btn-primary">
                 Call +234 913 255 4783
               </a>
-              <a 
-                href="https://wa.me/2349132554783?text=Hello!%20I%27m%20interested%20in%20career%20opportunities%20at%20VPIS." 
-                target="_blank" 
+              <a
+                href="https://wa.me/2349132554783?text=Hello!%20I%27m%20interested%20in%20career%20opportunities%20at%20VPIS."
+                target="_blank"
                 rel="noopener noreferrer"
                 className="btn-secondary"
               >
@@ -125,9 +115,13 @@ const Careers = () => {
         </div>
       </div>
 
-      <footer className="page-footer">
-        <p>&copy; {new Date().getFullYear()} Virgo Praedicanda International School. All rights reserved.</p>
-      </footer>
+      <CTASection
+        heading="Join the VPIS Family"
+        subtext="Send us your CV and cover letter — we'd love to hear from you."
+        applyLabel="Apply Now"
+        tourLabel="Book a School Tour"
+      />
+      <Footer />
     </div>
   );
 };

@@ -1,4 +1,6 @@
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import CTASection from '../components/CTASection';
 
 const Admissions = () => {
   const admissionSteps = [
@@ -164,7 +166,8 @@ const Admissions = () => {
           <p className="section-label">Recognising Excellence</p>
           <h2 className="section-heading">Scholarships</h2>
           <p className="section-intro">
-            Academic excellence scholarships are available for outstanding students.
+            Academic excellence scholarships are available for outstanding students
+            and for indigent children through Christopher Dimnwobi memorial foundation.
           </p>
         </div>
 
@@ -201,10 +204,15 @@ const Admissions = () => {
               <a href="/assets/files/admission form.pdf" download className="download-btn">
                 Download Application Form
               </a>
-              <a href="/admissions/apply" className="download-btn download-btn-outline">
+              <a href="/admissions" className="download-btn download-btn-outline">
                 Apply Online
               </a>
-              <a href="/contact#tour" className="download-btn download-btn-outline">
+              <a
+                href="https://wa.me/2349132554783?text=Hello!%20I%27d%20like%20to%20book%20a%20school%20tour."
+                className="download-btn download-btn-outline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Book a Tour
               </a>
             </div>
@@ -236,11 +244,8 @@ const Admissions = () => {
         </div>
       </div>
 
-      <footer className="page-footer">
-        <p>
-          &copy; {new Date().getFullYear()} Virgo Praedicanda International School. All rights reserved.
-        </p>
-      </footer>
+      <CTASection />
+      <Footer />
     </div>
   );
 };

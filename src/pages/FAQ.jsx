@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(null);
@@ -93,28 +94,24 @@ const FAQ = () => {
         </div>
 
         {/* Contact CTA */}
-        <div className="faq-cta">
+        <div className="resources-cta">
           <h3>Still Have Questions?</h3>
           <p>Our admissions team is here to help you with any additional questions.</p>
-          <div className="faq-cta-buttons">
-            <a 
-              href="https://wa.me/2349132554783?text=Hello!%20I%20have%20a%20question%20about%20VPIS." 
-              target="_blank" 
+          <div className="cta-buttons">
+            <a href="tel:+2349132554783" className="btn-primary">Call +234 913 255 4783</a>
+            <a
+              href="https://wa.me/2349132554783?text=Hello!%20I%20have%20a%20question%20about%20VPIS."
+              target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary"
+              className="btn-secondary"
             >
               Chat on WhatsApp
-            </a>
-            <a href="tel:+2349132554783" className="btn-secondary">
-              Call +234 913 255 4783
             </a>
           </div>
         </div>
       </div>
 
-      <footer className="page-footer">
-        <p>&copy; {new Date().getFullYear()} Virgo Praedicanda International School. All rights reserved.</p>
-      </footer>
+      <Footer />
     </div>
   );
 };

@@ -8,8 +8,8 @@ import { faqData } from "./data/faqData.js";
 /* ── Hero Carousel Data ─────────────────────────────────────────────────── */
 const heroCarouselImages = [
   {
-    src: "/assets/images/carousel3.png",
-    alt: "Primary school students in uniform",
+    src: "/assets/images/graduation/graduation_photo_7.jpg",
+    alt: "graduands",
     subtitle: "Virgo Praedicanda International School, Port Harcourt",
     title: "Raising Lights for the World",
     description:
@@ -48,7 +48,7 @@ const HeroCarousel = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % heroCarouselImages.length);
-    }, 5000);
+    }, 8000);
     return () => clearInterval(timer);
   }, []);
 
@@ -135,13 +135,11 @@ const accreditationBadges = [
   {
     src: "/assets/images/pearson.jpg",
     alt: "Pearson Edexcel",
-    mono: true,
     aos: "fade-down",
   },
   {
     src: "/assets/images/scholastic.jpg",
     alt: "Scholastic",
-    mono: true,
     aos: "fade-left",
   },
 ];
@@ -198,7 +196,7 @@ const WhyVPIS = () => (
         </div>
         <div className="why-vpis-image">
           <img
-            src="/assets/images/class photo.jpeg"
+            src="/assets/images/celebration.png"
             alt="Students in classroom at VPIS"
             loading="lazy"
             decoding="async"
@@ -402,9 +400,9 @@ const FinalCTA = () => (
 
 /* ── Academic Excellence Section ───────────────────────────────────────── */
 const academicImages = [
-  "/assets/images/school_photo_1.jpg",
-  "/assets/images/school_photo_2.jpeg",
-  "/assets/images/school_photo_3.jpeg",
+  "/assets/images/graduation/graduation_photo_1.jpg",
+  "/assets/images/graduation/graduation_photo_2.jpg",
+  "/assets/images/graduation/graduation_photo_3.jpg",
 ];
 
 const AcademicExcellence = () => {
@@ -413,7 +411,7 @@ const AcademicExcellence = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % academicImages.length);
-    }, 3000);
+    }, 6000);
     return () => clearInterval(timer);
   }, []);
 
@@ -422,13 +420,26 @@ const AcademicExcellence = () => {
       <div className="container">
         <div className="academic-excellence-layout" data-aos="fade-up">
           <div className="academic-excellence-content">
+            <p className="academic-excellence-label">Who We Are</p>
             <h2 className="academic-excellence-title">
               Excellence In Academics And Life
             </h2>
             <p className="academic-excellence-text">
-              Virgo Praedicanda International School is committed to
-              academic excellence and the nurturing of responsible, courteous,
-              and happy students prepared for global success.
+              Virgo Praedicanda International School is a leading co-educational institution in Port Harcourt, Nigeria, committed to academic excellence, character formation, and global leadership development. Our name, <em>Virgo Praedicanda</em> — "The Virgin to be Proclaimed" — reflects our vision of raising exceptional children who will shine as lights in the world.
+            </p>
+            <p className="academic-excellence-text">
+              We provide a world-class education that blends rigorous academics with strong moral and spiritual foundations, preparing our students to lead and serve with distinction both in Nigeria and across the globe.
+            </p>
+            <p className="academic-excellence-text">
+              At VPIS, we deliver a <strong>dual-curriculum approach</strong> that gives our students the best of both worlds:
+            </p>
+            <ul className="academic-excellence-list">
+              <li><strong>Primary School:</strong> British Pearson Edexcel iPrimary Curriculum</li>
+              <li><strong>Secondary School:</strong> Cambridge International — Cambridge Checkpoint &amp; IGCSE</li>
+              <li><strong>Examinations:</strong> WAEC, SAT, and IELTS — multiple pathways to universities in Nigeria, the UK, US, Canada, and beyond</li>
+            </ul>
+            <p className="academic-excellence-text">
+              With a dedicated faculty, state-of-the-art facilities, and a student-centred approach, every child at VPIS is discovered, developed, and deployed for greatness. We are also advancing a proposed Sixth Form College in partnership with leading UK institutions, providing seamless pathways for A-Levels and university placement.
             </p>
           </div>
           <div className="academic-excellence-carousel">
@@ -631,17 +642,8 @@ const Contact = () => (
         <div className="contact-campuses-grid">
           <div className="contact-img-wrap">
             <img
-              src="/assets/images/woji.png"
-              alt="Virgo Praedicanda Woji campus building exterior"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-
-          <div className="contact-img-wrap">
-            <img
               src="/assets/images/chinda.jpeg"
-              alt="Virgo Praedicanda Chinda campus building exterior"
+              alt="Virgo Praedicanda Woji campus building exterior"
               loading="lazy"
               decoding="async"
             />

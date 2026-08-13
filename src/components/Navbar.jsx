@@ -112,13 +112,13 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link to="/admissions" onClick={closeMenu}>
-              Admissions
+            <Link to="/blog" onClick={closeMenu}>
+              Blog &amp; Documents
             </Link>
           </li>
           <li>
-            <Link to="/blog" onClick={closeMenu}>
-              Blog &amp; Documents
+            <Link to="/careers" onClick={closeMenu}>
+              Career
             </Link>
           </li>
           <li>

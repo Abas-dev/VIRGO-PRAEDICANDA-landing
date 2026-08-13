@@ -1,4 +1,6 @@
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import CTASection from '../components/CTASection';
 
 const Fees = () => {
   return (
@@ -114,19 +116,14 @@ const Fees = () => {
         </div>
 
         {/* Contact CTA */}
-        <div className="fees-cta">
+        <div className="resources-cta">
           <h3>Ready to Learn More?</h3>
-          <p>
-            Contact our admissions office for the current fee schedule and to discuss payment 
-            options for your family.
-          </p>
+          <p>Contact our admissions office for the current fee schedule and to discuss payment options for your family.</p>
           <div className="cta-buttons">
-            <a href="tel:+2349132554783" className="btn-primary">
-              Call +234 913 255 4783
-            </a>
-            <a 
-              href="https://wa.me/2349132554783?text=Hello!%20I%27d%20like%20to%20inquire%20about%20school%20fees." 
-              target="_blank" 
+            <a href="tel:+2349132554783" className="btn-primary">Call +234 913 255 4783</a>
+            <a
+              href="https://wa.me/2349132554783?text=Hello!%20I%27d%20like%20to%20inquire%20about%20school%20fees."
+              target="_blank"
               rel="noopener noreferrer"
               className="btn-secondary"
             >
@@ -134,17 +131,18 @@ const Fees = () => {
             </a>
           </div>
           <div className="cta-note">
-            <p>
-              You can also email us at: 
-              <a href="mailto:Virgopraedicandaintschool@gmail.com">Virgopraedicandaintschool@gmail.com</a>
-            </p>
+            <p>You can also email us at: <a href="mailto:Virgopraedicandaintschool@gmail.com">Virgopraedicandaintschool@gmail.com</a></p>
           </div>
         </div>
       </div>
 
-      <footer className="page-footer">
-        <p>&copy; {new Date().getFullYear()} Virgo Praedicanda International School. All rights reserved.</p>
-      </footer>
+      <CTASection
+        heading="Invest in Your Child's Future"
+        subtext="Contact our admissions office for the current fee schedule and payment options."
+        applyLabel="Apply Now"
+        tourLabel="Book a School Tour"
+      />
+      <Footer />
     </div>
   );
 };

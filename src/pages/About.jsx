@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import CTASection from '../components/CTASection';
 
 const About = () => {
   const [activeTab, setActiveTab] = useState('vision');
@@ -42,7 +44,7 @@ const About = () => {
         <div className="about-acc-section">
           <div className="about-acc-layout">
 
-            {/* Left: heading + summary + accordion */}
+            {/* Left: heading + summary + bottom row (accordion + image) */}
             <div className="about-acc-left">
               <h2 className="about-acc-heading">About Virgo Praedicanda International School</h2>
               <p className="about-acc-summary">
@@ -63,47 +65,49 @@ const About = () => {
                 We are also advancing discussions for a proposed Sixth Form College in partnership with leading institutions in the UK, to provide our students with seamless pathways for A-Levels and university placement.
               </p>
 
-              <div className="vmv-accordion">
-                <div className="vmv-acc-item">
-                  <button 
-                    className={`vmv-acc-btn ${activeTab === 'vision' ? 'active' : ''}`} 
-                    onClick={() => selectTab('vision')}
-                  >
-                    <span>Our Vision</span>
-                    <span className="vmv-acc-icon">{activeTab === 'vision' ? '‹' : '›'}</span>
-                  </button>
+              {/* Bottom row: accordion on left, image on right */}
+              <div className="about-acc-bottom-row">
+                <div className="vmv-accordion">
+                  <div className="vmv-acc-item">
+                    <button 
+                      className={`vmv-acc-btn ${activeTab === 'vision' ? 'active' : ''}`} 
+                      onClick={() => selectTab('vision')}
+                    >
+                      <span>Our Vision</span>
+                      <span className="vmv-acc-icon">{activeTab === 'vision' ? '‹' : '›'}</span>
+                    </button>
+                  </div>
+
+                  <div className="vmv-acc-item">
+                    <button 
+                      className={`vmv-acc-btn ${activeTab === 'mission' ? 'active' : ''}`} 
+                      onClick={() => selectTab('mission')}
+                    >
+                      <span>Our Mission</span>
+                      <span className="vmv-acc-icon">{activeTab === 'mission' ? '‹' : '›'}</span>
+                    </button>
+                  </div>
+
+                  <div className="vmv-acc-item">
+                    <button 
+                      className={`vmv-acc-btn ${activeTab === 'values' ? 'active' : ''}`} 
+                      onClick={() => selectTab('values')}
+                    >
+                      <span>Our Core Values</span>
+                      <span className="vmv-acc-icon">{activeTab === 'values' ? '‹' : '›'}</span>
+                    </button>
+                  </div>
                 </div>
 
-                <div className="vmv-acc-item">
-                  <button 
-                    className={`vmv-acc-btn ${activeTab === 'mission' ? 'active' : ''}`} 
-                    onClick={() => selectTab('mission')}
-                  >
-                    <span>Our Mission</span>
-                    <span className="vmv-acc-icon">{activeTab === 'mission' ? '‹' : '›'}</span>
-                  </button>
-                </div>
-
-                <div className="vmv-acc-item">
-                  <button 
-                    className={`vmv-acc-btn ${activeTab === 'values' ? 'active' : ''}`} 
-                    onClick={() => selectTab('values')}
-                  >
-                    <span>Our Core Values</span>
-                    <span className="vmv-acc-icon">{activeTab === 'values' ? '‹' : '›'}</span>
-                  </button>
+                <div className="about-acc-right">
+                  <div className="about-acc-img">
+                    <img src={tabData[activeTab].image} alt={tabData[activeTab].alt} />
+                  </div>
+                  <p className="about-acc-desc">
+                    {tabData[activeTab].desc}
+                  </p>
                 </div>
               </div>
-            </div>
-
-            {/* Right: image + description */}
-            <div className="about-acc-right">
-              <div className="about-acc-img">
-                <img src={tabData[activeTab].image} alt={tabData[activeTab].alt} />
-              </div>
-              <p className="about-acc-desc">
-                {tabData[activeTab].desc}
-              </p>
             </div>
 
           </div>
@@ -112,7 +116,7 @@ const About = () => {
         {/* About the School — split layout */}
         <div className="split-row">
           <div className="split-img">
-            <img src="/assets/images/building.jpeg" alt="School building" loading="lazy" decoding="async" />
+            <img src="/assets/images/woji.png" alt="School building" loading="lazy" decoding="async" />
           </div>
           <div className="split-text">
             <p className="section-label">Who We Are</p>
@@ -201,9 +205,7 @@ const About = () => {
 
       </div>
 
-      <footer className="page-footer">
-        <p>&copy; {new Date().getFullYear()} Virgo Praedicanda International School. All rights reserved.</p>
-      </footer>
+      <Footer />
     </div>
   );
 };
