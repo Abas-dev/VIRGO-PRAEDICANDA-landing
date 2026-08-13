@@ -86,6 +86,9 @@ const Accreditations = () => {
 
           <div className="accreditation-detail-card">
             <div className="accreditation-detail-header accreditation-detail-header--waec">
+              <div className="accreditation-detail-logo">
+                <img src="/assets/images/waec.jpg" alt="waec" loading="lazy" decoding="async" />
+              </div>
               <div className="accreditation-detail-logo accreditation-detail-logo--text">WAEC</div>
               <div>
                 <span className="accreditation-detail-tag">National Qualification</span>
@@ -105,6 +108,9 @@ const Accreditations = () => {
 
           <div className="accreditation-detail-card">
             <div className="accreditation-detail-header accreditation-detail-header--nerdc">
+              <div className="accreditation-detail-logo">
+                <img src="/assets/images/nerdc.jpg" alt="nerdc" loading="lazy" decoding="async" />
+              </div>
               <div className="accreditation-detail-logo accreditation-detail-logo--text">NERDC</div>
               <div>
                 <span className="accreditation-detail-tag">National Standards</span>
