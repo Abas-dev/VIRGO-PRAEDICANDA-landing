@@ -53,7 +53,7 @@ const Facilities = () => {
   const campuses = [
     {
       name: "Campus 1 (Woji)",
-      image: "/assets/images/building.jpeg",
+      image: "/assets/images/woji.jpeg",
       address: "No 9 Marina Close, Woji, Port Harcourt, Rivers State, Nigeria",
       levels:
         "Creche, Nursery & Primary — Secondary school commenced this academic year",
@@ -62,7 +62,7 @@ const Facilities = () => {
     },
     {
       name: "Campus 2 (Chinda)",
-      image: "/assets/images/building.jpeg",
+      image: "/assets/images/chinda.jpeg",
       address: "No 100 Chinda, Ada George, Port Harcourt, Rivers State, Nigeria",
       levels: "Primary and Secondary Education",
       knownFor:
