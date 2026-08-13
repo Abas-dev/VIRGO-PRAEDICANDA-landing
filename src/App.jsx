@@ -34,7 +34,7 @@ const heroCarouselImages = [
       "Faith-based education building strong moral character and spiritual foundation.",
   },
   {
-    src: "./assets/images/carousel4.png",
+    src: "./assets/images/chinda.jpeg",
     alt: "Smiling students on campus",
     subtitle: "Proven Excellence",
     title: "Every Child Matters",
