@@ -2,6 +2,52 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import CTASection from '../components/CTASection';
 
+/* ── Accreditation Badges Section ──────────────────────────────────────── */
+const accreditationBadges = [
+  {
+    src: "/assets/images/rivers.png",
+    alt: "Rivers State Ministry of Education",
+    aos: "fade-right",
+  },
+  {
+    src: "/assets/images/af.png",
+    alt: "Alliance Française",
+    aos: "fade-down",
+  },
+];
+
+const AccreditationBadges = () => (
+  <section className="accreditation-section">
+    <div className="container">
+      <p
+        className="accreditation-label"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        Also Accredited by:
+      </p>
+      <div
+        className="accreditation-badge"
+        data-aos="zoom-in"
+        data-aos-delay="200"
+      >
+        {accreditationBadges.map((badge, i) => (
+          <img
+            key={badge.src}
+            className={badge.mono ? "mono-logo" : undefined}
+            src={badge.src}
+            alt={badge.alt}
+            loading="lazy"
+            decoding="async"
+            data-aos={badge.aos}
+            data-aos-delay={300 + i * 100}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
 const Accreditations = () => {
   const pathways = [
     { country: "Nigeria", credential: "WAEC — Nigerian & West African universities" },
@@ -89,7 +135,6 @@ const Accreditations = () => {
               <div className="accreditation-detail-logo">
                 <img src="/assets/images/waec.jpg" alt="waec" loading="lazy" decoding="async" />
               </div>
-              <div className="accreditation-detail-logo accreditation-detail-logo--text">WAEC</div>
               <div>
                 <span className="accreditation-detail-tag">National Qualification</span>
                 <h3 className="accreditation-detail-title">West African Examinations Council</h3>
@@ -111,7 +156,6 @@ const Accreditations = () => {
               <div className="accreditation-detail-logo">
                 <img src="/assets/images/nerdc.jpg" alt="nerdc" loading="lazy" decoding="async" />
               </div>
-              <div className="accreditation-detail-logo accreditation-detail-logo--text">NERDC</div>
               <div>
                 <span className="accreditation-detail-tag">National Standards</span>
                 <h3 className="accreditation-detail-title">Nigerian Educational Research &amp; Development Council</h3>
@@ -129,6 +173,8 @@ const Accreditations = () => {
           </div>
 
         </div>
+
+        <AccreditationBadges />
 
         {/* Global Pathway Exams */}
         <div className="exam-prep-section">
