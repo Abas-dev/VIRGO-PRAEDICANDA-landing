@@ -5,13 +5,13 @@ import CTASection from '../components/CTASection';
 /* ── Accreditation Badges Section ──────────────────────────────────────── */
 const accreditationBadges = [
   {
-    src: "/assets/images/rivers.jpeg",
+    src: "/assets/images/rivers.png",
     alt: "Rivers State Ministry of Education",
     aos: "fade-right",
   },
   {
     src: "/assets/images/af.png",
-    alt: "alliance Franciase",
+    alt: "Alliance Française",
     aos: "fade-down",
   },
 ];
