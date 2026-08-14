@@ -7155,3 +7155,29 @@ iframe {
     padding: 40px 16px;
   }
 }
+
+.powered-by {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.3s ease;
+}
+
+.powered-by:hover {
+  color: #fff;
+}
+
+.powered-by-logo {
+  height: 18px;
+  width: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .powered-by {
+    justify-content: center;
+  }
+}
