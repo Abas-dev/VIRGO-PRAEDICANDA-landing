@@ -93,6 +93,7 @@ const Footer = () => {
               alt="SchoolPaddi"
               className="powered-by-logo"
             />
+              Schoolpaddi
           </a>
         </div>
       </div>
