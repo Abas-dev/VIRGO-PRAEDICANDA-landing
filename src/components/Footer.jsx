@@ -81,6 +81,19 @@ const Footer = () => {
             <span className="separator">|</span>
             <Link to="/safeguarding-policy">Child Safeguarding</Link>
           </div>
+          <a
+            href="https://schoolpaddi.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="powered-by"
+          >
+            <span>Powered by</span>
+            <img
+              src="/assets/images/schoolpaddi-logo.png"
+              alt="SchoolPaddi"
+              className="powered-by-logo"
+            />
+          </a>
         </div>
       </div>
     </footer>
