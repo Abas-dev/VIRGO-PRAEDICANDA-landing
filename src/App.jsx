@@ -125,7 +125,7 @@ const HeroCarousel = () => {
 /* ── Accreditation Badges Section ──────────────────────────────────────── */
 const accreditationBadges = [
   {
-    src: "/assets/images/cambridge.jpg",
+    src: "/assets/images/cambridge.png",
     alt: "Cambridge Assessment International Education",
     aos: "fade-right",
   },
@@ -138,6 +138,16 @@ const accreditationBadges = [
     src: "/assets/images/scholastic.jpg",
     alt: "Scholastic",
     aos: "fade-left",
+  },
+  {
+    src: "/assets/images/rivers.png",
+    alt: "Rivers State Ministry of Education",
+    aos: "fade-right",
+  },
+  {
+    src: "/assets/images/af.png",
+    alt: "Alliance Française",
+    aos: "fade-down",
   },
 ];
 

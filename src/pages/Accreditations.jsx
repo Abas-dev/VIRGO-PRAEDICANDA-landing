@@ -133,7 +133,7 @@ const Accreditations = () => {
           <div className="accreditation-detail-card">
             <div className="accreditation-detail-header accreditation-detail-header--waec">
               <div className="accreditation-detail-logo">
-                <img src="/assets/images/waec.jpg" alt="waec" loading="lazy" decoding="async" />
+                <img src="/assets/images/waec.png" alt="waec" loading="lazy" decoding="async" />
               </div>
               <div>
                 <span className="accreditation-detail-tag">National Qualification</span>
