@@ -146,7 +146,7 @@ const Accreditations = () => {
             </p>
             <ul className="accreditation-detail-list">
               <li>Nigerian and West African university admission eligibility</li>
-              <li>Dual qualification pathway alongside Cambridge IGCSE</li>
+              <li>Hybrid qualification pathway alongside Cambridge IGCSE</li>
               <li>Comprehensive preparation and registration support</li>
             </ul>
           </div>

@@ -20,7 +20,7 @@ const heroCarouselImages = [
   {
     src: "/assets/images/sports.png",
     alt: "Students during class activities",
-    subtitle: "Dual Curriculum",
+    subtitle: "hybrid Curriculum",
     title: "Building Future Leaders",
     description:
       "Cambridge International and Pearson Edexcel programs preparing students for global opportunities.",
@@ -428,7 +428,7 @@ const AcademicExcellence = () => {
               We provide a world-class education that blends rigorous academics with strong moral and spiritual foundations, preparing our students to lead and serve with distinction both in Nigeria and across the globe.
             </p>
             <p className="academic-excellence-text">
-              At VPIS, we deliver a <strong>dual-curriculum approach</strong> that gives our students the best of both worlds:
+              At VPIS, we deliver a <strong>hybrid-curriculum approach</strong> that gives our students the best of both worlds:
             </p>
             <ul className="academic-excellence-list">
               <li><strong>Primary School:</strong> British Pearson Edexcel iPrimary Curriculum</li>

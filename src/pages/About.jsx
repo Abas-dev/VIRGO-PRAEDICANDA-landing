@@ -128,7 +128,7 @@ const About = () => {
               At VPIS, we believe education is more than examinations. It is about forming the whole child — intellectually, morally, and spiritually — for leadership, service, and purpose.
             </p>
             <ul className="prose-list">
-              <li>Dual-curriculum approach: Pearson Edexcel iPrimary and Cambridge International</li>
+              <li>Hybrid-curriculum approach: Pearson Edexcel iPrimary, Nigerian, Singapore Curriculum and Cambridge International</li>
               <li>Preparation for WAEC, SAT, and IELTS examinations</li>
               <li>A safe, inclusive, nurturing environment rooted in Christian values</li>
               <li>Proposed Sixth Form College in partnership with UK institutions</li>

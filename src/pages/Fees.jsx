@@ -70,8 +70,8 @@ const Fees = () => {
 
           <div className="included-grid">
             <div className="included-card">
-              <h4>Dual Curriculum</h4>
-              <p>Pearson Edexcel iPrimary and Cambridge International programs</p>
+              <h4>Hybrid Curriculum</h4>
+              <p>Pearson Edexcel iPrimary, Cambridge International programs, Nigerian and Singaporean Curriculum</p>
             </div>
             <div className="included-card">
               <h4>Examination Preparation</h4>

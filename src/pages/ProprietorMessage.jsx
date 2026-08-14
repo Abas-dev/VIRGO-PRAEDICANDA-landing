@@ -48,7 +48,7 @@ const ProprietorMessage = () => {
           </p>
 
           <p>
-            To deliver on this mandate, we have adopted a robust dual-curriculum model. Our Primary 
+            To deliver on this mandate, we have adopted a robust hybrid-curriculum model. Our Primary 
             School runs the British Pearson Edexcel iPrimary curriculum. In Secondary School, we are 
             a Cambridge International School offering Cambridge Checkpoint and IGCSE. We also ensure 
             our students have every advantage by preparing them for WAEC, SAT, and IELTS. This means 

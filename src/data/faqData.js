@@ -18,7 +18,7 @@ export const faqData = [
   },
   {
     question: "What curriculum do you follow?",
-    answer: "We follow a dual-curriculum approach. For Primary, we use the British Pearson Edexcel iPrimary Curriculum. For Secondary, we are a Cambridge International School offering Cambridge Checkpoint and IGCSE. We also prepare students for WAEC, SAT, and IELTS examinations."
+    answer: "We follow a hybrid-curriculum approach. For Primary, we use the British Pearson Edexcel iPrimary Curriculum. For Secondary, we are a Cambridge International School offering Cambridge Checkpoint and IGCSE. We also prepare students for WAEC, SAT, and IELTS examinations."
   },
   {
     question: "How can I apply for admission?",
@@ -26,7 +26,7 @@ export const faqData = [
   },
   {
     question: "Do you offer scholarships?",
-    answer: "Yes, we offer academic excellence scholarships for outstanding students. Please contact our admissions office for more information on scholarship opportunities and eligibility criteria."
+    answer: "We offer scholarships to outstanding students and indigent students through our foundation Christopher Dimnwobi memorial foundation."
   },
   {
     question: "What are your school fees?",
