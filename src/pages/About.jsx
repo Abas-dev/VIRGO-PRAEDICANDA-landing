@@ -51,8 +51,8 @@ const About = () => {
                 Virgo Praedicanda International School is a leading co-educational institution in Port Harcourt, Nigeria, committed to academic excellence, character formation, and global leadership development. Our name, <em>Virgo Praedicanda</em> — "The Virgin to be Proclaimed" — reflects our vision of raising exceptional children who will shine as lights in the world. We provide a world-class education that blends rigorous academics with strong moral and spiritual foundations, preparing our students to lead and serve with distinction both in Nigeria and across the globe.
               </p>
               <p className="about-acc-summary">
-                At VPIS, we deliver a dual-curriculum approach that gives our students the best of both worlds:<br />
-                - <strong>Primary School:</strong> British Pearson Edexcel iPrimary Curriculum<br />
+                At VPIS, we deliver a hybrided-curriculum approach that gives our students the best of both worlds:<br />
+                - <strong>Primary School:</strong> British Pearson Edexcel iPrimary Curriculum, Cambridge Curriculum, Singapore Mathematics Curriculum and the Nigerian based Curriculum<br />
                 - <strong>Secondary School:</strong> Cambridge International School offering Cambridge Checkpoint and IGCSE
               </p>
               <p className="about-acc-summary">

@@ -42,7 +42,7 @@ const Academics = () => {
             <p className="section-label">Excellence in Education</p>
             <h2 className="section-heading">Excellence in Learning, Rooted in Purpose</h2>
             <p className="curriculum-intro-text">
-              At Virgo Praedicanda International School, we provide a robust dual-curriculum model that
+              At Virgo Praedicanda International School, we provide a robust hybrided-curriculum model that
               prepares students for success in Nigeria and around the world.
             </p>
           </div>
@@ -53,9 +53,15 @@ const Academics = () => {
               <div className="curriculum-card-icon curriculum-card-icon--primary">01</div>
               <div className="curriculum-card-body">
                 <span className="curriculum-card-tag">Primary School</span>
-                <h3 className="curriculum-card-title">Pearson Edexcel iPrimary Curriculum</h3>
+                <h3 className="curriculum-card-title">British Pearson Edexcel iPrimary Curriculum,
+                  <br/>
+                   Cambridge Curriculum,
+                   <br/>
+                    Singapore Mathematics Curriculum and
+                    <br/>
+                     the Nigerian based Curriculum</h3>
                 <p className="curriculum-card-desc">
-                  Our primary school follows the British Pearson Edexcel iPrimary Curriculum, providing
+                  Our primary school follows the several Curriculums, providing
                   a strong foundation in literacy, numeracy, and critical thinking.
                 </p>
               </div>

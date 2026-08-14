@@ -249,6 +249,22 @@ const VPISPictures = () => {
         '/assets/images/literacy/dental/school_photo_27.jpg',
         '/assets/images/literacy/dental/school_photo_28.jpg'
       ]
+    },
+    {
+      id: 'science',
+      name: 'Science',
+      description: 'Experimental and hands on science classes',
+      faceImage: '/assets/images/science/science_photo_1.jpg',
+      images: [
+        '/assets/images/science/science_photo_1.jpg',
+        '/assets/images/science/science_photo_2.jpg',
+        '/assets/images/science/science_photo_3.jpg',
+        '/assets/images/science/science_photo_4.jpg',
+        '/assets/images/science/science_photo_5.jpg',
+        '/assets/images/science/science_photo_6.jpg',
+        '/assets/images/science/science_photo_7.jpg',
+        '/assets/images/science/science_photo_8.jpg'
+      ]
     }
   ];
 
