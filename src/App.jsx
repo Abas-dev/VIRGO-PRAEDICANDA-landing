@@ -18,7 +18,7 @@ const heroCarouselImages = [
       "World-Class British & Nigerian Curriculum | Cambridge International School | WAEC, SAT & IELTS Ready",
   },
   {
-    src: "/assets/images/carousel2.png",
+    src: "/assets/images/sports.png",
     alt: "Students during class activities",
     subtitle: "Dual Curriculum",
     title: "Building Future Leaders",
